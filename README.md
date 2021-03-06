@@ -53,9 +53,6 @@
 3. Update the database with new app by migrating: 
     - ensure all changes have been saved
     - python3 manage.py migrate
-4. Create template folders for allauth:
-    mkdir templates
-    mkdir templates/allauth
 
 ## 2.2 Update default domain name in admin (Required for SM connection)                      Images
     - Expose site: python3 manage.py runserver
@@ -83,16 +80,67 @@
     - Freeze the requirements:
         pip3 freeze > requirements.txt
 
-## 2.4 Copy allauth templates
-    This allows us to customise the pages created by default by allauth. In the cli:
-        cp -r ../.pip-modules/lib/python3.8/site-packages/allauth/templates/* ./CI_WebShop_Django/templates/allauth
+## 2.4 Create folders and copy allauth templates
+    - mkdir templates
+    - mkdir templates/allauth
+    - Copy allauth directory into new directories so we can customise the pages created by default by allauth. In the cli:
+        cp -r ../.pip-modules/lib/python3.8/site-packages/allauth/templates/* ./templates/allauth
     - Removed any unrequired templates such as openid or tests
     - If not present, add a base.html file to the allauth folder
+        - Cut and paste code from allauth/account/base.html and paste into allauth/base.html
+        - Extend allauth/base.html into account html
+            {% extends "base.html" %}
+
+            {% block content %}
+                <div class="container header-container">
+                    <div class="overlay"></div>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <div class="allauth-form-inner-content">
+                                {% block inner_content %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
     - Add "allauth" to the project templates. The root templates are also created at this point (this can also be done later, see 4.3.5). 
         - Go to project settings.py
         - Within "DIRS" in "TEMPLATES" add two paths:
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'templates', 'allauth') 
+            os.path.join(BASE_DIR, 'templates', 'allauth')
+
+
+# 3 Set-up Project Base HTML
+
+1. Create a "base.html" file in the project templates folder
+2. Go to <https://getbootstrap.com/docs/4.6/getting-started/introduction/>
+    **Note**: Bootstrap 4 is employed as opposed to Bootstrap 5, because
+    some changes in the latter made the tutorial code unworkable.
+3. Navigate to "Starter Template" and copy complete
+4. Paste it into project base.html
+5. Make sure both Popper.js and Bootstrap JS are included and in this order (or combined)
+6. If jQuery script is absent, navigate to <https://code.jquery.com/>
+7. From jQuery Core, select most up todate stable "slim" by clicking on it and copying the
+8. Paste it above the popper.ja or combined script
+9. Add backwards compatibility to browsers via metat tags. Add:
+    <meta htt-equiv="X-UA-Compatible" content="ie=edge">
+10. Cut script lines from the bottom and paste them beneath Bootstrap link and above "title" tags
+11. Add {% load static %} to the very top of the page
+12. Wrap the header elements in blocks for later reuse.
+    - {% block meta %}
+    - {% block corecss %}
+    - {% block corejs %}
+13. Beneath each header block insert additional blocks to allow for addition of extras on later pages
+    - {% block extrameta %}
+    - {% block extracss %}
+    - {% block extrajs %}
+14. Add blocks and extra blocks within the body (All positioned beneath "header" tags)
+    - Title: <title>[title]{% block extr_title %}{% endblock %}</title>
+    - Page Header: {% blockpage_header %}
+    - Block Content: {% block content %}
+    - Extra JS: {% block postloadjs %}
+15. All blocks to include {% endblock %}
 
 
 # Version Control
@@ -123,6 +171,8 @@ branch.
     git checkout master
 7. Merge in the dev branch:
     git merge dev
+8. Change back to master branch:
+    git checkout dev
 
 ## Other useful Git commands used:
 - "git checkout branch_name": Switch to a different branch
@@ -130,3 +180,13 @@ branch.
 - "git status": Check that staus of additions and commits
 - "git log --online": 
 - "git branch -a": Show all active branches
+
+
+# Interesting Bugs
+
+## Bootstrap 5 incompatibility
+Needed to change to 4.6.0 because some of the XYZ wouldn't work with latest changes
+
+## allauth base.html
+Where base.html must be mannually added to the allauth folder, the code needs to be transferred from 
+allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
