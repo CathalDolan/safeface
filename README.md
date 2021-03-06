@@ -143,6 +143,82 @@
 15. All blocks to include {% endblock %}
 
 
+# 4 Setup an App (Home in this example)
+
+## 4.1 Basic Creation
+1. Create the basic app:
+    python3 manage.py startapp home
+2. Create a templates directory within the new app:
+    mkdir -p home/templates/home
+3. Add the app name to project settings.py
+    - Open project settings.py
+    - Go to "INSTALLED_APPS" section
+    - Add the new app name to the bottom of the list
+        - Encase in single strokes and put a comma at the end: e.g. 'home',
+
+## 4.2 Create basic html page
+1. Create index.html file within inner app folder home/templates/home
+2. In new file, add extend and load blocks at the top of the page
+    - {% extends "base.html" %}
+    - {% load static %}
+    - {% block content %}
+
+## 4.3 Create a View to render html template 
+1. Navigate to the App views.py
+2. Define a view (In this example for home/index)
+    def index(request):
+        return render(request, 'home/index.html')
+3. Create an App urls.py file at the same level as urls.py
+    - Add the imports
+        from django.contrib import admin
+        from django.urls import path
+    - Create an empty path to indicate that this is the route URL and it's going to render views.index with the name of home
+        urlpatterns = [
+            path('', views.index, name='home'),
+        ]
+    - Import "views" from the current directory:
+        from . import views
+4. Add a path in the Project urls.py
+    - Go to project urls.py
+    - in "urlpatterns" beneath existing paths add:
+        path('', include('home.urls')),
+        path('products/', include('products.urls')),
+
+## 4.4 Connecting to database
+
+If the app takes advantage of a database, additional actions are required.
+
+1. In the App folder, create a new folder called "fixtures"
+2. If there are existing Json fixture files, add them
+3. We need to create some "models" for the fixtures to go into:
+    - Go to App models.py
+    - Create class(es)
+4. Make migrations:
+    - Do a dry run first
+        python3 manage.py makemigrations --dry-run
+    - If necessary, install "pillow"
+        pip3 install pillow
+    - To make actual migrations
+        python3 manage.py makemigrations
+    - Run migrate with plan first to be sure all is OK
+        python3 manage.py migrate --plan
+    - If yes, run migrate
+        python3 manage.py migrate
+    - **Note**: It's best to specify which App the migrations are being done from. Above migrates all
+5. Register the model in App admin.py
+    - Go to App admin.py file
+    - Import the relevant mnodel
+        from .models import [model_name]
+    - Register it. This goes at the end of the page
+        admin.site.register([model_name])
+6. Load the fixtures data
+    python3 manage.py loaddata [fixture_jsonFile_name]
+
+## 4.5 Tidying the Database Admin
+
+Rewatch Products Set-up, Products Admin, 2nd Video in tutorials
+
+
 # Version Control
 
 Gitpod is used as the IDE for writing code. From there it is pushed to a remote repository on Github.
@@ -158,6 +234,7 @@ branch.
 1. Creation of dev branch and direct navigation to it:
     git checkout -b dev
 
+
 ## Written to Repo Process
 
 1. Confirm you are on the correct branch:
@@ -167,12 +244,7 @@ branch.
 4. Commit changes: git commit -m "Comment: reason for commit"
 5. Push changes to the repository:
     git push origin master
-6. Change to master branch:
-    git checkout master
-7. Merge in the dev branch:
-    git merge dev
-8. Change back to master branch:
-    git checkout dev
+6. Go to Github                                                        Images and more instructions
 
 ## Other useful Git commands used:
 - "git checkout branch_name": Switch to a different branch
