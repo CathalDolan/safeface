@@ -93,7 +93,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = 'accounts/login/'
-LOGIN_REDIRECT = '/success'
+LOGIN_REDIRECT = '/'
 
 WSGI_APPLICATION = 'safe_face.wsgi.application'
 

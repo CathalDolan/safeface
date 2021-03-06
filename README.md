@@ -128,15 +128,15 @@
 10. Cut script lines from the bottom and paste them beneath Bootstrap link and above "title" tags
 11. Add {% load static %} to the very top of the page
 12. Wrap the header elements in blocks for later reuse.
-    - {% block meta %}
-    - {% block corecss %}
-    - {% block corejs %}
+    - {% block core_meta %}
+    - {% block core_css %}
+    - {% block core_js %}
 13. Beneath each header block insert additional blocks to allow for addition of extras on later pages
-    - {% block extrameta %}
-    - {% block extracss %}
-    - {% block extrajs %}
+    - {% block extra_meta %}
+    - {% block extra_css %}
+    - {% block extra_js %}
 14. Add blocks and extra blocks within the body (All positioned beneath "header" tags)
-    - Title: <title>[title]{% block extr_title %}{% endblock %}</title>
+    - Title: Safe Face[title]{% block extra_title %}{% endblock %}</title>
     - Page Header: {% blockpage_header %}
     - Block Content: {% block content %}
     - Extra JS: {% block postloadjs %}
