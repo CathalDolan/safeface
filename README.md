@@ -262,3 +262,141 @@ Needed to change to 4.6.0 because some of the XYZ wouldn't work with latest chan
 ## allauth base.html
 Where base.html must be mannually added to the allauth folder, the code needs to be transferred from 
 allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
+
+
+# 1 Introduction
+Back to Contents
+
+Safe Face is my fourth milestone project for the Code Institute "Full Stack Software Development Diploma". It's
+principal purpose is to demonstrate my abilities and knowledge of working with and combining HTML, CSS, Javascript 
+and Python languages, while working with the Django framework, a database and Stripe payments integration.
+
+## 1.1 What is Safe Face
+Safe Face is a b2b website that allows businesses to purchase protective face masks in a straight forward manner.
+
+## 1.2 Why will Users use it?
+The site is constructed in such a way that navigating it feels natural and intuitive to the user. The categories
+are laid out clearly with multiple routes to see the products contained within them. The products themselves are 
+presented so as to allow users to make an informed decision about whether to purchase. Once that decision has 
+been made, it is a straight forward process to select a quantity and then checkout using Stripe payments.
+
+
+# 2 UI & Design
+Back to Contents
+
+Owing to the nature of the products being sold on the site, the design needs to create an instant sense of
+trust with the user. This is done via a combination of colours, typography, imagery and by providing lots of space
+without compromising on providing essential product information. 
+
+## 2.1 Colour Pallete
+The main blue colour used is the Pantone Colour of the Year 2020; "PANTONE 19-4052 Classic Blue".    https://www.pantone.com/eu/en/articles/color-of-the-year/color-of-the-year-2020
+As the website is medical based, a colour that creates the perception of cleanliness is essential.
+Blue does exactly this, with the shade chosen also instilling calmness, confidence and a sense
+of connection. The secondary colours associated with the blue, reinforce this perception, with the
+green in particular complimenting the the sterility of the blue, while the other colours enhance
+the sense of calmness.
+
+## 2.2 Fonts
+Two fonts were chosen for this project, both taken from Google Fonts https://fonts.google.com/. 
+- Open Sans was selected for content
+- Oswald used for headings
+
+Both were picked because of their regular use in medical websites. With 29% of all hospitals sites 
+using Open Sans and 3% using Oswald, employing them here creates a sense of familiarity that builds 
+trust with the user.
+(https://www.ilovewp.com/resources/medical/wordpress-for-hospitals/most-used-google-fonts-on-hospital-websites/)
+
+## 2.3 Imagery
+So as to avoid clutter and thus maintain and sense of "cleanness", very limited imagery is
+employed. This gives the site an opportunity to breath, so that the strong colours and fonts
+come through. However, this means that where non-product imagery is used, it needs to very 
+strongly reinforce the message of trust. For this reason, strong, trustworthy images of people
+in masks are used. The images were sourced from:
+- d 
+- g 
+
+
+# 3 Site Content
+Back to Contents
+
+## 3.1 Index
+Blah Blah
+- Wireframes
+    -- Desktop
+    -- Tablet
+    -- Mobile
+
+## 3.2 Category Pages
+
+## 3.3 Product Pages
+
+## 3.4 Shopping Cart  
+
+## 3.5 Checkout 
+
+## 3.6 Confirmation
+
+## 3.7 Registration
+
+## 3.8 Login
+
+## 3.9 Profile
+
+## 3.10 Log Out
+
+
+# 4 Deployment
+
+## 4.1 Github
+
+## 4.2 Heroku
+
+
+# 5 Testing
+
+## 5.1 Testing link
+The suite of test cases is contained in a separate file:
+
+## 5.2 Known Bugs
+1. Blah
+
+## 5.3 Linting
+Each piece of code was put through a "checker" to review the quality of the code.
+
+### 5.3.1 HTML
+- Website: https://validator.w3.org/nu/#textarea
+- Result: All code passed, primarily with the exception of lines containing Jinja2 code. An repeated ID error was also ignored because the line of code is added dynamically and only one of the lines of code will be included.
+
+### 5.3.2 CSS
+- Website: https://jigsaw.w3.org/css-validator/validator
+- Result: No errors or issues found
+
+### 5.3.3 JavaScript
+- Website: https://jslint.com/
+- Result: Instances of "Double Quotes" ignored as a decision was made to use single quotes
+
+### 5.3.4 Python
+- Website: http://pep8online.com/
+- Results: No errors or issues found
+
+
+# 6 Technolgies & Third Party Plugins Employed
+Back to Contents
+
+## 6.2 Django:
+The Django framework forms the backbone of the functional code and is used in conjunction with Python
+
+## 6.3 Python:
+As much as possible, functionality was created using Python.
+
+## 6.4 Javascript:
+Where functions could not be created in Python, Javascript was used. On occasion this also called for the use of JQuery. The latter is accessed bia CDN.
+
+## 6.5 CSS:
+The majority of styling of the HTML code is done with CSS, though certain Flask and Materialize code has it's own inbuilt styling.
+
+## 6.6 HTML:
+Basic site layout and structure is achieved with HTML. However, in conjunction with Flask, Jinja2 was extensively used: https://jinja.palletsprojects.com/en/2.11.x/.
+
+## Fontawesome:
+## JQuery:

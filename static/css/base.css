@@ -1,0 +1,92 @@
+
+/*--- Colours ---*/
+:root {
+    --navy: #0F4c81;
+    --red: #F26B5B;
+    --black: #373838;
+    --white: #fefefe;
+    --beige: #F1EEE6;
+    --trans-beige: #F1EEE6ff;
+    --green: #C0D725;
+}
+
+.navy {
+    color: var(--navy);
+}
+.navy-bg {
+    background-color: var(--navy);
+}
+ 
+.red {
+    color: var(--red);
+}
+.red-bg {
+    background-color: var(--red);
+}
+
+.black {
+    color: var(--black);
+}
+.black-bg {
+    background-color: var(--black);
+}
+
+.white {
+    color: var(--white);
+}
+.white-bg {
+    background-color: var(--white);
+}
+
+.beige {
+    color: var(--beige);
+}
+.beige-bg {
+    background-color: var(--beige);
+}
+
+.green {
+    color: var(--green);
+}
+.green-bg {
+    background-color: var(--green);
+}
+
+.trans-beige-bg {
+    background-color: var(--trans-beige);
+}
+
+/* Pages Set-up */
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: var(--beige);
+    height: calc(100vh - 164px);
+}
+
+h1, h2, h3, h5, h5 {
+    color: var(--navy);
+    font-family: 'Oswald';
+    text-transform: uppercase;
+}
+
+p {
+    color: var(--black);
+    font-family: 'Open Sans';
+}
+
+#head-logo {
+    width: 100%;
+}
+
+#navbar {
+    width: 50%;
+    border: var(--black) solid 1px;
+}
+
+.nav-link:hover {
+  color: var(--green);
+}
