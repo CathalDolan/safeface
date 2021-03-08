@@ -400,3 +400,6 @@ Basic site layout and structure is achieved with HTML. However, in conjunction w
 
 ## Fontawesome:
 ## JQuery:
+
+
+Home Page Carousel - With Indicators: https://getbootstrap.com/docs/4.0/components/carousel/

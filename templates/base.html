@@ -35,7 +35,7 @@
         <title>Safe Face{% block extra_title %}{% endblock %}</title>
     </head>
     <body>
-        <header class="container-fluid fixed-top">
+        <header id="header" class="container-fluid sticky-top p-0">
             <!-- Header section with navy background -->
             <div id="head-top" class="row navy-bg">
 
@@ -126,14 +126,14 @@
                     </li>
 
                     <!-- Search Widget -->
-                    <li class="list-inline-item">
+                    <li id="search_widget" class="list-inline-item text-right">
                         <form method="GET" action=""> 
                             <div class="input-group">
                                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search Masks">
                                 <div class="input-group-append">
                                     <button class="form-control btn =border border-black rounded-0" type="submit">
                                         <span class="icon">
-                                            <i class="fas fa-search"></i>
+                                            <i class="fas fa-search white"></i>
                                         </span>
                                     </button>
                                 </div>
@@ -144,19 +144,19 @@
             </div>
 
             <!-- Marketing bar -->
-            <div id="marketing_bar">
-
+            <div id="marketing_bar" class="text-center">
+                <h4>Free delivery on orders over €50</h4>
             </div>
         </header>
+
+        <!-- Additional page header -->
+            {% block page_header %}
+            {% endblock %}
 
         <!-- Display messages that are returned from Django -->
         {% if messages %}
             <div class="messages-container"></div>
         {% endif %}
-
-        <!-- Additional page header -->
-        {% block page_header %}
-        {% endblock %}
 
         <!-- Main page body content -->
         {% block content %}
@@ -166,6 +166,10 @@
         {% block postloadjs %}
         {% endblock %}
 
-        
+        <footer>
+            <div id="footer-div">
+                <p>This is the footer</p>
+            </div>
+        </footer>
     </body>
 </html>
