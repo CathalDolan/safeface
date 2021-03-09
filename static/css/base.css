@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+html {
+    height: 100%;
+}
+
 /*
 main {
 flex: 1 0 auto;
@@ -164,9 +168,10 @@ p {
     height: 60px;
 }
 
-#marketing_bar h4 {
+#marketing_bar h5 {
+    height: 30px;
     position: relative;
-    top: 25px;
+    top: 30px;
 }
 
 footer {
@@ -187,18 +192,22 @@ hr {
     height: 9px;
 }
 .h2-hr {
-    width:50px;
-    height: 6px;
+    width:60px;
+    height: 7px;
 }
 .h3-hr {
-    width: 25px;
-    height: 3px;
+    width: 35px;
+    height: 5px;
 }
 .section-hr {
     width: 75%;
     height: 1px;
 }
 
+.h1-hr, .h2-hr, .h3-hr, .section-hr {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
 
 /*-- Home Page Start --*/
 
@@ -235,6 +244,19 @@ hr {
     color: var(--navy);
 }
 
-#body-content-container {
-    padding-top: 0px;
+#carousel-bottom-border {
+    background-color: var(--green);
+    height: 10px;
+}
+
+@media only screen and (max-width: 992px){
+    #cat-3, #cat-4 {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    #cat-1, #cat-2 {
+        margin-top: 30px;
+    }
 }
