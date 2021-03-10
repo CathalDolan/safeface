@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+    height: 100%;
+}
+
+/*
+main {
+flex: 1 0 auto;
+}
+
+body {
+display: flex;
+min-height: 100vh;
+width: 100%;
+overflow-x: hidden;
+flex-direction: column;
+}
+*/
+
+/*--- Colours ---*/
+:root {
+    --navy: #0F4c81;
+    --red: #F26B5B;
+    --black: #373838;
+    --white: #fefefe;
+    --beige: #F1EEE6;
+    --trans-beige: #F1EEE600;
+    --green: #C0D725;
+}
+
+.navy {
+    color: var(--navy);
+}
+.navy-bg {
+    background-color: var(--navy);
+}
+ 
+.red {
+    color: var(--red);
+}
+.red-bg {
+    background-color: var(--red);
+}
+
+.black {
+    color: var(--black);
+}
+.black-bg {
+    background-color: var(--black);
+}
+
+.white {
+    color: var(--white);
+}
+.white-bg {
+    background-color: var(--white);
+}
+
+.beige {
+    color: var(--beige);
+}
+.beige-bg {
+    background-color: var(--beige);
+}
+
+.green {
+    color: var(--green);
+}
+.green-bg {
+    background-color: var(--green);
+}
+
+.trans-beige-bg {
+    background-color: var(--trans-beige);
+}
+
+
+/* Pages Set-up */
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: var(--beige);
+    height: calc(100vh - 164px);
+}
+
+h1, h2, h3, h5, h5 {
+    color: var(--navy);
+    font-family: 'Oswald';
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 50px;
+}
+h2 {
+    font-size: 40px;
+}
+h3 {
+    font-size: 30px;
+}
+h4 {
+    font-size: 25px;
+}
+h5 {
+    font-size: 20px;
+}
+
+p {
+    color: var(--black);
+    font-family: 'Open Sans';
+    font-size: 15px;
+}
+
+
+/*-- Header Section Start --*/
+
+#head-top {
+    height: 150px;
+}
+
+#head-logo {
+    height: 100px;
+}
+
+#head-login-cart {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 10000;
+}
+
+#navbar {
+    height: 50px;
+    background-color: var(--beige);
+    border: var(--black) solid 1px;
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    width: 670px;
+    top: 125px;
+    z-index: 1000;
+}
+
+#navbar ul li {
+    text-align: center;
+    font-weight: bold;
+    vertical-align: middle;
+    line-height: 2;
+}
+
+#navbar p:hover{
+  color: var(--red);
+}
+
+#search_widget {
+    border: var(--black) solid 1px;
+    background-color: var(--black);
+}
+
+.nav-link:hover {
+  color: var(--green);
+}
+
+#marketing_bar {
+    background-color: var(--green);
+    color: var(--navy);
+    width: 100%;
+    height: 60px;
+}
+
+#marketing_bar h5 {
+    height: 30px;
+    position: relative;
+    top: 30px;
+}
+
+footer {
+    width: 100%;
+    height: 150px;
+    background-color: var(--navy);
+}
+
+
+/*-- Misc Start -- */
+
+hr {
+    background-color: var(--red);
+    margin: 0 auto;
+}
+.h1-hr {
+    width: 75px;
+    height: 9px;
+}
+.h2-hr {
+    width:60px;
+    height: 7px;
+}
+.h3-hr {
+    width: 35px;
+    height: 5px;
+}
+.section-hr {
+    width: 75%;
+    height: 1px;
+}
+
+.h1-hr, .h2-hr, .h3-hr, .section-hr {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.shadow, .btn-std {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/*-- Buttons Start --*/
+
+button .form-control .btn {
+    background-color: var(--black);
+}
+
+.btn-std {
+    width: 125px;
+    height: 35px;
+    background-color: var(--green);
+    color: var(--navy);
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 15px 0 15px 0;
+}
+
+.btn-std:hover {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+/*-- Home Page Start --*/
+
+.carousel-item img {
+    width: 100%;
+}
+
+.hero-text-div {
+    position: absolute;
+    right: 15%;
+    top: 35%;
+}
+
+.hero-text-div h3 {
+    padding-bottom: 50px;
+}
+
+.hero-button {
+    background-color: var(--green);
+    width: 125px;
+    height: 50px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hero-button h5 {
+    color: var(--white);
+    font-weight: bold;
+    line-height: 2.5;
+    margin: 0;
+}
+
+.hero-button h5:hover {
+    color: var(--navy);
+}
+
+#carousel-bottom-border {
+    background-color: var(--green);
+    height: 10px;
+}
+
+@media only screen and (max-width: 992px){
+    #cat-3, #cat-4 {
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 768px){
+    #cat-1, #cat-2 {
+        margin-top: 30px;
+    }
+}
+
+
+/*-- Products Page Start --*/
+
+#sort-input {
+    width: 290px;
+    margin: 0 auto;
+}
+
+#sort-input .btn {
+    background-color: var(--black);
+}

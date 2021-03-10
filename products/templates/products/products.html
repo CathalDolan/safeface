@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+                <!-- Page Name -->
+                <h1 class="text-center mt-1">Category Name / Search Term  -  # Products</h1>
+
+                <!-- Sort Input -->
+                <div id="sort-input" class="input-group">
+                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Sort by">
+                    <div class="input-group-append">
+                        <button class="form-control btn border border-black rounded-0" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-arrow-down white"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <hr class="h1-hr">
+
+            </div>
+        </div>
+
+        <!-- Products Section -->
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+
+                <div class="row mt-1 mb-2">
+                </div>
+
+                <!-- Products Cards -->
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col=sm-12 col-md-6 col-lg-4">
+                            <div class="card h-100 border-0 beige-bg">
+
+                                <!-- Card Top - Image -->
+                                <a href="{% url 'product_info' product.id %}">
+                                    <img class="card-img-top img-fluid shadow" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
+                                </a>
+                    
+                                <!-- Card Body - Name -->
+                                <div class="card-body text-center">
+                                    <h5 class="mb-0">{{ product.friendly_name }}</h5>
+                                </div>
+
+                                <!-- Card Body - Pricing & Category -->
+                                <div class="card-footer pt-0 border-0 text-left beige-bg">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="row">
+                                                <p class=""><strong>Code:</strong> {{ product.sku }}</p>
+                                            </div>
+                                            <div class="row">
+                                                <p class="">
+                                                    <a class="black" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                        <strong>Category:</strong> {{ product.category.friendly_name }}
+                                                    </a>
+                                                </p>
+                                            </div>    
+                                            <div class="row">
+                                                <p class=""><strong>€/Unit:</strong> €{{ product.price }}</p>
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <button type="button" class="btn-std btn rounded-0">Add</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="h2-hr">
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
