@@ -39,24 +39,12 @@
             <!-- Header section with navy background -->
             <div id="head-top" class="row navy-bg">
 
-                <!-- Empty space to balance the header -->
-                <div id="head-left" class="col-4">
-                </div>
-
-                <!-- Header Logo -->
-                <div id="head-log-div" class="col-4 brand-logo vertical-center text-center">
-                    <a href="{% url 'home' %}" class="nav-link"> 
-                        <img src="{{ MEDIA_URL }}core_media/safe_face_logo.png" id="head-logo" class="my-3" alt="Safe Face Logo"/>
-                    </a>
-                </div>
-
                 <!-- Login, Register and Cart -->
-                <div id="head-login-cart" class="col-4 text-right">
-                    <ul class="list-inline list-unstyled text-center text-lg-right my-3">
+                <div id="head-login-cart" class="text-right">
+                    <ul class="list-inline list-unstyled text-center text-lg-right my-1">
                         <li class="list-inline-item dropdown">
-                            <a class="white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="white nav-link p-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
-                                    <div><i class="fas fa-user fa-lg"></i></div>
                                     <p class="my-0 white">My Account</p>
                                 </div>
                             </a>
@@ -76,9 +64,8 @@
 
                         <!-- Shopping Basket total and link -->
                         <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}white{% endif %} nav-link" href=""> 
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}white{% endif %} nav-link p-0 p-md-3" href=""> 
                                 <div class="text-center">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                     <p class="my-0 white">
                                         {% if grand_total %}
                                             ${{ grand_total|floatformat:2 }}
@@ -90,6 +77,13 @@
                             </a>
                         </li>
                     </ul>
+                </div>
+
+                <!-- Header Logo -->
+                <div id="head-log-div" class="col vertical-center text-center">
+                    <a href="{% url 'home' %}" class="nav-link"> 
+                        <img src="{{ MEDIA_URL }}core_media/safe_face_logo.png" id="head-logo" class="my-3" alt="Safe Face Logo"/>
+                    </a>
                 </div>
             </div>
 

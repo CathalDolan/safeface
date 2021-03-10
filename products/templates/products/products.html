@@ -8,8 +8,12 @@
     <div class="container">
         <div class="row">
             <div class="col">
+
+                <!-- Page Name -->
                 <h1 class="text-center mt-1">Category Name / Search Term  -  # Products</h1>
-                <div class="input-group">
+
+                <!-- Sort Input -->
+                <div id="sort-input" class="input-group">
                     <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Sort by">
                     <div class="input-group-append">
                         <button class="form-control btn border border-black rounded-0" type="submit">
@@ -19,15 +23,20 @@
                         </button>
                     </div>
                 </div>
+
                 <hr class="h1-hr">
+
             </div>
         </div>
+
+        <!-- Products Section -->
         <div class="row">
             <div class="product-container col-10 offset-1">
 
                 <div class="row mt-1 mb-2">
                 </div>
 
+                <!-- Products Cards -->
                 <div class="row">
                     {% for product in products %}
                         <div class="col=sm-12 col-md-6 col-lg-4">
@@ -61,7 +70,7 @@
                                                 <p class=""><strong>€/Unit:</strong> €{{ product.price }}</p>
                                             </div>
                                             <div class="row justify-content-center">
-                                                <button type="button" class="btn-std btn btn-success rounded-0">Add</button>
+                                                <button type="button" class="btn-std btn rounded-0">Add</button>
                                             </div>
                                         </div>
                                     </div>
