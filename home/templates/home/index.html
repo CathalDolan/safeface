@@ -15,7 +15,7 @@
                 <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/hero_image_medical.jpg" alt="Medical Face Mask">
                 <div class="hero-text-div">
                     <h3 class="hero-text">Medical Masks</h3>
-                    <a href="https://www.google.com">
+                    <a href="{% url 'products' %}?category=medical_masks">
                         <div class="hero-button">
                             <h5>MORE</h5>
                         </div>
@@ -26,7 +26,7 @@
                 <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/hero_image_ffp.jpg" alt="FFP Face Mask">
                 <div class="hero-text-div">
                     <h3 class="hero-text">FFP Masks</h3>
-                    <a href="https://www.google.com">
+                    <a href="{% url 'products' %}?category=medical_masks">
                         <div class="hero-button">
                             <h5>MORE</h5>
                         </div>
@@ -37,7 +37,7 @@
                 <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/hero_image_fabric.jpg" alt="Fabric Face Mask">
                 <div class="hero-text-div">
                     <h3 class="hero-text">Fabric Masks</h3>
-                    <a href="https://www.google.com">
+                    <a href="{% url 'products' %}?category=fabric_masks">
                         <div class="hero-button">
                             <h5>MORE</h5>
                         </div>
@@ -48,7 +48,7 @@
                 <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/hero_image_snood.jpg" alt="Snood Face Mask">
                 <div class="hero-text-div">
                     <h3 class="hero-text">Snood Masks</h3>
-                    <a href="https://www.google.com">
+                    <a href="{% url 'products' %}?category=snood_masks">
                         <div class="hero-button">
                             <h5>MORE</h5>
                         </div>
@@ -86,25 +86,25 @@
         <hr class="h3-hr">
         <div class="row">
             <div id="cat-1" class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{% url 'products' %}?category=medical_masks">
                     <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/category_medical.jpg" alt="Medical Face Mask">
                     <h5 class="text-center mt-4">Medical</h5>
                 </a>
             </div>
             <div id="cat-2" class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{% url 'products' %}?category=fabric_masks">
                     <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/category_fabric.jpg" alt="Fabric Face Mask">
                     <h5 class="text-center mt-4">Fabric</h5>
                 </a>
             </div>
             <div id="cat-3" class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{% url 'products' %}?category=shield_masks">
                     <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/category_shield.jpg" alt="Shield Face Mask">
                     <h5 class="text-center mt-4">Shield</h5>
                 </a>
             </div>
             <div id="cat-4" class="col-lg-3 col-md-6 col-sm-12">
-                <a href="">
+                <a href="{% url 'products' %}?category=snood_masks">
                     <img class="d-block w-100" src="{{ MEDIA_URL }}core_media/category_snood.jpg" alt="Snood Face Mask">
                     <h5 class="text-center mt-4">Snood</h5>
                 </a>
