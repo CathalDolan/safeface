@@ -10,7 +10,7 @@
             <div class="col">
 
                 <!-- Page Name -->
-                <h1 class="text-center mt-1">{{ product.name }}</h1>
+                <h1 class="text-center mt-1">{{ product.friendly_name }}</h1>
                 <hr class="h1-hr">
             </div>
         </div>
@@ -18,57 +18,54 @@
         <!-- Product Section -->
         <div class="row">
             <!-- Image -->
-            <div class="col-sm-10 col-md-8">
-                <a href="{{ product.image.url }}" target="_blank">
+            <div class="col-sm-12 col-md-8">
+                <a href="{{ product.image1.url }}" target="_blank">
                     <img class="card-img-top img-fluid shadow" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
                 </a>
             </div>
             <!-- Product Info -->
-            <div class="col-sm-10 col-md-4">
-                <h3>Product Name: {{ product.name }}</h3>
-                <p>Code: {{ product.sku }}</p>
+            <div class="col-sm-12 col-md-4 justify-content-center">
+                <h4>{{ product.friendly_name }}</h4>
+                <p>{{ product.description }}</p>
+                <p><strong>Code:</strong> {{ product.sku }}</p>
                 <a class="black" href="{% url 'products' %}?category={{ product.category.name }}">
                     <strong>Category:</strong> {{ product.category.friendly_name }}
                 </a>
-                <br><br>
-                <h3>Spec. Essentials</h3>
-                <p>Certification:</p>
-                <p>Standard:</p>
-                <p>Size:</p>
-                <p>Material:</p>
+                <hr class="h3-hr">
+                <h4>Spec. Essentials</h4>
+                <p><strong>Certification:</strong></p>
+                <p><strong>Standard:</strong></p>
+                <p><strong>Size:</strong></p>
+                <p><strong>Material:</strong></p>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-10 col-md-6">
-                <div class="row">
-                    <h3>Pricing</h3>
+                <div class="row justify-content-center">
+                    <h4>Pricing</h4>
                 </div>
-                <div class="row">
+                <div class="row justify-content-right">
                     <div class="col-9">
                         <p>Quantities</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 justify-content-left">
                         <p>Prices</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-10 col-md-6">
-                <div class="row">
-                    <h3>Ordering</h3>
+                <div class="row justify-content-center">
+                    <h4>Ordering</h4>
                 </div>
-                <div class="row">
-                    <div class="col-9">
+                <div class="row justify-content-right">
+                    <div class="col-8">
                         <p>Quantity</p>
                     </div>
-                    <div class="col-3">
-                        <p>Add Button</p>
+                    <div class="col-4 justify-content-left">
+                        <button type="button" class="btn-std btn rounded-0">Add</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <h3>Description</h3>
-            <p>{{ product.description }}</p>
-        </div>
-
+    </div>
 {% endblock %}
