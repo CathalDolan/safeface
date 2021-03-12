@@ -316,3 +316,7 @@ button .form-control .btn {
 #sort-input .btn {
     background-color: var(--black);
 }
+
+.btt-link { /* Change class name */
+    cursor: pointer;
+}

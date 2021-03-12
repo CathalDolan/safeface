@@ -10,17 +10,47 @@
             <div class="col">
 
                 <!-- Page Name -->
-                <h1 class="text-center mt-1">Category Name / Search Term  -  # Products</h1>
+                {% if search_term %}
+                    <h1 class="text-center mt-1">{{ search_term }} -  {{ products|length }} Products</h1>
+                {% else %}
+                    {% for c in current_categories %}
+                        <h1 class="text-center mt-1">{{ c.friendly_name }} -  {{ products|length }} Products</h1>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Keep this for Back Button
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+                 -->
 
                 <!-- Sort Input -->
-                <div id="sort-input" class="input-group">
-                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Sort by">
-                    <div class="input-group-append">
-                        <button class="form-control btn border border-black rounded-0" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-arrow-down white"></i>
-                            </span>
-                        </button>
+                        <!--
+                        <div id="sort-input" class="input-group">
+                            <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Sort by">
+                            <div class="input-group-append">
+                                <button class="form-control btn border border-black rounded-0" type="submit">
+                                    <span class="icon">
+                                        <i class="fas fa-arrow-down white"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        -->
+                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                    <div class="sort-select-wrapper w-50">
+                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        </select>
                     </div>
                 </div>
 
@@ -42,15 +72,15 @@
                         <div class="col=sm-12 col-md-6 col-lg-4">
                             <div class="card h-100 border-0 beige-bg">
 
-                                <!-- Card Top - Image -->
                                 <a href="{% url 'product_info' product.id %}">
+                                    <!-- Card Top - Image -->
                                     <img class="card-img-top img-fluid shadow" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
+                                
+                                    <!-- Card Body - Name -->
+                                    <div class="card-body text-center">
+                                        <h5 class="mb-0">{{ product.friendly_name }}</h5>
+                                    </div>
                                 </a>
-                    
-                                <!-- Card Body - Name -->
-                                <div class="card-body text-center">
-                                    <h5 class="mb-0">{{ product.friendly_name }}</h5>
-                                </div>
 
                                 <!-- Card Body - Pricing & Category -->
                                 <div class="card-footer pt-0 border-0 text-left beige-bg">
@@ -83,4 +113,45 @@
             </div>
         </div>
     </div>
+
+    <!-- Back to the Top button -->
+    <div class="btt-button shadow-sm rounded-0 border border-black">
+        <a class="btt-link d-flex h-100">
+            <i class="fas fa-arrow-up mx-auto my-auto"></i>
+        </a>	
+    </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    <!-- Back to the Top Fn -->
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+
+    <!-- Products Sorting Fn -->
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
