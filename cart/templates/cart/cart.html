@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+{% endblock %}
+
+{% block content %}
+    <div id="body-content-container" class="container">
+        <h1 class="text-center mt-1">Shopping Cart</h1>
+        <hr class="h1-hr">
+        {% if bag_items %}
+            <div class="table-responsive rounded">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12">
+                        <div class="row">
+                            <div class="col-7">
+                                <p>Image</p>
+                            </div>
+                            <div class="col-5">
+                                <h5>Product Name</h5>
+                                <p>Code</p>
+                                <p>Quantity Edit   &   Delete Icon</p>
+                                <p>Price</p>
+                                <p>total</p>
+                            </div>
+                            <hr class="section-hr">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12">
+                        <p>Sub-total:</p>
+                        <p>Delivery:</p>
+                        <p>Net:</p>
+                        <p>VAT:</p>
+                        <hr>
+                        <p>Gross:</p>
+                        <p>CHECKOUT</p>
+                        <p>CONTINUE SHOPPING</p>
+                    </div>
+                </div>
+                <p>*All prices are exlcusive of VAT</p>
+            </div>
+        {% else %}
+            <p class="lead mb-5"> Your cart is empty</p>
+            <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Keep Shopping</span>
+            </a>
+        {% endif %}
+    </div>
+{% endblock %}

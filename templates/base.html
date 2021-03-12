@@ -64,7 +64,7 @@
 
                         <!-- Shopping Basket total and link -->
                         <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}white{% endif %} nav-link p-0 p-md-3" href=""> 
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}white{% endif %} nav-link p-0 p-md-3" href="{% url 'view_cart' %}"> 
                                 <div class="text-center">
                                     <p class="my-0 white">
                                         {% if grand_total %}
