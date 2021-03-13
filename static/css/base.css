@@ -322,7 +322,7 @@ button .form-control .btn {
 }
 
 .btt-link,
-.update-link,
+.update-link, /* from cart */
 .delete-item { /* Change class name */
     cursor: pointer;
 }

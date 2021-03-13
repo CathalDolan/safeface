@@ -7,6 +7,7 @@ from products.models import Product
 def cart_contents(request):
 
     cart_items = []
+    prod_totes = []
     product_total = 0
     product_count = 0
     products_total = 0
@@ -15,12 +16,18 @@ def cart_contents(request):
     for item_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=item_id)
         product_total = quantity * product.price
+        print('product', product_total)
         product_count += quantity
         products_total += product_total
+        print('products', products_total)
         cart_items.append({
             'item_id': item_id,
             'quantity': quantity,
             'product': product,
+        })
+        prod_totes.append({
+            'item_id': item_id,
+            'product_total': product_total,
         })
 
     if products_total < settings.FREE_DELIVERY_THRESHOLD:
@@ -45,6 +52,7 @@ def cart_contents(request):
         'net_total': net_total,
         'vat': vat,
         'gross_total': gross_total,
+        'prod_totes': prod_totes,
     }
 
     return context
