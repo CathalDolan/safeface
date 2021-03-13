@@ -9,36 +9,57 @@
         <h1 class="text-center mt-1">Shopping Cart</h1>
         <hr class="h1-hr">
         {% if cart_items %}
-            <div class="table-responsive rounded">
-                <div class="row">
-                    <div class="col-md-8 col-sm-12">
-                        <div class="row">
-                            <div class="col-7">
-                                <p>Image</p>
-                            </div>
-                            <div class="col-5">
-                                <h5>Product Name</h5>
-                                <p>Code</p>
-                                <p>Quantity Edit   &   Delete Icon</p>
-                                <p>Price</p>
-                                <p>total</p>
-                            </div>
-                            <hr class="section-hr">
+        <div class="row">
+
+            <!-- Individual Product -->
+            {% for item in cart_items %}
+                <div class="col-md-8 col-sm-12">
+                    <div class="row">
+                        <div class="col-7">
+                            <img class="img-fluid rounded" src="{{ item.product.image1.url }}">
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                        <p>Sub-total:</p>
-                        <p>Delivery:</p>
-                        <p>Net:</p>
-                        <p>VAT:</p>
-                        <hr>
-                        <p>Gross:</p>
-                        <p>CHECKOUT</p>
-                        <p>CONTINUE SHOPPING</p>
+                        <div class="col-5">
+                            <h5>{{ item.product.name }}</h5>
+                            <p><strong>Code: </strong>{{ item.product.sku|upper }}</p>
+                            <p><strong>Quantity: </strong>{{ item.quantity }}   Delete Icon</p>
+                            <p><strong>Price*: </strong>€{{ item.product.price }}</p>
+                            <p><strong>Total*: </strong>€{{ product_total }}</p>
+                        </div>
+                        <hr class="section-hr">
                     </div>
                 </div>
-                <p>*All prices are exlcusive of VAT</p>
+            {% endfor %}
+
+            <!-- Pricing Section -->
+            <div class="col-md-4 col-sm-12">
+                <p><strong>Sub-total*: </strong>€{{ sub_total }}</p>
+                <p><strong>Delivery*: </strong>€{{ delivery }}</p>
+                {% if free_delivery_delta > 0 %}
+                    <p class="mb-1 test-danger">
+                        You could get free delivery by spending €{{ free_delivery_delta }} more.
+                    </p>
+                {% endif %}
+                <p><strong>Net*: </strong>€{{  net_total  }}</p>
+                <p><strong>VAT: </strong>€{{ vat|floatformat:2 }}</p>
+                <hr>
+                <p><strong>Gross: </strong>€{{ gross_total|floatformat:2 }}</p>
+                
+                <!-- Checkout -->
+                <a href="" class="btn rounded-0 btn-lg">
+                    <span class="text-uppercase">Secure Checkout</span>
+                    <span class="icon">
+                        <i class="fas fa-lock"></i>
+                    </span>
+                </a>
+                <a href="{% url 'home' %}" class="btn rounded-0 btn-lg">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="text-uppercase">Keep Shopping</span>
+                </a>
             </div>
+            <p>*Prices shown are exlcusive of VAT</p>
+
         {% else %}
             <p class="lead mb-5"> Your cart is empty</p>
             <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
@@ -48,5 +69,6 @@
                 <span class="text-uppercase">Keep Shopping</span>
             </a>
         {% endif %}
+        </div>
     </div>
 {% endblock %}
