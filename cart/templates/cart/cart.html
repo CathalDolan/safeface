@@ -6,7 +6,7 @@
 
 {% block content %}
     <div id="body-content-container" class="container">
-        <h1 class="text-center mt-1">Shopping Cart</h1>
+        <h1>Shopping Cart</h1>
         <hr class="h1-hr">
         {% if cart_items %}
         <div class="row">
@@ -19,7 +19,7 @@
                             <img class="img-fluid rounded" src="{{ item.product.image1.url }}">
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <h5>{{ item.product.name }}</h5>
+                            <h5>{{ item.product.friendly_name }}</h5>
                             <p><strong>Code: </strong>{{ item.product.sku|upper }}</p>
                             <p><strong>Quantity: </strong>{{ item.quantity }}   Delete Icon</p>
 
@@ -70,18 +70,28 @@
             <!-- Pricing & Checkout Section -->
             <div class="col-md-4 col-sm-12">
                 <!-- Pricing -->
-                <div id="pricing_section">
+                <div id="pricing_section" class="text-center">
                     <p><strong>Sub-total*: </strong>€{{ sub_total }}</p>
-                    <p><strong>Delivery*: </strong>€{{ delivery }}</p>
+
+                    <!-- Delivery -->
                     {% if free_delivery_delta > 0 %}
-                        <p class="mb-1 test-danger">
-                            You could get free delivery by spending €{{ free_delivery_delta }} more.
+                        <p><strong>Delivery*: </strong>€{{ delivery }}</p>
+                        <p class="red">
+                            <small><strong>Want FREE Delivery?</strong></small>
+                            <br>
+                            <small><strong>Order just €{{ free_delivery_delta }} more!</strong></small>
                         </p>
+                    {% else %}
+                        <p><strong>Delivery*: </strong>FREE!</p>
                     {% endif %}
+
+                    <!-- Totals & VAT -->
                     <p><strong>Net*: </strong>€{{  net_total  }}</p>
                     <p><strong>VAT: </strong>€{{ vat|floatformat:2 }}</p>
-                    <hr class="h3-hr">
-                    <p><strong>Gross: </strong>€{{ gross_total|floatformat:2 }}</p>
+
+                    <hr class="section-hr">
+
+                    <p id="gross-total"><strong>Gross: €{{ gross_total|floatformat:2 }}</strong></p>
                     
                     <!-- Checkout -->
                     <a href="" class="btn rounded-0 btn-lg">
@@ -101,7 +111,8 @@
             <p>*Prices shown are exlcusive of VAT</p>
 
         {% else %}
-            <p class="lead mb-5"> Your cart is empty</p>
+            <!-- Empty Cart -->
+            <p class="lead mb-5"> Move along back to the products, nothing to see here!</p>
             <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
                 <span class="icon">
                     <i class="fas fa-chevron-left"></i>

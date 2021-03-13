@@ -403,3 +403,4 @@ Basic site layout and structure is achieved with HTML. However, in conjunction w
 
 
 Home Page Carousel - With Indicators: https://getbootstrap.com/docs/4.0/components/carousel/
+Back to Top button - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top

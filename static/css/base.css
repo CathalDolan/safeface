@@ -21,6 +21,7 @@ flex-direction: column;
 }
 */
 
+
 /*--- Colours ---*/
 :root {
     --navy: #0F4c81;
@@ -95,10 +96,13 @@ h1, h2, h3, h4, h5 {
     font-family: 'Oswald';
     text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 h1 {
     font-size: 50px;
+    margin-top: 25px;
+    text-align: center;
 }
 h2 {
     font-size: 40px;
@@ -117,6 +121,7 @@ p {
     color: var(--black);
     font-family: 'Open Sans';
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
 
@@ -209,7 +214,7 @@ hr {
 }
 .section-hr {
     width: 75%;
-    height: 1px;
+    height: 2px;
 }
 
 .h1-hr, .h2-hr, .h3-hr, .section-hr {
@@ -229,6 +234,27 @@ hr {
     height: 1.5rem;
     width: 1.5rem;
 }
+
+/*-- Back to Top Button Start --*/
+#myBtn {
+  display: none;
+  position: fixed;
+  font-size: 20px;
+  bottom: 20px;
+  right: 10%;
+  z-index: 99;
+  border: solid 2px var(--beige);
+  background-color: var(--navy);
+  color: var(--beige);
+  cursor: pointer;
+  padding: 10px;
+}
+
+#myBtn:hover {
+  background-color: var(--beige);
+  color: var(--navy);
+}
+
 
 /*-- Buttons Start --*/
 
@@ -313,8 +339,10 @@ button .form-control .btn {
 /*-- Products Page Start --*/
 
 #sort-input {
-    width: 290px;
+    width: 25%;
+    min-width: 300px;
     margin: 0 auto;
+    border: solid 1px var(--black);
 }
 
 #sort-input .btn {
@@ -335,4 +363,17 @@ button .form-control .btn {
     position: fixed;
     top: 335px;
     max-width: 300px;
+}
+
+#pricing_section p {
+    font-size: 18px;
+}
+
+#pricing_section hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#pricing_section #gross-total {
+    font-size: 22px;
 }

@@ -35,7 +35,6 @@ def update_cart(request, item_id):
     else:
         cart.pop(item_id)
 
-    # Update the existing session
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
 
