@@ -28,7 +28,7 @@ flex-direction: column;
     --black: #373838;
     --white: #fefefe;
     --beige: #F1EEE6;
-    --trans-beige: #F1EEE600;
+    --trans-beige: #E6E6E6;
     --green: #C0D725;
 }
 
@@ -321,6 +321,18 @@ button .form-control .btn {
     background-color: var(--black);
 }
 
-.btt-link { /* Change class name */
+.btt-link,
+.update-link,
+.delete-item { /* Change class name */
     cursor: pointer;
+}
+
+
+/*-- Cart Start --*/
+
+#pricing_section {
+    background-color: var(--trans-beige);
+    position: fixed;
+    top: 335px;
+    max-width: 300px;
 }
