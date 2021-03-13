@@ -40,7 +40,7 @@ def all_products(request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                # Connected with "except Exception as e:" in bag views.py
+                # Connected with "except Exception as e:" in cart views.py
                 messages.error(request, "You didn't tell us what you're looking for")
                 return redirect(reverse('products'))
 

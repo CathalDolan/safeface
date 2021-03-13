@@ -248,6 +248,10 @@ button .form-control .btn {
     margin: 15px 0 15px 0;
 }
 
+#product_add_btn {
+    margin: 0;
+}
+
 .btn-std:hover {
     background-color: var(--navy);
     color: var(--white);
