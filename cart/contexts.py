@@ -7,7 +7,7 @@ from products.models import Product
 def cart_contents(request):
 
     cart_items = []
-    prod_totes = []
+    indiv_product_total = []
     product_total = 0
     product_count = 0
     products_total = 0
@@ -25,7 +25,7 @@ def cart_contents(request):
             'quantity': quantity,
             'product': product,
         })
-        prod_totes.append({
+        indiv_product_total.append({
             'item_id': item_id,
             'product_total': product_total,
         })
@@ -45,6 +45,7 @@ def cart_contents(request):
         'cart_items': cart_items,
         'product_total': product_total,
         'product_count': product_count,
+        'indiv_product_total': indiv_product_total,
         'delivery': delivery,
         'free_delivery_delta': free_delivery_delta,
         'free_delivery_threshold': settings.FREE_DELIVERY_THRESHOLD,
@@ -52,7 +53,6 @@ def cart_contents(request):
         'net_total': net_total,
         'vat': vat,
         'gross_total': gross_total,
-        'prod_totes': prod_totes,
     }
 
     return context

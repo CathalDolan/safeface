@@ -29,7 +29,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm btn-black rounded-0" 
+                                            <button class="decrement-qty btn btn-sm black-bg white rounded-0" 
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
@@ -41,7 +41,7 @@
                                             data-item_id="{{ item.item_id }}"
                                             id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm btn-black rounded-0"
+                                            <button class="increment-qty btn btn-sm black-bg white rounded-0"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
@@ -52,9 +52,9 @@
                                 </div>
                             </form>
                             <p><strong>Price*: </strong>€{{ item.product.price }}</p>
-                            {% for totes in prod_totes %}
-                                {% if item.item_id == totes.item_id %}
-                                    <p><strong>Total*: </strong>€{{ totes.product_total }}</p>
+                            {% for product in indiv_product_total %}
+                                {% if item.item_id == product.item_id %}
+                                    <p><strong>Total*: </strong>€{{ product.product_total }}</p>
                                 {% endif %}
                             {% endfor %}
 
