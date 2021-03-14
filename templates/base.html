@@ -16,7 +16,7 @@
         {% block core_css %}
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
             <link rel="preconnect" href="https://fonts.gstatic.com">
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;600&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@400;600&display=swap">
             <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
 
@@ -64,13 +64,13 @@
 
                         <!-- Shopping Basket total and link -->
                         <li class="list-inline-item">
-                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}white{% endif %} nav-link p-0 p-md-3" href=""> 
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}white{% endif %} nav-link p-0 p-md-3" href="{% url 'view_cart' %}"> 
                                 <div class="text-center">
                                     <p class="my-0 white">
-                                        {% if grand_total %}
-                                            ${{ grand_total|floatformat:2 }}
+                                        {% if net_total %}
+                                            €{{ net_total|floatformat:2 }}
                                         {% else %}
-                                            $0.00
+                                            €0.00
                                         {% endif %}
                                     </p>
                                 </div>
@@ -91,28 +91,28 @@
             <div id="navbar" class="col text-right mx-auto">
                 <ul class="list-inline list-unstyled text-center">
                     <li class="cat list-inline-item">
-                        <a class="nav-link" href="{% url 'products' %}" id="">
+                        <a class="nav-link" href="{% url 'products' %}?category=medical_masks" id="">
                             <div class="text-center">
                                 <p class="my-0">Medical</p>
                             </div>
                         </a>
                     </li>
                     <li class="cat list-inline-item">
-                        <a class="nav-link" href="#" id="">
+                        <a class="nav-link" href="{% url 'products' %}?category=fabric_masks" id="">
                             <div class="text-center">
                                 <p class="my-0">Fabric</p>
                             </div>
                         </a>
                     </li>
                     <li class="cat list-inline-item">
-                        <a class="nav-link" href="#" id="">
+                        <a class="nav-link" href="{% url 'products' %}?category=shield_masks" id="">
                             <div class="text-center">
                                 <p class="my-0">Shield</p>
                             </div>
                         </a>
                     </li>
                     <li class="cat list-inline-item">
-                        <a class="nav-link" href="#" id="">
+                        <a class="nav-link" href="{% url 'products' %}?category=snood_masks" id="">
                             <div class="text-center">
                                 <p class="my-0">Snood</p>
                             </div>
@@ -121,7 +121,7 @@
 
                     <!-- Search Widget -->
                     <li id="search_widget" class="list-inline-item text-right">
-                        <form method="GET" action=""> 
+                        <form method="GET" action="{% url 'products' %}"> 
                             <div class="input-group">
                                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search Masks">
                                 <div class="input-group-append">
@@ -139,7 +139,7 @@
 
             <!-- Marketing bar -->
             <div id="marketing_bar" class="text-center">
-                <h5>Free delivery on orders over €50</h5>
+                <h5>Free delivery on orders over €{{ free_delivery_threshold }}</h5>
             </div>
         </header>
 
@@ -160,11 +160,40 @@
         {% block postloadjs %}
         {% endblock %}
 
+        <!-- Back to top button -->
+        <!-- From www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top -->
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+                <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <!-- Footer -->
         <footer>
             <div id="footer-div">
                 <p>This is the footer</p>
             </div>
         </footer>
+
+        <script>
+            //Get the button
+            var mybutton = document.getElementById("myBtn");
+
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {scrollFunction()};
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    mybutton.style.display = "block";
+                } else {
+                    mybutton.style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+            }
+        </script>
 
     </body>
 </html>

@@ -21,6 +21,7 @@ flex-direction: column;
 }
 */
 
+
 /*--- Colours ---*/
 :root {
     --navy: #0F4c81;
@@ -28,7 +29,7 @@ flex-direction: column;
     --black: #373838;
     --white: #fefefe;
     --beige: #F1EEE6;
-    --trans-beige: #F1EEE600;
+    --trans-beige: #E6E6E6;
     --green: #C0D725;
 }
 
@@ -90,15 +91,18 @@ body {
     height: calc(100vh - 164px);
 }
 
-h1, h2, h3, h5, h5 {
+h1, h2, h3, h4, h5 {
     color: var(--navy);
     font-family: 'Oswald';
     text-transform: uppercase;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 
 h1 {
     font-size: 50px;
+    margin-top: 25px;
+    text-align: center;
 }
 h2 {
     font-size: 40px;
@@ -117,6 +121,7 @@ p {
     color: var(--black);
     font-family: 'Open Sans';
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
 
@@ -209,7 +214,7 @@ hr {
 }
 .section-hr {
     width: 75%;
-    height: 1px;
+    height: 2px;
 }
 
 .h1-hr, .h2-hr, .h3-hr, .section-hr {
@@ -230,6 +235,27 @@ hr {
     width: 1.5rem;
 }
 
+/*-- Back to Top Button Start --*/
+#myBtn {
+  display: none;
+  position: fixed;
+  font-size: 20px;
+  bottom: 20px;
+  right: 10%;
+  z-index: 99;
+  border: solid 2px var(--beige);
+  background-color: var(--navy);
+  color: var(--beige);
+  cursor: pointer;
+  padding: 10px;
+}
+
+#myBtn:hover {
+  background-color: var(--beige);
+  color: var(--navy);
+}
+
+
 /*-- Buttons Start --*/
 
 button .form-control .btn {
@@ -246,6 +272,10 @@ button .form-control .btn {
     font-weight: bold;
     padding: 0;
     margin: 15px 0 15px 0;
+}
+
+#product_add_btn {
+    margin: 0;
 }
 
 .btn-std:hover {
@@ -309,10 +339,114 @@ button .form-control .btn {
 /*-- Products Page Start --*/
 
 #sort-input {
-    width: 290px;
+    width: 25%;
+    min-width: 300px;
     margin: 0 auto;
+    border: solid 1px var(--black);
 }
 
 #sort-input .btn {
     background-color: var(--black);
+}
+
+.btt-link,
+.update-link, /* from cart */
+.delete-item { /* Change class name */
+    cursor: pointer;
+}
+
+/* Remove Default Quantity Arrows */ 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+/*-- Cart Start --*/
+
+#pricing_section {
+    background-color: var(--trans-beige);
+    position: fixed;
+    top: 335px;
+    max-width: 300px;
+}
+
+#pricing_section p {
+    font-size: 18px;
+}
+
+#pricing_section hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#pricing_section #gross-total {
+    font-size: 22px;
+}
+
+
+/*-- Product_Info Page Image Start --*/
+.card2 {
+    margin: auto;
+    border-radius: 15px;
+}
+
+fieldset.active {
+    display: block !important
+}
+
+fieldset {
+    display: none
+}
+
+.pic0 {
+    width: 85%;
+    margin-left: 85px;
+    margin-right: auto;
+    display: block
+}
+
+.product-pic {
+    padding-left: auto;
+    padding-right: auto;
+    width: 100%
+}
+
+.thumbnails {
+    position: absolute
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+.tb {
+    width: 62px;
+    height: 62px;
+    border: 1px solid grey;
+    margin: 2px;
+    opacity: 0.4;
+    cursor: pointer
+}
+
+.tb-active {
+    opacity: 1
+}
+
+.thumbnail-img {
+    width: 60px;
+    height: 60px
+}
+
+@media screen and (max-width: 768px) {
+    .pic0 {
+        width: 80%;
+    }
 }

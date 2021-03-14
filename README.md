@@ -403,3 +403,12 @@ Basic site layout and structure is achieved with HTML. However, in conjunction w
 
 
 Home Page Carousel - With Indicators: https://getbootstrap.com/docs/4.0/components/carousel/
+Back to Top button - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+Remove Number Input Default Arrows: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
+Image Gallery on Product_Info - https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images
+
+
+# Interesting Bugs
+Cart "Update" Wouldn't work due to specificity
+
+var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.

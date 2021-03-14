@@ -1,0 +1,46 @@
+<script type="text/javascript">
+
+    // Prevent Quantity going below 1
+    function handleEnableDisable(itemId) {
+        /* #id_qty-${itemId}, see input in product_detail.html */
+        var currentValue = parseInt($(`#id_qty_${itemId}`).val());
+        var minusDisabled = currentValue < 2;
+        $(`#decrement-qty_${itemId}`).prop('disabled', minusDisabled);
+    }
+
+    // Ensure proper enabling/disabling of all inputs on page load
+    var allQtyInputs = $('.qty_input');
+    for(var i = 0; i < allQtyInputs.length; i++){
+        var itemId = $(allQtyInputs[i]).data('item_id');
+        handleEnableDisable(itemId);
+    }
+
+    // Check enable/disable every time the input is changed
+    // This is to allow an update iof the user uses the field's built in built in increment and decrement
+    $('.qty_input').change(function() {
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+
+    // Increment quantity
+    $('.increment-qty').click(function(e) {
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentValue = parseInt($(closestInput).val())+{{ product.qty_1 }};
+        $(closestInput).val(currentValue);
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+
+    // Decrement quantity
+    $('.decrement-qty').click(function(e) {
+        e.preventDefault();
+        var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
+        var currentValue = parseInt($(closestInput).val())-{{ product.qty_1 }};
+        $(closestInput).val(currentValue);
+        var itemId = $(this).data('item_id');
+        handleEnableDisable(itemId);
+    });
+</script>
+
+

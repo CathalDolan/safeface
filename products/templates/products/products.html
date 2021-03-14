@@ -10,17 +10,37 @@
             <div class="col">
 
                 <!-- Page Name -->
-                <h1 class="text-center mt-1">Category Name / Search Term  -  # Products</h1>
+                {% if search_term %}
+                    <h1>{{ search_term }}</h1>
+                    <h5 class="text-center"><strong># of Products:</strong> {{ products|length }}</h5>
+                {% else %}
+                    {% for c in current_categories %}
+                        <h1>{{ c.friendly_name }}</h1>
+                        <h5 class="text-center"><strong># of Products:</strong> {{ products|length }}</h5>
+                    {% endfor %}
+                {% endif %}
+
+                <!-- Keep this for Back Button
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span class="small"><a href="{% url 'products' %}">Products Home</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+                 -->
 
                 <!-- Sort Input -->
-                <div id="sort-input" class="input-group">
-                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Sort by">
-                    <div class="input-group-append">
-                        <button class="form-control btn border border-black rounded-0" type="submit">
-                            <span class="icon">
-                                <i class="fas fa-arrow-down white"></i>
-                            </span>
-                        </button>
+                <div  id="sort-input" class="mt-3">
+                    <div class="sort-select-wrapper">
+                        <select id="sort-selector" class="custom-select rounded-0 border">
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                        </select>
                     </div>
                 </div>
 
@@ -42,15 +62,15 @@
                         <div class="col=sm-12 col-md-6 col-lg-4">
                             <div class="card h-100 border-0 beige-bg">
 
-                                <!-- Card Top - Image -->
                                 <a href="{% url 'product_info' product.id %}">
+                                    <!-- Card Top - Image -->
                                     <img class="card-img-top img-fluid shadow" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
+                                
+                                    <!-- Card Body - Name -->
+                                    <div class="card-body text-center">
+                                        <h5 class="mb-0">{{ product.friendly_name }}</h5>
+                                    </div>
                                 </a>
-                    
-                                <!-- Card Body - Name -->
-                                <div class="card-body text-center">
-                                    <h5 class="mb-0">{{ product.friendly_name }}</h5>
-                                </div>
 
                                 <!-- Card Body - Pricing & Category -->
                                 <div class="card-footer pt-0 border-0 text-left beige-bg">
@@ -83,4 +103,33 @@
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    
+    <!-- Products Sorting Fn -->
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}
