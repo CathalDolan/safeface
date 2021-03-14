@@ -79,18 +79,26 @@
                 <p><strong>Material:</strong> {{ product.material }}</p>
             </div>
         </div>
-        <div class="row mt-4">
+        <div class="row my-4">
             <!-- Pricing Section -->
             <div class="col-sm-12 col-md-6">
                 <div class="row justify-content-center">
                     <h4>Pricing</h4>
                 </div>
-                <div class="row justify-content-right">
-                    <div class="col-9">
-                        <p>Quantities</p>
+                <div class="row">
+                    <div class="col-9 justify-content-right">
+                        <p><strong>{{ product.qty_1 }} units:</strong></p>
+                        <p><strong>{{ product.qty_2 }} units:</strong></p>
+                        <p><strong>{{ product.qty_3 }} units:</strong></p>
+                        <p><strong>{{ product.qty_4 }} units:</strong></p>
+                        <p><strong>{{ product.qty_5 }} units:</strong></p>
                     </div>
                     <div class="col-3 justify-content-left">
-                        <p>Prices</p>
+                        <p>€{{ product.price_1 }}</p>
+                        <p>€{{ product.price_2 }}</p>
+                        <p>€{{ product.price_3 }}</p>
+                        <p>€{{ product.price_4 }}</p>
+                        <p>€{{ product.price_5 }}</p>
                     </div>
                 </div>
             </div>
@@ -115,7 +123,7 @@
                                 </button>
                             </div>
                             <input class="form-control qty_input" type="number"
-                                name="quantity" value="1" min="1"
+                                name="quantity" value="{{ product.qty_1 }}" min="{{ product.qty_1 }}"
                                 data-item_id="{{ product.id }}"
                                 id="id_qty_{{ product.id }}">
                             <div class="input-group-append">
