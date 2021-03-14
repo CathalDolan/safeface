@@ -7,6 +7,15 @@ html {
     height: 100%;
 }
 
+body {
+    min-height: 100vh;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+}
+
 /*
 main {
 flex: 1 0 auto;
@@ -355,6 +364,11 @@ button .form-control .btn {
     cursor: pointer;
 }
 
+.delete-item .btn:hover {
+    background-color: red;
+    color: var(--white);
+}
+
 /* Remove Default Quantity Arrows */ 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -388,6 +402,19 @@ input[type=number] {
 
 #pricing_section #gross-total {
     font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+
+    #pricing_section {
+    position: static;
+    margin: 0 auto;
+    }
+
+    #update-link-btn,
+    #delete-item-btn {
+        width: 500px;
+    }
 }
 
 
@@ -449,4 +476,22 @@ fieldset {
     .pic0 {
         width: 80%;
     }
+}
+
+
+/*--- Toasts Start ---*/
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
+}
+
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
 }

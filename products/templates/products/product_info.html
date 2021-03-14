@@ -113,7 +113,7 @@
                     {% csrf_token %}
                     <div class="form-row">
                         <!-- Quantity Input for Users to select quantity -->
-                        <div class="input-group col-4 offset-2">
+                        <div class="input-group">
                             <div class="input-group-prepend">
                                 <button class="decrement-qty btn black-bg white rounded-0"
                                     data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
@@ -137,7 +137,7 @@
                         </div>
                         
                         <!-- Submit Button -->
-                        <div class="col-4">
+                        <div>
                             <input id="product_add_btn" type="submit" class="btn-std btn rounded-0" value="Add">
                         </div>
                         <!-- Redirects User back to the same product page once product added -->

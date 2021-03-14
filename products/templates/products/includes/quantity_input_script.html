@@ -25,6 +25,7 @@
     // Increment quantity
     $('.increment-qty').click(function(e) {
         e.preventDefault();
+        console.log("Inc Works")
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val())+{{ product.qty_1 }};
         $(closestInput).val(currentValue);
@@ -35,6 +36,7 @@
     // Decrement quantity
     $('.decrement-qty').click(function(e) {
         e.preventDefault();
+        console.log("Dec works")
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         var currentValue = parseInt($(closestInput).val())-{{ product.qty_1 }};
         $(closestInput).val(currentValue);

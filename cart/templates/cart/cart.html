@@ -21,7 +21,7 @@
                         <div class="col-md-6 col-sm-12">
                             <h5>{{ item.product.friendly_name }}</h5>
                             <p><strong>Code: </strong>{{ item.product.sku|upper }}</p>
-                            <p><strong>Quantity: </strong>{{ item.quantity }}   Delete Icon</p>
+                            <p><strong>Quantity:</strong></p>
 
                             <!-- Quantity Input -->
                             <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
@@ -58,8 +58,22 @@
                                 {% endif %}
                             {% endfor %}
 
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="delete-item float-right" id="delete_{{ item.item_id }}"><small>Delete</small></a>
+                            <a class="update-link">
+                                <button id="update-link-btn" type="button" class="btn-std btn rounded-0">
+                                    Update
+                                    <span>
+                                        <i class="fa fa-refresh"></i>
+                                    </span>
+                                </button>
+                            </a>
+                            <a class="delete-item" id="delete_{{ item.item_id }}">
+                                <button id="delete-item-btn" type="button" class="btn-std btn rounded-0">
+                                    Delete
+                                    <span>
+                                        <i class="fa fa-trash"></i>
+                                    </span>
+                                </button>
+                            </a>
 
                         </div>
                         <hr class="section-hr">
