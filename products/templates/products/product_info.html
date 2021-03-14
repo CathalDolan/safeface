@@ -17,12 +17,52 @@
 
         <!-- Product Section -->
         <div class="row">
-            <!-- Image -->
+
+            <!-- Image 
             <div class="col-sm-12 col-md-8">
                 <a href="{{ product.image1.url }}" target="_blank">
                     <img class="card-img-top img-fluid shadow" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
                 </a>
+            </div> -->
+
+            <!-- Code Source: https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images -->
+            <div class="container-fluid mx-auto col-sm-12 col-md-8">
+                <div class="row justify-content-center">
+                    <div class="d-flex">
+                        <div class="card2">
+                            <!-- Thumbnails -->
+                            <div class="d-flex flex-column thumbnails">
+                                <div id="f1" class="tb tb-active"> <img class="thumbnail-img fit-image" src="{{ product.image1.url }}"> </div>
+                                <div id="f2" class="tb"> <img class="thumbnail-img fit-image" src="{{ product.image2.url }}"> </div>
+                                <div id="f3" class="tb"> <img class="thumbnail-img fit-image" src="{{ product.image3.url }}"> </div>
+                            </div>
+                            <!-- Main Images -->
+                            <fieldset id="f11" class="active">
+                                <div class="product-pic">
+                                    <a href="{{ product.image1.url }}" target="_blank">
+                                        <img class="my-image pic0" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
+                                    </a>
+                                </div>
+                            </fieldset>
+                            <fieldset id="f21">
+                                <div class="product-pic">
+                                    <a href="{{ product.image2.url }}" target="_blank">
+                                        <img class="my-image pic0" src="{{ product.image2.url }}" alt="{{ product.friendly_name }}">
+                                    </a>
+                                </div>
+                            </fieldset>
+                            <fieldset id="f31">
+                                <div class="product-pic">
+                                    <a href="{{ product.image3.url }}" target="_blank">
+                                        <img class="my-image pic0" src="{{ product.image3.url }}" alt="{{ product.friendly_name }}">
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
             </div>
+
             <!-- Product Info -->
             <div class="col-sm-12 col-md-4 justify-content-center">
                 <h4>{{ product.friendly_name }}</h4>
@@ -39,7 +79,7 @@
                 <p><strong>Material:</strong></p>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-4">
             <!-- Pricing Section -->
             <div class="col-sm-12 col-md-6">
                 <div class="row justify-content-center">
@@ -104,4 +144,38 @@
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+
+<!-- Multi-image Gallery -->
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $(".tb").hover(function(){
+
+            $(".tb").removeClass("tb-active");
+            $(this).addClass("tb-active");
+
+            current_fs = $(".active");
+
+            next_fs = $(this).attr('id');
+            next_fs = "#" + next_fs + "1";
+
+            $("fieldset").removeClass("active");
+            $(next_fs).addClass("active");
+
+            current_fs.animate({}, {
+                step: function() {
+                    current_fs.css({
+                        'display': 'none',
+                        'position': 'relative'
+                    });
+                    next_fs.css({
+                        'display': 'block'
+                    });
+                }
+            });
+        });
+
+    });
+</script>
+
 {% endblock %}

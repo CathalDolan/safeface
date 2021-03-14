@@ -95,16 +95,20 @@
                     
                     <!-- Checkout -->
                     <a href="" class="btn rounded-0 btn-lg">
-                        <span class="text-uppercase">Secure Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
+                        <button type="button" class="btn-std btn rounded-0">
+                            Checkout
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
                     </a>
                     <a href="{% url 'home' %}" class="btn rounded-0 btn-lg">
-                        <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
-                        </span>
-                        <span class="text-uppercase">Keep Shopping</span>
+                        <button type="button" class="btn-std btn rounded-0">
+                            Keep Shopping
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                        </button>
                     </a>
                 </div>
             </div>
@@ -131,7 +135,8 @@
 <script type="text/javascript">
     // Update Item Qty Button
     $('.update-link').click(function(e) {
-        var form = $(this).prev('.update-form');
+        var form = $(this).siblings("form");
+        console.log(form)
         form.submit();
     })
 

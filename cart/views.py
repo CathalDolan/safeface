@@ -29,7 +29,7 @@ def update_cart(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
-
+    print(quantity)
     if quantity > 0:
         cart[item_id] = quantity
     else:
