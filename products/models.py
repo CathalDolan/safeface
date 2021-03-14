@@ -30,6 +30,10 @@ class Product(models.Model):
     image2 = models.ImageField(null=True, blank=True)
     image3_url = models.URLField(max_length=1024, null=True, blank=True)
     image3 = models.ImageField(null=True, blank=True)
+    certification = models.CharField(max_length=254, null=True, blank=True)
+    standard = models.CharField(max_length=254, null=True, blank=True)
+    dimensions = models.CharField(max_length=254, null=True, blank=True)
+    material = models.CharField(max_length=254, null=True, blank=True)
 
     def __str__(self):
         return self.name
