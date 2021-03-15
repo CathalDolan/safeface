@@ -481,7 +481,7 @@ fieldset {
 
 /*--- Toasts Start ---*/
 
-.message-container {
+.messages-container {
     position: fixed;
     top: 72px;
     right: 15px;
@@ -494,4 +494,16 @@ fieldset {
 
 .toast-capper {
     height: 2px;
+}
+
+.cart-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.cart-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
