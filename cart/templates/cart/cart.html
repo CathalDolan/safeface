@@ -108,7 +108,7 @@
                     <p id="gross-total"><strong>Gross: €{{ gross_total|floatformat:2 }}</strong></p>
                     
                     <!-- Checkout -->
-                    <a href="" class="btn rounded-0 btn-lg">
+                    <a href="{% url 'checkout' %}" class="btn rounded-0 btn-lg">
                         <button type="button" class="btn-std btn rounded-0">
                             Checkout
                             <span class="icon">
