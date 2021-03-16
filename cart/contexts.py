@@ -3,6 +3,8 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+# When this comment goes, we're back.
+# When this comment goes, we're back.
 
 def cart_contents(request):
 

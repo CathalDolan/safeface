@@ -18,7 +18,7 @@
 
             <!-- Order Summary -->
             <div class="col-12 col-lg-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }})</p>
+                <p class="text-muted">Order Summary ({{ product_count }}) Items</p>
                 <div class="row">
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
@@ -27,13 +27,13 @@
                         <p class="mb-1 mt-0 small text-muted">Subtotal</p>
                     </div>
                 </div>
-                <!-- Loop through the items of bag. Enabled due to session -->
-                {% for item in bag_items %}
+                <!-- Loop through the items of cart. Enabled due to session -->
+                {% for item in cart_items %}
                     <div class="row">
                         <!-- Images -->
                         <div class="col-2 mb-1">
-                            <a href="{% url 'product_detail' item.product.id %}">
-                                <img class="w-100" src="{{ item.product.image.url }}" alt="{{ product.name }}">
+                            <a href="{% url 'product_info' item.product.id %}">
+                                <img class="w-100" src="{{ item.product.image1.url }}" alt="{{ product.friendly_name }}">
                             </a>
                         </div>
                         <!-- Product Details -->
@@ -110,9 +110,7 @@
                     <!-- Payment -->
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment - Test Card 4242 4242 4242 4242 / 4000 0025 0000 3155</legend>
-                        <!-- A Stripe card element will go here, injected via stripe_elements.js -->
                         <div class="mb-3" id="card-element"></div>
-                        <!-- Used to display form errors injected via stripe_elements.js  -->
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
 

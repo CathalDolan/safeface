@@ -409,6 +409,7 @@ Image Gallery on Product_Info - https://gosnippets.com/snippets/bootstrap-4-ecom
 
 
 # Interesting Bugs
-Cart "Update" Wouldn't work due to specificity
+- Cart "Update" Wouldn't work due to specificity
+-- var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
 
-var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
+QUantity_input_script needed am else atatement to inc and dec from cart and product info pages. Also had to use https://www.w3schools.com/tags/att_data-.asp and item.product.id 

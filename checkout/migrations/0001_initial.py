@@ -37,7 +37,6 @@ class Migration(migrations.Migration):
                 ('vat', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
                 ('gross_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
                 ('original_bag', models.TextField(default='')),
-                ('stripe_pid', models.CharField(default='', max_length=254)),
             ],
         ),
         migrations.CreateModel(

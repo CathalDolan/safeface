@@ -65,7 +65,7 @@
 
             <!-- Product Info -->
             <div class="col-sm-12 col-md-4 justify-content-center">
-                <h4>{{ product.friendly_name }}</h4>
+                <h4>Details</h4>
                 <p>{{ product.description }}</p>
                 <p><strong>Code:</strong> {{ product.sku }}</p>
                 <a class="black" href="{% url 'products' %}?category={{ product.category.name }}">
@@ -109,7 +109,7 @@
                     <h4>Ordering</h4>
                 </div>
                 
-                <form class="form" action="{% url 'add_to_cart' product.id %}" method="POST">
+                <form class="form" method="POST" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
                     <div class="form-row">
                         <!-- Quantity Input for Users to select quantity -->
