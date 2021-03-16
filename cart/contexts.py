@@ -3,8 +3,6 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
-# When this comment goes, we're back.
-# When this comment goes, we're back.
 
 def cart_contents(request):
 
@@ -30,7 +28,10 @@ def cart_contents(request):
         elif quantity >= product.qty_5:
             price = product.price_5
 
-        print("qty", quantity)
+        print("cntxt qty_1", product.price_1)
+        print("cntxt qty_5", product.price_5)
+        print("cntxt qty", quantity)
+        print("cntxt price", price)
         product_total = quantity * price
         product_count += quantity
         products_total += product_total

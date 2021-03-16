@@ -1,5 +1,8 @@
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
+After restart from Github
+pip3 install -r requirements.txt
+
 # Run the Project:
     python3 manage.py runserver
 

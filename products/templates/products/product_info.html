@@ -19,12 +19,6 @@
         <div class="row">
 
             <!-- Image 
-            <div class="col-sm-12 col-md-8">
-                <a href="{{ product.image1.url }}" target="_blank">
-                    <img class="card-img-top img-fluid shadow" src="{{ product.image1.url }}" alt="{{ product.friendly_name }}">
-                </a>
-            </div> -->
-
             <!-- Code Source: https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images -->
             <div class="container-fluid mx-auto col-sm-12 col-md-8">
                 <div class="row justify-content-center">
@@ -63,8 +57,8 @@
                 </div>
             </div>
 
-            <!-- Product Info -->
-            <div class="col-sm-12 col-md-4 justify-content-center">
+            <!-- Product Info Section -->
+            <div id="product_info_sect" class="col-sm-12 col-md-4 justify-content-center">
                 <h4>Details</h4>
                 <p>{{ product.description }}</p>
                 <p><strong>Code:</strong> {{ product.sku }}</p>
@@ -114,6 +108,7 @@
                     <div class="form-row">
                         <!-- Quantity Input for Users to select quantity -->
                         <div class="input-group">
+                            <!-- Decrement -->
                             <div class="input-group-prepend">
                                 <button class="decrement-qty btn black-bg white rounded-0"
                                     data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
@@ -122,10 +117,11 @@
                                     </span>
                                 </button>
                             </div>
+                            <!-- Input Field -->
                             <input class="form-control qty_input" type="number"
                                 name="quantity" value="{{ product.qty_1 }}" min="{{ product.qty_1 }}"
-                                data-item_id="{{ product.id }}"
-                                id="id_qty_{{ product.id }}">
+                                data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                            <!-- Increment -->
                             <div class="input-group-append">
                                 <button class="increment-qty btn black-bg white rounded-0"
                                     data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">

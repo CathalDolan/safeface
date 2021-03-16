@@ -1,19 +1,12 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html {
+html, body{
+    padding:0;
+    margin:0;
     height: 100%;
+    width: 100%;
 }
 
-body {
-    min-height: 100vh;
-}
-
-footer {
-  bottom: 0;
-  width: 100%;
+main {
+    min-height: 60vh;
 }
 
 /*
@@ -24,8 +17,6 @@ flex: 1 0 auto;
 body {
 display: flex;
 min-height: 100vh;
-width: 100%;
-overflow-x: hidden;
 flex-direction: column;
 }
 */
@@ -197,9 +188,10 @@ p {
 }
 
 footer {
-    width: 100%;
-    height: 150px;
-    background-color: var(--navy);
+  bottom:0;
+  left:0;
+  width:100%;
+  background-color: var(--navy);
 }
 
 
@@ -272,7 +264,7 @@ button .form-control .btn {
 }
 
 .btn-std {
-    width: 125px;
+    width: 150px;
     height: 35px;
     background-color: var(--green);
     color: var(--navy);
@@ -280,7 +272,7 @@ button .form-control .btn {
     border: none;
     font-weight: bold;
     padding: 0;
-    margin: 15px 0 15px 0;
+    margin: 15px auto 15px auto;
 }
 
 #product_add_btn {
@@ -383,6 +375,15 @@ input[type=number] {
 
 
 /*-- Product Info Start --*/
+
+@media screen and (max-width: 768px) {
+    /* Has to be a better way than this */
+    #product_info_sect  {
+    margin-top: 35px;
+    }
+
+}
+
 #prod-info-input-form {
     max-width: 300px;
 }

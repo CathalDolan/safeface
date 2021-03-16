@@ -11,7 +11,6 @@ class ProductAdmin(admin.ModelAdmin):
         'friendly_name',
         'name',
         'category',
-        'price',
         'image1',
         'image2',
         'image3',
