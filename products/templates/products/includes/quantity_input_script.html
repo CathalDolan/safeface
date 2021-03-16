@@ -26,7 +26,14 @@
     $('.increment-qty').click(function(e) {
         e.preventDefault();
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val())+{{ product.qty_1 }};
+        {% if product %}
+            var currentValue = parseInt($(closestInput).val())+{{ product.qty_1 }};
+            console.log(' product test')
+        {% else %}
+            var qty_1 = $(this).data('item_qty_1');
+            var currentValue = parseInt($(closestInput).val())+qty_1;
+            console.log(' item test')
+        {% endif %}
         $(closestInput).val(currentValue);
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
@@ -36,7 +43,12 @@
     $('.decrement-qty').click(function(e) {
         e.preventDefault();
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
-        var currentValue = parseInt($(closestInput).val())-{{ product.qty_1 }};
+        {% if product %}
+            var currentValue = parseInt($(closestInput).val())-{{ product.qty_1 }};
+        {% else %}
+            var qty_1 = $(this).data('item_qty_1');
+            var currentValue = parseInt($(closestInput).val())-qty_1;
+        {% endif %}
         $(closestInput).val(currentValue);
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);

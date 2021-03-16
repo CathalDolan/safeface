@@ -21,7 +21,7 @@
                         <div class="col-md-6 col-sm-12">
                             <h5>{{ item.product.friendly_name }}</h5>
                             <p><strong>Code: </strong>{{ item.product.sku|upper }}</p>
-                            <p><strong>Quantity: </strong>{{ item.quantity }}   Delete Icon</p>
+                            <p><strong>Quantity:</strong>{{ item.product.qty_1 }}</p>
 
                             <!-- Quantity Input -->
                             <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
@@ -30,19 +30,19 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button class="decrement-qty btn btn-sm black-bg white rounded-0" 
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                data-item_id="{{ item.item_id }}" data-item_qty_1="{{item.product.qty_1}}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
                                                 </span>
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                            name="quantity" value="{{ item.quantity }}" min="{{ product.qty_1 }}"
+                                            name="quantity" value="{{ item.quantity }}" min="{{ item.qty_1 }}"
                                             data-item_id="{{ item.item_id }}"
                                             id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
                                             <button class="increment-qty btn btn-sm black-bg white rounded-0"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                data-item_id="{{ item.item_id }}" data-item_qty_1="{{item.product.qty_1}}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
@@ -58,8 +58,22 @@
                                 {% endif %}
                             {% endfor %}
 
-                            <a class="update-link text-info"><small>Update</small></a>
-                            <a class="delete-item float-right" id="delete_{{ item.item_id }}"><small>Delete</small></a>
+                            <a class="update-link">
+                                <button id="update-link-btn" type="button" class="btn-std btn rounded-0">
+                                    Update
+                                    <span>
+                                        <i class="fa fa-refresh"></i>
+                                    </span>
+                                </button>
+                            </a>
+                            <a class="delete-item" id="delete_{{ item.item_id }}">
+                                <button id="delete-item-btn" type="button" class="btn-std btn rounded-0">
+                                    Delete
+                                    <span>
+                                        <i class="fa fa-trash"></i>
+                                    </span>
+                                </button>
+                            </a>
 
                         </div>
                         <hr class="section-hr">
@@ -94,7 +108,7 @@
                     <p id="gross-total"><strong>Gross: €{{ gross_total|floatformat:2 }}</strong></p>
                     
                     <!-- Checkout -->
-                    <a href="" class="btn rounded-0 btn-lg">
+                    <a href="{% url 'checkout' %}" class="btn rounded-0 btn-lg">
                         <button type="button" class="btn-std btn rounded-0">
                             Checkout
                             <span class="icon">

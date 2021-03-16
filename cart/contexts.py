@@ -3,12 +3,14 @@ from django.conf import settings
 from django.shortcuts import get_object_or_404
 from products.models import Product
 
+# When this comment goes, we're back.
+# When this comment goes, we're back.
 
 def cart_contents(request):
 
     cart_items = []
     indiv_product_total = []
-    price2 = 0
+    price = 0
     product_total = 0
     product_count = 0
     products_total = 0
@@ -16,24 +18,20 @@ def cart_contents(request):
 
     for item_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=item_id)
-        
-        if quantity >= product.qty_1:
-            price2 = product.price_1
-            print("price 1")
-        elif quantity >= product.qty_2:
-            price2 = product.price_2
-            print("price 2")
-        elif quantity >= product.qty_3:
-            price2 = product.price_3
-            print("price 3")
-        elif quantity >= product.qty_4:
-            price2 = product.price_4
-            print("price 4")
-        elif quantity >= product.qty_5:
-            price2 = product.price_5
-            print("price 5")
 
-        product_total = quantity * product.price
+        if quantity >= product.qty_1:
+            price = product.price_1
+        elif quantity >= product.qty_2:
+            price = product.price_2
+        elif quantity >= product.qty_3:
+            price = product.price_3
+        elif quantity >= product.qty_4:
+            price = product.price_4
+        elif quantity >= product.qty_5:
+            price = product.price_5
+
+        print("qty", quantity)
+        product_total = quantity * price
         product_count += quantity
         products_total += product_total
         cart_items.append({

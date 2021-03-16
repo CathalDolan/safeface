@@ -45,6 +45,10 @@ INSTALLED_APPS = [
     'home',
     'products',
     'cart',
+    'checkout',
+
+    # 3rd Party
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +62,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'safe_face.urls'
+
+CRISPY_TEMLATE_PACK = 'bootstrap4'
 
 TEMPLATES = [
     {
@@ -76,9 +82,16 @@ TEMPLATES = [
                 'django.template.context_processors.media',
                 'cart.contexts.cart_contents',
             ],
+            'builtins': [
+                'crispy_forms.templatetags.crispy_forms_tags',
+                'crispy_forms.templatetags.crispy_forms_field',
+            ]
         },
     },
 ]
+
+# For Toasts - Not strictly required but good practice
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
     # Needed to login by username in Django admin, regardless of `allauth`
