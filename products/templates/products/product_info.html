@@ -109,7 +109,7 @@
                     <h4>Ordering</h4>
                 </div>
                 
-                <form class="form" method="POST" action="{% url 'add_to_cart' product.id %}">
+                <form id="prod-info-input-form" class="form w-auto mx-auto" method="POST" action="{% url 'add_to_cart' product.id %}">
                     {% csrf_token %}
                     <div class="form-row">
                         <!-- Quantity Input for Users to select quantity -->
@@ -137,7 +137,7 @@
                         </div>
                         
                         <!-- Submit Button -->
-                        <div>
+                        <div class="mx-auto mt-3">
                             <input id="product_add_btn" type="submit" class="btn-std btn rounded-0" value="Add">
                         </div>
                         <!-- Redirects User back to the same product page once product added -->

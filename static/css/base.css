@@ -382,6 +382,12 @@ input[type=number] {
 }
 
 
+/*-- Product Info Start --*/
+#prod-info-input-form {
+    max-width: 300px;
+}
+
+
 /*-- Cart Start --*/
 
 #pricing_section {
