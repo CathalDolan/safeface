@@ -2,6 +2,7 @@
 
 After restart from Github
 pip3 install -r requirements.txt
+pip3 freeze --local > requirements.txt  - after installing a new pip3?
 
 # Run the Project:
     python3 manage.py runserver

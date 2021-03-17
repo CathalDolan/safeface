@@ -43,16 +43,17 @@ card.addEventListener('change', function (event) {
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
+    console.log("function fires", form);
     ev.preventDefault();
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
-  stripe.confirmCardPayment(clientSecret, {
-    payment_method: {
-        card: card,
-        billing_details: {
-            name: 'Jenny Rosen'
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+            billing_details: {
+                name: 'Jenny Rosen'
+            }
         }
-    }
     }).then(function(result) {
         if (result.error) {
             var errorDiv = document.getElementById('card-errors');
@@ -62,8 +63,8 @@ form.addEventListener('submit', function(ev) {
                 </span>
                 <span>${result.error.message}</span>`;
             $(errorDiv).html(html);
-                card.update({ 'disabled': false});
-                $('#submit-button').attr('disabled', false);
+            card.update({ 'disabled': false});
+            $('#submit-button').attr('disabled', false);
         } else {
             if (result.paymentIntent.status === 'succeeded') {
                 form.submit();

@@ -277,6 +277,12 @@ hr {
   color: var(--navy);
 }
 
+@media only screen and (min-width: 1400px){
+    #myBtn {
+        right: 20%;
+    }
+}
+
 
 /*-- Buttons Start --*/
 
@@ -296,7 +302,8 @@ button .form-control .btn {
     margin: 15px auto 15px auto;
 }
 
-#product_add_btn {
+#product_add_btn,
+.product_add_btn {
     margin: 0;
 }
 

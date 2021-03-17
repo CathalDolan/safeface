@@ -148,13 +148,17 @@
 
         {% else %}
             <!-- Empty Cart -->
-            <p class="lead mb-5"> Move along back to the products, nothing to see here!</p>
-            <a href="{% url 'home' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="text-uppercase">Keep Shopping</span>
-            </a>
+            <div class="col-12 text-center">
+                <p class="lead"> Move along back to the products, nothing to see here!</p>
+                <a  href="{% url 'products' %}" class="update-link">
+                    <button type="button" class="btn-std btn rounded-0 mx-auto">
+                        Keep Shopping
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                    </button>
+                </a>
+            </div>
         {% endif %}
         </div>
     </div>

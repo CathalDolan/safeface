@@ -73,7 +73,7 @@
                                         {% if net_total %}
                                             €{{ net_total|floatformat:2 }}
                                         {% else %}
-                                            €0.00
+                                            Cart Empty
                                         {% endif %}
                                     </p>
                                 </div>
@@ -220,6 +220,7 @@
             </script>
         {% endblock %}
 
+        <!-- Scroll to Top Button -->
         <script>
             //Get the button
             var mybutton = document.getElementById("myBtn");
@@ -242,6 +243,7 @@
             }
         </script>
 
+        <!-- "Back" Button -->
         <!-- https://www.w3schools.com/JSREF/met_his_back.asp -->
         <script type="text/javascript">
             function goBack() {

@@ -94,10 +94,10 @@
                         {{ order_form.country | as_crispy_field }}
 
                         <!-- Allows users to add the details to their profile or sign-up if not already -->
-                        <div class="form-check form-check-inline float-right">
+                        <div class="form-check form-check-inline">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
+                                <input class="form-check-input ml-2" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
 								<label class="form-check-label" for="id-save-info">
                                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
@@ -115,20 +115,17 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
 
-                    <!-- Edit & Submit -->
-                    <div class="row submit-button text-right">   
-                        <!-- Edit Cart Button -->              
-                        <div class="col-sm-12 col-lg-6 justify-content-center">
-                            <a  href="{% url 'view_cart' %}" class="update-link">
-                                <button type="button" class="btn-std btn rounded-0 mx-auto">
-                                    Edit Cart
-                                    <span class="icon">
-                                        <i class="fas fa-chevron-left"></i>
-                                    </span>
-                                </button>
-                            </a>
-                        </div>
-
+                    <!-- Back & Submit -->
+                    <div class="row submit-button text-center pl-1">
+                        <!-- Notification -->
+                        <p class="small red my-0">
+                            <span class="icon">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </span>
+                            <span>Your card will be charged <strong>${{ gross_total|floatformat:2 }}</strong></span>
+                        </p>
+                    </div>
+                    <div class="row submit-button text-center">   
                         <!-- Submit -->
                         <div class="col-sm-12 col-lg-6 justify-content-center">
                             <button id="submit-button" class="btn-std btn rounded-0 mx-auto">
@@ -138,25 +135,19 @@
                                 </span>
                             </button>
                         </div>
-
-                        <!-- Notification -->
-						<p class="small red my-0">
-							<span class="icon">
-								<i class="fas fa-exclamation-circle"></i>
-							</span>
-							<span>Your card will be charged <strong>${{ gross_total|floatformat:2 }}</strong></span>
-						</p>
+                        <!-- Back to Cart Button -->              
+                        <div class="col-sm-12 col-lg-6 justify-content-center">
+                            <a  href="{% url 'view_cart' %}" class="update-link">
+                                <button type="button" class="btn-std btn rounded-0 mx-auto">
+                                    Back to Cart
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
 					</div>
                 </form>
-                <!-- Back Button -->
-                <div class="mx-auto mt-2 d-flex align-items-center">
-                    <button onclick="goBack()" class="btn-std btn rounded-0">
-                        Back to Cart
-                        <span class="icon">
-                            <i class="fas fa-arrow-left"></i>
-                        </span>
-                    </button>
-                </div>
             </div>
         </div>
     </div>
