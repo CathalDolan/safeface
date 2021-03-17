@@ -503,5 +503,90 @@ CSS from here:
     - <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 10. Include the input in Checkout.html
     - <input type="hidden" value="{{ client_secret }}" name="client_secret"> (image 11)
-
-
+11. Add a listener for card errors in Stripe_elements.js (image 13)
+    card.addEventListener('change', function (event) {
+        var errorDiv = document.getElementById('card-errors');
+        if (event.error) {
+            var html = `
+                <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                </span>
+                <span>${event.error.message}</span>
+            `;
+            $(errorDiv).html(html);
+        } else {
+            errorDiv.textContent = '';
+        }
+    });
+12. Provide total cost and amount to be charged to Stripe via Checkout Views
+    - Import cart_contents from the cart contexts 
+        from cart.contexts import cart_contents
+    - Inject the data into the checkout function and calculate total (image 14)
+        current_cart = cart_contents(request)
+        total = current_cart['gross_total']
+        stripe_total = round(total * 100)
+13. Install Stripe
+    - pip3 install stripe
+    - Import into views beneath cart_contents
+        import stripe
+    - Also import settings just below messages
+        from django.conf import settings
+14. Add stripe reqs to settings.py inclu currency and key access
+    - STRIPE_CURRENCY = 'eur'
+    - STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+    - STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+15. Export the keys using the cli
+    - On Stripe dash copy the "publishable key"
+    - In cli: export STRIPE_PUBLIC_KEY=copied code
+    - On Stripe dash copy the "secret key"
+    - In cli: export STRIPE_SECRET_KEY=copied code
+    - Images 15 & 16
+    - Each time the workspace is restarted this must be repeated.
+16 . Create Payment Intent in Checkout Views
+    - Add the keys at the top of teh function:
+        stripe_public_key = settings.STRIPE_PUBLIC_KEY
+        stripe_secret_key = settings.STRIPE_SECRET_KEY
+    - Set the secret key on stripe
+        stripe.api_key = stripe_secret_key
+    - Create the payment Intent
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
+    - Image 17
+17 . Update Context and add key warning
+    - In Context:
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
+    - Warning to alert us if we forget to set public key
+        if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
+        template = 'checkout/checkout.html'
+    - Image 18
+18 . Add event listener to...
+    - From https://stripe.com/docs/payments/accept-a-payment?ui=elements go to section 4 and copy the client.js (image 19)
+    - Paste into stripe_elements.js
+    - Prevent multiple submissions. Add code to the Stripe code:
+        card.updated({ 'disabled': true});
+        $('#submit-button').attr('disabled', true);
+    - Inject the error message into the card error div:
+        var html = `
+            <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+            </span>
+            <span>${result.error.message}</span>
+        `;
+        $(errorDiv).html(html);
+    - Insert form submission method:
+        form.onsubmit();
+    - Add error var:
+        var errorDiv = document.getElementById('card-errors');
+    - If there's an error Re-enable the card element and submit button:
+        card.updated({ 'disabled': false});
+        $('#submit-button').attr('disabled', false);
+    - If no error submit the form:
+        if (result.paymentIntent.status === 'succeeded') {
+            form.submit();
+        }
+    - Image 20
