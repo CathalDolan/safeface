@@ -417,3 +417,91 @@ MArketing Banner Ticker Tape - https://bbbootstrap.com/snippets/bootstrap-scroll
 -- var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
 
 QUantity_input_script needed am else atatement to inc and dec from cart and product info pages. Also had to use https://www.w3schools.com/tags/att_data-.asp and item.product.id 
+
+
+# Integrating Stripe
+
+Core logic/payment flow for this comes from here:
+    - https://stripe.com/docs/payments/accept-a-payment
+CSS from here: 
+    - https://stripe.com/docs/stripe-js
+
+1. - Stripe.com
+    - Create an account
+2. - https://stripe.com/docs/payments/accept-a-payment
+    - Custom Payment Flow
+    - Number 3: Collect Card Details - Set up Stripe elements
+    - Copy the script and paste into {% block corejs %} in base.html
+3. Go to Chedckout.html
+    - Add postload js block and include block.super
+        {% block postloadjs %}
+            {{ block.super }}
+        {% endblock %}
+    - Add client secret and public key Json scripts
+        {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+        {{ client_secret|json_script:"id_client_secret" }}
+        <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+    - Add the public key
+        - Copy the publishable key from the dashboard (image)
+        - Add it to Checkout Views Context (image)
+    - Create new folder, js, in static on same level as css folder
+        - Create file, stripe_elements.js
+4. Add vars to stripe_elements.js (slice the ends to remove quotation marks)
+    - var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
+    - var clientSecret = $('#id_client_secret').text().slice(1, -1);
+5. Add additional vars to stripe_elements.js
+    - Public key var
+        var stripe = Stripe(stripePublicKey);
+    - Use it to create an instance of Stripe elements
+        var elements = stripe.elements();
+    - Use that to create a card element
+        var card = elements.create('card', {style: style});
+    - Mount the card to the card-element id
+        card.mount('#card-element');
+    - Image
+6. Add JS inline styling
+    - Copy basic styles from Stripe: https://stripe.com/docs/payments/integration-builder (image)
+    - Insert into stripe_element.js above card var and card.mount
+        - Make changes as required
+        - Add style to the card.var (image12)
+7. Add Stripe default CSS to Checkout.css
+    /* Stripe Components */
+    .StripeElement,
+    .stripe-style-input {
+    box-sizing: border-box;
+    height: 40px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+    background-color: white;
+    box-shadow: 0 1px 3px 0 #e6ebf1;
+    -webkit-transition: box-shadow 150ms ease;
+    transition: box-shadow 150ms ease;
+    }
+
+    .StripeElement--focus,
+    .stripe-style-input:focus,
+    .stripe-style-input:active {
+    box-shadow: 0 1px 3px 0 #cfd7df;
+    }
+
+    .StripeElement--invalid {
+        border-color: orange;
+    }
+
+    .StripeElement--webkit-autofill {
+    background-color: #fefde5 !important;
+    }
+
+    .stripe-style-input::placeholder {
+        color: #aab7c4;
+    }
+8. Take advantage of Stripe Style input class
+    - Add stripe style input to all relevant fields in forms.py (image)
+    - Add the class to the checkout css (image 12)
+9. Add the JS to the checkout html within block postloadjs
+    - <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+10. Include the input in Checkout.html
+    - <input type="hidden" value="{{ client_secret }}" name="client_secret"> (image 11)
+
+

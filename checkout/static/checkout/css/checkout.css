@@ -1,0 +1,57 @@
+/* Stripe Components */
+.StripeElement,
+.stripe-style-input {
+  box-sizing: border-box;
+  height: 40px;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-color: white;
+  box-shadow: 0 1px 3px 0 #e6ebf1;
+  -webkit-transition: box-shadow 150ms ease;
+  transition: box-shadow 150ms ease;
+}
+
+.StripeElement--focus,
+.stripe-style-input:focus,
+.stripe-style-input:active {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+    border-color: orange;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}
+
+.stripe-style-input::placeholder {
+    color: #aab7c4;
+}
+
+/*-- Address inputs --*/
+.controls input,
+.controls #id_country {
+    width: 75%;
+    margin-bottom: 5px;
+}
+
+#payment-form .form-control,
+#card-element {
+    color: var(--black);
+    border: 1px solid var(--black);
+}
+
+@media only screen and (max-width: 768px){
+    .controls input,
+    .controls #id_country {
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 414px){
+    .controls input,
+    .controls #id_country {
+        width: 100%;
+    }
+}

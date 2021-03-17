@@ -163,8 +163,8 @@
 <script type="text/javascript">
     // Update Item Qty Button
     $('.update-link').click(function(e) {
-        var form = $(this).siblings("form");
-        console.log("update")
+        var form = $(this).parent().parent().prevAll('.update-form')
+        console.log($(this).parent().parent().prevAll('.update-form'))
         form.submit();
     })
 

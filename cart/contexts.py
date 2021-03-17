@@ -41,6 +41,7 @@ def cart_contents(request):
             'quantity': quantity,
             'price': price,
             'product': product,
+            'product_total': product_total,
         })
         indiv_product_total.append({
             'item_id': item_id,
