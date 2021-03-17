@@ -409,6 +409,7 @@ Home Page Carousel - With Indicators: https://getbootstrap.com/docs/4.0/componen
 Back to Top button - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
 Remove Number Input Default Arrows: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
 Image Gallery on Product_Info - https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images
+MArketing Banner Ticker Tape - https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404
 
 
 # Interesting Bugs

@@ -43,7 +43,7 @@
                         </div>
                         <!-- Sub-total -->
                         <div class="col-3 text-right">
-                            <p class="my-0 small text-muted">${{ item.product.price | calc_subtotal:item.quantity }}</p>
+                            <p class="my-0 small text-muted">€{{ item.product.product_total }}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -55,13 +55,13 @@
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Net Total:</p>
                         <p class="my-0">VAT:</p>
-                        <p class="my-0">Gross Total:</p>
+                        <p class="my-0"><strong>Gross Total:</strong></p>
                     </div>
                     <div class="col-3">
-                        <p class="my-0">${{ products_total | floatformat:2 }}</p>
-                        <p class="my-0">${{ delivery | floatformat:2 }}</p>
-                        <p class="my-0">${{ net_total | floatformat:2 }}</p>
-                        <p class="my-0">${{ vat | floatformat:2 }}</p>
+                        <p class="my-0">€{{ sub_total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ delivery | floatformat:2 }}</p>
+                        <p class="my-0">€{{ net_total | floatformat:2 }}</p>
+                        <p class="my-0">€{{ vat | floatformat:2 }}</p>
                         <p class="my-0"><strong>${{ gross_total | floatformat:2 }}</strong></p>
                     </div>
                 </div>
@@ -69,13 +69,13 @@
 
             <!-- The Checkout Form-->
             <div class="col-12 col-lg-6">
-                <p class="">Please complete the form to complete your order</p>
+                <p class=""><strong>Please complete the form to complete your order</strong></p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
 
                     <!-- Details -->
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                    <fieldset class="rounded active">
+                        <legend class="fieldset-label black small w-auto">Details</legend>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.company_name | as_crispy_field }}
@@ -83,8 +83,8 @@
                     </fieldset>
 
                     <!-- Delivery Address -->
-                    <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                    <fieldset class="rounded active">
+                        <legend class="fieldset-label black small w-auto">Delivery</legend>
                         {{ order_form.department | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -94,10 +94,10 @@
                         {{ order_form.country | as_crispy_field }}
 
                         <!-- Allows users to add the details to their profile or sign-up if not already -->
-                        <div class="form-check form-check-inline float-right mr-0">
+                        <div class="form-check form-check-inline float-right">
 							{% if user.is_authenticated %}
 								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
-                                <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                <input class="form-check-input" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
 								<label class="form-check-label" for="id-save-info">
                                     <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
@@ -108,37 +108,44 @@
                     </fieldset>
 
                     <!-- Payment -->
-                    <fieldset class="px-3">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Payment - Test Card 4242 4242 4242 4242 / 4000 0025 0000 3155</legend>
-                        <div class="mb-3" id="card-element"></div>
-                        <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
+                    <fieldset class="active">
+                        <legend class="fieldset-label black small w-auto">Payment - Test Card 4242 4242 4242 4242 / 4000 0025 0000 3155</legend>
+                        <div class="" id="card-element"></div>
+                        <div class="red" id="card-errors" role="alert"></div>
                     </fieldset>
 
-                    <!-- Submit Button -->
-                    <div class="submit-button text-right mt-5 mb-2">   
-                        <!-- Edit Cart -->              
-						<a href="{% url 'view_cart' %}" class="btn btn-outline-black rounded-0">
-							<span class="icon">
-								<i class="fas fa-chevron-left"></i>
-							</span>
-							<span class="font-weight-bold">Adjust Cart</span>
-                        </a>
+                    <!-- Edit & Submit -->
+                    <div class="row submit-button text-right">   
+                        <!-- Edit Cart Button -->              
+                        <div class="col-sm-12 col-lg-6 justify-content-center">
+                            <a  href="{% url 'view_cart' %}" class="update-link">
+                                <button type="button" class="btn-std btn rounded-0 mx-auto">
+                                    Edit Cart
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                </button>
+                            </a>
+                        </div>
+
                         <!-- Submit -->
-						<button id="submit-button" class="btn btn-black rounded-0">
-							<span class="font-weight-bold">Complete Order</span>
-							<span class="icon">
-								<i class="fas fa-lock"></i>
-							</span>
-                        </button>
+                        <div class="col-sm-12 col-lg-6 justify-content-center">
+                            <button id="submit-button" class="btn-std btn rounded-0 mx-auto">
+                                Pay Now
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </button>
+                        </div>
+
                         <!-- Notification -->
-						<p class="small text-danger my-0">
+						<p class="small red my-0">
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
 							<span>Your card will be charged <strong>${{ gross_total|floatformat:2 }}</strong></span>
 						</p>
 					</div>
-
                 </form>
             </div>
         </div>

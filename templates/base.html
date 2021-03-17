@@ -139,7 +139,13 @@
 
             <!-- Marketing bar -->
             <div id="marketing_bar" class="text-center">
-                <h5>Free delivery on orders over €{{ free_delivery_threshold }}</h5>
+                <!-- https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404 -->
+                <h5><marquee class="news-scroll navy" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> 
+                    <a href="#">Free delivery on orders over €{{ free_delivery_threshold }}</a> <span class="dot"></span> 
+                    <a href="{% url 'products' %}?category=medical_masks">Medical Masks available from only €0.60</a> <span class="dot"></span>
+                    <a href="{% url 'products' %}?category=snood_masks">Fashionable Snoods at fashionable prices</a> <span class="dot"></span>
+                    <a href="{% url 'products' %}?category=shield_masks">Shields and more shields</a> <span class="dot"></span>
+                </marquee></h5>
             </div>
         </header>
 

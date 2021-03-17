@@ -13,23 +13,24 @@ def cart_contents(request):
     product_count = 0
     products_total = 0
     cart = request.session.get('cart', {})
+    print("Cart", cart)
 
     for item_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=item_id)
 
-        if quantity >= product.qty_1:
-            price = product.price_1
-        elif quantity >= product.qty_2:
-            price = product.price_2
-        elif quantity >= product.qty_3:
-            price = product.price_3
+        if quantity >= product.qty_5:
+            price = product.price_5
         elif quantity >= product.qty_4:
             price = product.price_4
-        elif quantity >= product.qty_5:
-            price = product.price_5
+        elif quantity >= product.qty_3:
+            price = product.price_3
+        elif quantity >= product.qty_2:
+            price = product.price_2
+        elif quantity >= product.qty_1:
+            price = product.price_1
+        else:
+            print("Else")
 
-        print("cntxt qty_1", product.price_1)
-        print("cntxt qty_5", product.price_5)
         print("cntxt qty", quantity)
         print("cntxt price", price)
         product_total = quantity * price
@@ -38,6 +39,7 @@ def cart_contents(request):
         cart_items.append({
             'item_id': item_id,
             'quantity': quantity,
+            'price': price,
             'product': product,
         })
         indiv_product_total.append({

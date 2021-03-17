@@ -11,7 +11,8 @@ class OrderForm(forms.ModelForm):
                   'town_or_city', 'county', 'postcode',
                   'country',)
 
-    # Overrides the default form labels, sets autofocus, and puts * on required fields
+    # Overrides the default form labels, sets...
+    # ...autofocus, and puts * on required fields
     def __init__(self, *args, **kwargs):
 
         # Calls the default form set-up

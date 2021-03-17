@@ -1,4 +1,4 @@
-html, body{
+html, body, a {
     padding:0;
     margin:0;
     height: 100%;
@@ -33,7 +33,7 @@ flex-direction: column;
     --green: #C0D725;
 }
 
-.navy {
+.navy a {
     color: var(--navy);
 }
 .navy-bg {
@@ -187,11 +187,32 @@ p {
     top: 30px;
 }
 
+.news-scroll a {
+    text-decoration: none
+}
+
+.dot {
+    height: 6px;
+    width: 6px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 2px !important;
+    background-color: var(--red);
+    border-radius: 50%;
+    display: inline-block
+}
+
 footer {
   bottom:0;
   left:0;
   width:100%;
   background-color: var(--navy);
+}
+
+@media only screen and (max-width: 414px){
+    #head-logo {
+        height: 75px;
+    }
 }
 
 
@@ -416,11 +437,6 @@ input[type=number] {
     #pricing_section {
     position: static;
     margin: 0 auto;
-    }
-
-    #update-link-btn,
-    #delete-item-btn {
-        width: 500px;
     }
 }
 
