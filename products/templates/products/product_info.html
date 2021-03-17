@@ -134,11 +134,25 @@
                         
                         <!-- Submit Button -->
                         <div class="mx-auto mt-3">
-                            <input id="product_add_btn" type="submit" class="btn-std btn rounded-0" value="Add">
+                            <button id="product_add_btn" type="submit" class="btn-std btn rounded-0">
+                                Add
+                                <span class="icon">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </button>
                         </div>
                         <!-- Redirects User back to the same product page once product added -->
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    </div>   
+                    </div> 
+                    <!-- Back Button -->
+                    <div class="mx-auto mt-2 d-flex align-items-center">
+                        <button onclick="goBack()" class="btn-std btn rounded-0">
+                            Back
+                            <span class="icon">
+                                <i class="fas fa-arrow-left"></i>
+                            </span>
+                        </button>
+                    </div>  
                 </form> 
             </div>
         </div>

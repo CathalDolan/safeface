@@ -404,6 +404,8 @@ Basic site layout and structure is achieved with HTML. However, in conjunction w
 ## Fontawesome:
 ## JQuery:
 
+Products Page - Add button for regular visitors who can update qty in cart.
+
 
 Home Page Carousel - With Indicators: https://getbootstrap.com/docs/4.0/components/carousel/
 Back to Top button - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
@@ -411,7 +413,7 @@ Remove Number Input Default Arrows: https://www.w3schools.com/howto/howto_css_hi
 Image Gallery on Product_Info - https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images
 MArketing Banner Ticker Tape - https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404
 Preventing Users Manually putting in non-multiple numbers - http://jsfiddle.net/nottrobin/vN3xK/
-
+Back Buttons - https://www.w3schools.com/JSREF/met_his_back.asp
 
 # Interesting Bugs
 - Cart "Update" Wouldn't work due to specificity
