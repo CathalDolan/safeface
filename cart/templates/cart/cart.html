@@ -19,12 +19,14 @@
                             <img class="img-fluid rounded" src="{{ item.product.image1.url }}">
                         </div>
                         <div class="col-md-6 col-sm-12">
-                            <h5>{{ item.product.friendly_name }}</h5>
+                            <a href="{% url 'product_info' item.item_id %}">
+                                <h5>{{ item.product.friendly_name }}</h5>
+                            </a>
                             <p><strong>Code: </strong>{{ item.product.sku|upper }}</p>
                             <p><strong>Quantity:</strong></p>
 
                             <!-- Quantity Input -->
-                            <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}">
+                            <form class="form update-form" method="POST" action="{% url 'update_cart' item.item_id %}" name="numberForm">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group">
@@ -37,7 +39,7 @@
                                                 </span>
                                             </button>
                                         </div>
-                                        <!-- Button -->
+                                        <!-- Input -->
                                         <input class="form-control form-control-sm qty_input" type="number"
                                             name="quantity" value="{{ item.quantity }}" min="{{ item.qty_1 }}"
                                             data-item_id="{{ item.item_id }}"

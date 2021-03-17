@@ -103,7 +103,7 @@
                     <h4>Ordering</h4>
                 </div>
                 
-                <form id="prod-info-input-form" class="form w-auto mx-auto" method="POST" action="{% url 'add_to_cart' product.id %}">
+                <form id="prod-info-input-form" class="form w-auto mx-auto" method="POST" action="{% url 'add_to_cart' product.id %}" name="numberForm">
                     {% csrf_token %}
                     <div class="form-row">
                         <!-- Quantity Input for Users to select quantity -->

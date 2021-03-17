@@ -44,11 +44,13 @@
                 <div id="head-login-cart" class="text-right">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-1">
                         <li class="list-inline-item dropdown">
+                            <!-- My Account Button -->
                             <a class="white nav-link p-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <div class="text-center">
                                     <p class="my-0 white">My Account</p>
                                 </div>
                             </a>
+                            <!-- My Account Dropdown -->
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
