@@ -3,6 +3,10 @@ var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
+console.log("stripePublicKey", stripePublicKey);
+console.log("clientSecret", clientSecret);
+console.log("stripe", stripe);
+
 var style = {
     base: {
         color: "#32325d",

@@ -5,9 +5,15 @@ html, body, a {
     width: 100%;
 }
 
+body {
+    background-color: var(--beige);
+    height: calc(100vh - 164px);
+}
+
 main {
     min-height: 60vh;
 }
+
 
 /*
 main {
@@ -80,16 +86,8 @@ flex-direction: column;
 }
 
 
-/* Pages Set-up */
+/* Fonts Set-up */
 
-html {
-    height: 100%;
-}
-
-body {
-    background-color: var(--beige);
-    height: calc(100vh - 164px);
-}
 
 h1, h2, h3, h4, h5 {
     color: var(--navy);
@@ -143,22 +141,27 @@ p {
 }
 
 #navbar {
-    height: 50px;
+    /* height: 50px; */
     background-color: var(--beige);
     border: var(--black) solid 1px;
     position: absolute;
     left: 0; 
     right: 0; 
-    width: 670px;
-    top: 125px;
+    width: 600px;
+    top: 122px;
     z-index: 1000;
+    padding: 5px;
+}
+
+.navbar {
+    padding: 5px;
 }
 
 #navbar ul li {
-    text-align: center;
+    /* text-align: center; */
     font-weight: bold;
     vertical-align: middle;
-    line-height: 2;
+    /* line-height: 2; */
 }
 
 #navbar p:hover{
@@ -209,9 +212,21 @@ footer {
   background-color: var(--navy);
 }
 
+@media only screen and (max-width: 677px){
+    #navbar {
+    width: 95%;
+    }
+}
+
 @media only screen and (max-width: 414px){
     #head-logo {
         height: 75px;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    #search-input {
+        width: 225px;
     }
 }
 

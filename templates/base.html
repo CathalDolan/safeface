@@ -91,41 +91,41 @@
             </div>
 
             <!-- Navbar & Search widget -->
-            <div id="navbar" class="col text-right mx-auto">
-                <ul class="list-inline list-unstyled text-center">
-                    <li class="cat list-inline-item">
-                        <a class="nav-link" href="{% url 'products' %}?category=medical_masks" id="">
-                            <div class="text-center">
-                                <p class="my-0">Medical</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="cat list-inline-item">
-                        <a class="nav-link" href="{% url 'products' %}?category=fabric_masks" id="">
-                            <div class="text-center">
-                                <p class="my-0">Fabric</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="cat list-inline-item">
-                        <a class="nav-link" href="{% url 'products' %}?category=shield_masks" id="">
-                            <div class="text-center">
-                                <p class="my-0">Shield</p>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="cat list-inline-item">
-                        <a class="nav-link" href="{% url 'products' %}?category=snood_masks" id="">
-                            <div class="text-center">
-                                <p class="my-0">Snood</p>
-                            </div>
-                        </a>
-                    </li>
+            <div id="navbar" class="mx-auto p-0">
+                <nav class="navbar navbar-expand-sm navbar-light justify-content-between">
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="cat list-inline-item">
+                                <a class="nav-link" href="{% url 'products' %}?category=medical_masks" id="">
+                                    <p class="my-0">Medical</p>
+                                </a>
+                            </li>
+                            <li class="cat list-inline-item">
+                                <a class="nav-link" href="{% url 'products' %}?category=fabric_masks" id="">
+                                    <p class="my-0">Fabric</p>
+                                </a>
+                            </li>
+                            <li class="cat list-inline-item">
+                                <a class="nav-link" href="{% url 'products' %}?category=shield_masks" id="">
+                                    <p class="my-0">Shield</p>
+                                </a>
+                            </li>
+                            <li class="cat list-inline-item">
+                                <a class="nav-link" href="{% url 'products' %}?category=snood_masks" id="">
+                                    <p class="my-0">Snood</p>
+                                </a>
+                            </li>                 
+                        </ul>
+                    </div>
                     <!-- Search Widget -->
-                    <li id="search_widget" class="list-inline-item text-right">
-                        <form method="GET" action="{% url 'products' %}"> 
-                            <div class="input-group">
+                    <div id="search_widget" class="">
+                        <form method="GET" action="{% url 'products' %}" class="mx-auto"> 
+                            <div id="search-input" class="input-group">
                                 <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search Masks">
                                 <div class="input-group-append">
                                     <button class="form-control btn border border-black rounded-0" type="submit">
@@ -136,8 +136,8 @@
                                 </div>
                             </div>
                         </form>
-                    </li>
-                </ul>
+                    </div>
+                </nav>
             </div>
 
             <!-- Marketing bar -->
