@@ -44,6 +44,20 @@
     border: 1px solid var(--black);
 }
 
+#div_id_country {
+    
+}
+
+select,
+select option {
+    color: var(--black);
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7ca !important;;
+}
+
 @media only screen and (max-width: 768px){
     .controls input,
     .controls #id_country,

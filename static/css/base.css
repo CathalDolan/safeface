@@ -449,9 +449,9 @@ input[type=number] {
 
 
 /*-- Product_Info Page Image Start --*/
-.card2 {
+.prod_img {
     margin: auto;
-    border-radius: 15px;
+    border-radius: 0;
 }
 
 fieldset.active {
