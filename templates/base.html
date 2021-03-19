@@ -85,7 +85,7 @@
                 <!-- Header Logo -->
                 <div id="head-log-div" class="col vertical-center text-center">
                     <a href="{% url 'home' %}" class="nav-link"> 
-                        <img src="{{ MEDIA_URL }}core_media/safe_face_logo.png" id="head-logo" class="my-3" alt="Safe Face Logo"/>
+                        <img src="{{ MEDIA_URL }}core_media/safe_face_logo.png" id="head-logo" alt="Safe Face Logo"/>
                     </a>
                 </div>
             </div>
@@ -143,12 +143,12 @@
             <!-- Marketing bar -->
             <div id="marketing_bar" class="text-center">
                 <!-- https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404 -->
-                <h5><marquee class="news-scroll navy" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> 
-                    <a href="#">Free delivery on orders over €{{ free_delivery_threshold }}</a> <span class="dot"></span> 
-                    <a href="{% url 'products' %}?category=medical_masks">Medical Masks available from only €0.60</a> <span class="dot"></span>
-                    <a href="{% url 'products' %}?category=snood_masks">Fashionable Snoods at fashionable prices</a> <span class="dot"></span>
-                    <a href="{% url 'products' %}?category=shield_masks">Shields and more shields</a> <span class="dot"></span>
-                </marquee></h5>
+                <p><marquee class="news-scroll navy" behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();"> 
+                    <a href="#"><strong>Free delivery on orders over €{{ free_delivery_threshold }}</strong></a> <span class="dot"></span> 
+                    <a href="{% url 'products' %}?category=medical_masks"><strong>Medical Masks available from only €0.60</strong></a> <span class="dot"></span>
+                    <a href="{% url 'products' %}?category=snood_masks"><strong>Fashionable Snoods at fashionable prices</strong></a> <span class="dot"></span>
+                    <a href="{% url 'products' %}?category=shield_masks"><strong>Shields and more shields...sheild facemsks at best prices and same day dispatch</strong></a>
+                </marquee></p>
             </div>
         </header>
 

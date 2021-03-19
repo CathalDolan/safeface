@@ -23,8 +23,8 @@ pip3 freeze --local > requirements.txt  - after installing a new pip3?
     - python3 manage.py migrate
 5. Create a SuperUser to access admin:
     - python3 manage.py createsuperuser
-    - Add username: CDolan
-    - Add email address: cdolan@gizagig.com 
+    - Add username: CDolan1
+    - Add email address: cdolan1@gizagig.com 
     - Add password (Min 8 characters): Navan1976
     - Confirm password
 6. In settings.py ensuire os is imported

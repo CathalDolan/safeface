@@ -14,20 +14,6 @@ main {
     min-height: 60vh;
 }
 
-
-/*
-main {
-flex: 1 0 auto;
-}
-
-body {
-display: flex;
-min-height: 100vh;
-flex-direction: column;
-}
-*/
-
-
 /*--- Colours ---*/
 :root {
     --navy: #0F4c81;
@@ -88,7 +74,6 @@ flex-direction: column;
 
 /* Fonts Set-up */
 
-
 h1, h2, h3, h4, h5 {
     color: var(--navy);
     font-family: 'Oswald';
@@ -127,10 +112,12 @@ p {
 
 #head-top {
     height: 150px;
+    margin: 0;
 }
 
 #head-logo {
     height: 100px;
+    margin-top: 8px;
 }
 
 #head-login-cart {
@@ -184,10 +171,11 @@ p {
     height: 60px;
 }
 
-#marketing_bar h5 {
+#marketing_bar p {
     height: 30px;
     position: relative;
     top: 30px;
+    
 }
 
 .news-scroll a {
@@ -220,7 +208,8 @@ footer {
 
 @media only screen and (max-width: 414px){
     #head-logo {
-        height: 75px;
+        height: 80px;
+        margin-top: 20px;
     }
 }
 
@@ -551,4 +540,12 @@ fieldset {
     height: 100px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+
+/*-- Allauth Account Pages Start --*/
+
+.allauth-notif-p {
+    margin-bottom: 10px;
+    font-weight: bold;
 }
