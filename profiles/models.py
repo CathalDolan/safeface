@@ -27,8 +27,6 @@ class UserProfile(models.Model):
                                         null=True, blank=True)
     default_country = CountryField(blank_label='Country',
                                    null=True, blank=True)
-    print("Default Town", default_town_or_city)
-    print("Default Country", default_country)
 
     def __str__(self):
         return self.user.username
