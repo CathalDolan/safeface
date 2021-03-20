@@ -5,7 +5,14 @@
 {% block head_title %}{% trans "Account Inactive" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
+    <div class="col-sm-12 col-lg-6 justify-content-center">
+        <button type="submit" class="primaryAction btn-std btn rounded-0 mx-auto">
+            {% trans "Account Inactive" %}
+            <span class="icon">
+                <i class="fas fa-sign-in-alt"></i>
+            </span>
+        </button>
 
-<p>{% trans "This account is inactive." %}</p>
+        <p>{% trans "This account is inactive." %}</p>
+    </div>
 {% endblock %}
