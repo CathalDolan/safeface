@@ -30,6 +30,7 @@ class Order(models.Model):
     country = CountryField(blank_label='Country *', null=False, blank=False)
     products_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     delivery_cost = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
+    sub_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, default=0)
     net_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     vat = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
     gross_total = models.DecimalField(max_digits=10, decimal_places=2, null=False, default=0)
@@ -42,11 +43,11 @@ class Order(models.Model):
 
         self.products_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total__sum'] or 0
         if self.products_total < settings.FREE_DELIVERY_THRESHOLD:
-            self.delivery_cost = self.products_total + settings.STANDARD_DELIVERY_PRICE
+            self.delivery_cost = settings.STANDARD_DELIVERY_PRICE
         else:
             self.delivery_cost = 0
         self.net_total = self.products_total + self.delivery_cost
-        self.vat = self.net_total * settings.VAT_RATE
+        self.vat = self.net_total * settings.VAT_RATE / 100
         self.gross_total = self.net_total + self.vat
         self.save()
 
@@ -68,7 +69,21 @@ class OrderLineItem(models.Model):
     lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
 
     def save(self, *args, **kwargs):
-        self.lineitem_total = self.product.price * self.quantity
+
+        if self.quantity >= self.product.qty_5:
+            price = self.product.price_5
+        elif self.quantity >= self.product.qty_4:
+            price = self.product.price_4
+        elif self.quantity >= self.product.qty_3:
+            price = self.product.price_3
+        elif self.quantity >= self.product.qty_2:
+            price = self.product.price_2
+        elif self.quantity >= self.product.qty_1:
+            price = self.product.price_1
+        else:
+            print("else")
+
+        self.lineitem_total = price * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):

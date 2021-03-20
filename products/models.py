@@ -43,6 +43,7 @@ class Product(models.Model):
     price_4 = models.DecimalField(max_digits=6, decimal_places=2, default=0.7)
     qty_5 = models.IntegerField(default=1000)
     price_5 = models.DecimalField(max_digits=6, decimal_places=2, default=0.6)
+    price = models.DecimalField(max_digits=6, decimal_places=2, default=0)
 
     def __str__(self):
         return self.name

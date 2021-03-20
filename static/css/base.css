@@ -290,6 +290,12 @@ hr {
 
 /*-- Buttons Start --*/
 
+.btn:active:focus:not(:disabled):not(.disabled),
+.btn:focus, .btn:active, .btn:hover {
+    box-shadow: red;
+    outline: red;
+}
+
 button .form-control .btn {
     background-color: var(--black);
 }

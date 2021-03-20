@@ -33,6 +33,7 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save()
+            print('CO Order', order)
             for item_id, item_data in cart.items():
                 try:
                     product = Product.objects.get(id=item_id)
@@ -57,6 +58,7 @@ def checkout(request):
                                      Please double check your information.')
     else:
         cart = request.session.get('cart', {})
+
         if not cart:
             messages.error(request, "Your cart is currently empty")
             return redirect(reverse('products'))
@@ -83,7 +85,6 @@ def checkout(request):
         'stripe_public_key': stripe_public_key,
         'client_secret': intent.client_secret,
     }
-
     return render(request, template, context)
 
 

@@ -13,7 +13,7 @@ def cart_contents(request):
     product_count = 0
     products_total = 0
     cart = request.session.get('cart', {})
-    print("Cart", cart)
+    print("cntxt Cart", cart)
 
     for item_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=item_id)
@@ -31,8 +31,6 @@ def cart_contents(request):
         else:
             print("Else")
 
-        print("cntxt qty", quantity)
-        print("cntxt price", price)
         product_total = quantity * price
         product_count += quantity
         products_total += product_total
@@ -45,6 +43,7 @@ def cart_contents(request):
         })
         indiv_product_total.append({
             'item_id': item_id,
+            'price': price,
             'product_total': product_total,
         })
     # 1st if required to prevent delivery showing in basket when there are no products
@@ -65,6 +64,7 @@ def cart_contents(request):
 
     context = {
         'cart_items': cart_items,
+        'price': price,
         'product_total': product_total,
         'product_count': product_count,
         'indiv_product_total': indiv_product_total,
