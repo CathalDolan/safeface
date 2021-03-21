@@ -15,16 +15,14 @@
         <h1>Thank You!</h1>
         <hr class="h1-hr">
 
-        <div class="row">
-            <div>
-                <p>Your order info is below. A confirmation email has been sent to
-                   <strong>{{ order.email }}</strong>.
-                </p>
-            </div>
+        <div class="row justify-content-center">
+            <p>Your order info is below. A confirmation email has been sent to
+                <strong>{{ order.email }}</strong>.
+            </p>
         </div>
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-12 col-lg-7">
-                <div class="order-confirmation-wrapper p-2 border">
+                <div class="order-confirmation-wrapper p-2 mb-3">
 
                     <!-- Order Info -->
                     <div class="row">
@@ -51,6 +49,11 @@
                         </div>
                     </div>
 
+                    <hr class="h3-hr">
+
+                </div>
+
+                <div class="order-confirmation-wrapper p-2"></div>
                     <!-- Order Details -->
                     <div class="row">
                         <div class="col">
@@ -123,6 +126,11 @@
                         </div>
                     </div>
 
+                    <hr class="h3-hr">
+
+                </div>
+
+                <div class="order-confirmation-wrapper p-2">
                     <!-- Delivery Details -->
                     <div class="row">
                         <div class="col">
@@ -167,14 +175,14 @@
                     </div>
                     <!-- Delivery Details - Address 2 -->
                     {% if order.street_address2 %}
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0 black font-weight-bold">Address 2</p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 black font-weight-bold">Address 2</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">{{ order.street_address1 }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.street_address1 }}</p>
-                        </div>
-                    </div>
                     {% endif %}
                     <!-- Delivery Details - Town -->
                     <div class="row">
@@ -187,25 +195,25 @@
                     </div>
                     <!-- Delivery Details - County -->
                     {% if order.county %}
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0 black font-weight-bold">County</p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 black font-weight-bold">County / State</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">{{ order.county }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.county }}</p>
-                        </div>
-                    </div>
                     {% endif %}
                     <!-- Delivery Details - Postcode -->
                     {% if order.postcode %}
-                    <div class="row">
-                        <div class="col-12 col-md-4">
-                            <p class="mb-0 black font-weight-bold">Postal Code</p>
+                        <div class="row">
+                            <div class="col-12 col-md-4">
+                                <p class="mb-0 black font-weight-bold">Postcode / Zip</p>
+                            </div>
+                            <div class="col-12 col-md-8 text-md-right">
+                                <p class="mb-0">{{ order.postcode }}</p>
+                            </div>
                         </div>
-                        <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ order.postcode }}</p>
-                        </div>
-                    </div>
                     {% endif %}
                     <!-- Delivery Details - Country -->
                     <div class="row">
@@ -225,6 +233,9 @@
                             <p class="mb-0">{{ order.phone_number }}</p>
                         </div>
                     </div>
+
+                    <hr class="h3-hr">
+
                 </div>
             </div>
         </div>

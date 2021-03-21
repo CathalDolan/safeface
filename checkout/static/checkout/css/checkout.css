@@ -44,8 +44,9 @@
     border: 1px solid var(--black);
 }
 
-#div_id_country {
-    
+.h3-hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 select,
