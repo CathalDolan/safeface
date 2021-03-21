@@ -13,7 +13,6 @@ def cart_contents(request):
     product_count = 0
     products_total = 0
     cart = request.session.get('cart', {})
-    print("cntxt Cart", cart)
 
     for item_id, quantity in cart.items():
         product = get_object_or_404(Product, pk=item_id)
