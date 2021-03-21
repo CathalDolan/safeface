@@ -546,6 +546,7 @@ CSS from here:
     - In cli: export STRIPE_SECRET_KEY=copied code
     - Images 15 & 16
     - Each time the workspace is restarted this must be repeated.
+    - export STRIPE_WH_SECRET=copied code
 16 . Create Payment Intent in Checkout Views
     - Add the keys at the top of teh function:
         stripe_public_key = settings.STRIPE_PUBLIC_KEY
