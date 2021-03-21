@@ -36,7 +36,7 @@ class Migration(migrations.Migration):
                 ('net_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
                 ('vat', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
                 ('gross_total', models.DecimalField(decimal_places=2, default=0, max_digits=10)),
-                ('original_bag', models.TextField(default='')),
+                ('original_cart', models.TextField(default='')),
             ],
         ),
         migrations.CreateModel(

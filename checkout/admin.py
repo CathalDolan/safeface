@@ -24,7 +24,7 @@ class OrderAdmin(admin.ModelAdmin):
               'county', 'postcode', 'country',
               'products_total', 'delivery_cost',
               'net_total', 'vat', 'gross_total',
-              'original_bag',)
+              'original_cart', 'stripe_pid',)
 
     list_display = ('order_number', 'date', 'full_name',
                     'company_name', 'net_total', 'vat',
