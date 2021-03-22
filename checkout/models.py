@@ -61,7 +61,8 @@ class Order(models.Model):
         return self.order_number
 
 
-# Each individual product is given it's own line on the order form with a total cost for that line
+# Each individual product is given it's own line on...
+# ...the order form with a total cost for that line
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
     product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)

@@ -53,7 +53,7 @@
 
                 </div>
 
-                <div class="order-confirmation-wrapper p-2"></div>
+                <div class="order-confirmation-wrapper p-2">
                     <!-- Order Details -->
                     <div class="row">
                         <div class="col">
@@ -239,4 +239,28 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+			<div class="col-12 col-lg-7 text-right">
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}">
+                        <button class="btn-std btn rounded-0 mx-auto">
+                            Profile
+                            <span class="icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                        </button>
+                    </a>
+                {% else %}
+                    <a href="{% url 'home' %}">
+                        <button class="btn-std btn rounded-0 mx-auto">
+                            Home
+                            <span class="icon">
+                                <i class="fas fa-home"></i>
+                            </span>
+                        </button>
+                    </a>
+                {% endif %}
+			</div>
+		</div>
+    </div>
 {% endblock %}
