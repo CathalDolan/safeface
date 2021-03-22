@@ -1,0 +1,1 @@
+Order Confirmation from "Safe Face" - Order No. {{ order.ordr_number }}

@@ -1,0 +1,21 @@
+Hi {{ order.full_name }},
+
+Thank you for your recent purchase on "Safe Face". Please find order details below:
+
+- Order No.: {{ order.order_number }}
+- Order Date: {{ order.date }}
+
+- Products Total: {{ order.products_total }}
+- Delivery: {{ order.delivery_cost }}
+- Net: {{ order.net_total }}
+- VAT: {{ order.vat }}
+- Gross Total: {{ order.gross_total }}
+
+Your order will be delivered to: {{ order.street_address1 }}, {{ order.town_or_city }} in {{ order.country }}.
+The given contact number is {{ order.phone_number }}.
+
+Should you have any queries, please give us a shout at {{ contact_email }}.
+
+
+Best wishes,
+The Safe Face Team
