@@ -432,7 +432,7 @@ input[type=number] {
 #pricing_section {
     background-color: var(--trans-beige);
     position: fixed;
-    top: 335px;
+    top: 355px;
     max-width: 300px;
 }
 
@@ -452,8 +452,15 @@ input[type=number] {
 @media screen and (max-width: 540px) {
 
     #pricing_section {
-    position: static;
-    margin: 0 auto;
+        position: static;
+        margin: 0 auto;
+    }
+    .product-name {
+        margin-top: 10px;
+    }
+
+    .div-row {
+        height: 31px;
     }
 }
 
