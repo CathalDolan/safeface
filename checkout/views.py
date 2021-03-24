@@ -57,7 +57,7 @@ def checkout(request):
             order = order_form.save(commit=False)
             pid = request.POST.get('client_secret').split('_secret')[0]
             order.stripe_pid = pid
-            order.original_bag = json.dumps(cart)
+            order.original_cart = json.dumps(cart)
             order.save()
             for item_id, item_data in cart.items():
                 try:
@@ -104,14 +104,14 @@ def checkout(request):
                 order_form = OrderForm(initial={
                     'full_name': profile.user.get_full_name(),
                     'email': profile.user.email,
-                    #'phone_number': profile.,
-                    #'company_name': profile.,
-                    'department': profile.user.get_full_name(),
+                    'phone_number': profile.default_phone_number,
+                    'company_name': profile.default_company_name,
+                    'department': profile.default_department,
                     'street_address1': profile.default_street_address1,
                     'street_address2': profile.default_street_address2,
                     'town_or_city': profile.default_town_or_city,
                     'county': profile.default_county,
-                    'postcode': profile.user.get_full_name(),
+                    'postcode': profile.default_postcode,
                     'country': profile.default_country,
                 })
             except UserProfile.DoesNotExist:
@@ -137,6 +137,8 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    # Need to put in an if statement to check if user is logged in or not...
+    # ...to allow for annonymous checkout
     profile = UserProfile.objects.get(user=request.user)
     # Attaches the user's profile to the order
     order.user_profile = profile
@@ -146,6 +148,8 @@ def checkout_success(request, order_number):
     if save_info:
         profile_data = {
             'default_phone_number': order.phone_number,
+            'default_company_name': order.company_name,
+            'default_department': order.department,
             'default_street_address1': order.street_address1,
             'default_street_address2': order.street_address2,
             'default_town_or_city': order.town_or_city,

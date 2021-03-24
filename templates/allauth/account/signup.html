@@ -11,14 +11,14 @@
         <hr class="h1-hr">
 
         <div id="account-page-div" class="mx-auto">
-            <p class="allauth-notif-p">{% blocktrans %} Already have an account? Then please
+            <p class="allauth-notif-p">{% blocktrans %} Already have an account? Please
                             <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
             {% csrf_token %}
                 {{ form.as_p }}
                 {% if redirect_field_value %}
-                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <div class="col-sm-12 col-lg-6 justify-content-center">
                     <button type="submit" class="primaryAction btn-std btn rounded-0 mx-auto" name="action">
