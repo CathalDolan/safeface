@@ -25,8 +25,8 @@
                     <div class="sort-select-wrapper">
                         <select id="sort-selector" class="custom-select rounded-0 border">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option value="price_asc" {% if current_sorting == 'price_1_asc' %}selected{% endif %}>Price (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_1_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="price_5_asc" {% if current_sorting == 'price_5_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_5_desc" {% if current_sorting == 'price_5_desc' %}selected{% endif %}>Price (high to low)</option>
                             <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
                             <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
                         </select>
@@ -132,8 +132,12 @@
 
             var selectedVal = selector.val();
             if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
+                var sort1 = selectedVal.split("_")[0];
+                var sort2 = selectedVal.split("_")[1];
+                var sort = sort1 + "_" + sort2
+                var direction = selectedVal.split("_")[2];
+                console.log("Sort", sort)
+                console.log("Direction", direction)
 
                 currentUrl.searchParams.set("sort", sort);
                 currentUrl.searchParams.set("direction", direction);
