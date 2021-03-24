@@ -41,16 +41,23 @@
             <div id="head-top" class="row navy-bg">
 
                 <!-- Login, Register and Cart -->
-                <div id="head-login-cart" class="text-right">
+                <div id="head-login-cart" class="text-right mr-3">
                     <ul class="list-inline list-unstyled text-center text-lg-right my-1">
-                        <li class="list-inline-item dropdown">
-                            <!-- My Account Button -->
+                        <!-- My Account -->
+                        <li id="my-ac-btn" class="list-inline-item dropdown">
+                            <!-- Button -->
                             <a class="white nav-link p-0" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="text-center">
-                                    <p class="my-0 white">My Account</p>
-                                </div>
+                                {% if request.user.is_authenticated %}
+                                    <div class="text-center">
+                                        <p class="my-0 white">My Account</p>
+                                    </div>
+                                {% else %}
+                                    <div class="text-center">
+                                        <p class="my-0 white">Register/Login</p>
+                                    </div>
+                                {% endif %}
                             </a>
-                            <!-- My Account Dropdown -->
+                            <!-- Dropdown -->
                             <div class="dropdown-menu border-0" aria-labelledby="user-options">
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}

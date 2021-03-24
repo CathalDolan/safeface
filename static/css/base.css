@@ -164,6 +164,13 @@ p {
   color: var(--green);
 }
 
+.navbar-toggler {
+    background-color: var(--white);
+}
+.navbar-light .navbar-toggler {
+    border: 1px solid var(--black);
+}
+
 #marketing_bar {
     background-color: var(--green);
     color: var(--navy);
@@ -202,7 +209,7 @@ footer {
 
 @media only screen and (max-width: 677px){
     #navbar {
-    width: 95%;
+        max-width: 325px;
     }
 }
 
@@ -211,11 +218,26 @@ footer {
         height: 80px;
         margin-top: 20px;
     }
+    #my-ac-btn {
+        margin-right: 200px;
+    }
+}
+
+@media only screen and (max-width: 375px){
+    #my-ac-btn {
+        margin-right: 160px;
+    }
 }
 
 @media only screen and (max-width: 320px){
     #search-input {
         width: 225px;
+    }
+    #navbar {
+        max-width: 305px;
+    }
+    #my-ac-btn {
+        margin-right: 110px;
     }
 }
 
@@ -334,10 +356,6 @@ button .form-control .btn {
     top: 35%;
 }
 
-.hero-text-div h3 {
-    padding-bottom: 50px;
-}
-
 .hero-button {
     background-color: var(--green);
     width: 125px;
@@ -372,6 +390,9 @@ button .form-control .btn {
     #cat-1, #cat-2 {
         margin-top: 30px;
     }
+    .mask-cats-hr {
+        margin-bottom: 0;
+    }
 }
 
 
@@ -379,7 +400,7 @@ button .form-control .btn {
 
 #sort-input {
     width: 25%;
-    min-width: 300px;
+    min-width: 280px;
     margin: 0 auto;
     border: solid 1px var(--black);
 }
@@ -422,7 +443,7 @@ input[type=number] {
 
 }
 
-#prod-info-input-form {
+.prod-info-input-form {
     max-width: 300px;
 }
 

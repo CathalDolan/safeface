@@ -1,4 +1,4 @@
-import uuid
+import shortuuid
 
 from django.db import models
 from django.db.models import Sum
@@ -38,7 +38,7 @@ class Order(models.Model):
     stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
 
     def _generate_order_number(self):
-        return uuid.uuid4().hex.upper()
+        return shortuuid.uuid().upper()
 
     def update_total(self):
 
