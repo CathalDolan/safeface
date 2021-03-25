@@ -58,7 +58,7 @@ If you don't already have an account, click "Sign Up for Free" and create one.
     - pip3 freeze > requirements.txt
 - 2.13 - Create a Procfile
     - Create a new project level file "Procfile"
-    - Add on line 1: web: gunicorn boutique_ado.wsgi:application
+    - Add on line 1: web: gunicorn safe-face.wsgi:application
 - 2.14 - Login to Heroku via the cli
     - heroku login -i
     - Add email
@@ -100,3 +100,6 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
 - 5.7 - Go to projedct settings.py
     - 5.7.1 - Go to secret key and replace existing key with:
         - SECRET_KEY = os.environ.get('SECRET_KEY', '')
+    - 5.7.2 - Set Debug to True only if in Development environment:
+        - DEBUG = 'DEVELOPMENT' in os.environ
+    - 5.7.3 - Save, Add, Commit and Push to Github
