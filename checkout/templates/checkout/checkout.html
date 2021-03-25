@@ -17,7 +17,7 @@
         <div class="row">
 
             <!-- Order Summary -->
-            <div class="col-12 col-lg-6 order-lg-last mb-5">
+            <div class="col-12 col-md-6 order-lg-last mb-5">
                 <p class="text-muted">Order Summary ({{ product_count }}) Items</p>
                 <div class="row">
                     <div class="col-7 offset-2">
@@ -68,7 +68,7 @@
             </div>
 
             <!-- The Checkout Form-->
-            <div class="col-12 col-lg-6">
+            <div class="col-12 col-md-6">
                 <p class=""><strong>Please complete the form to complete your order</strong></p>
                 <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
@@ -116,7 +116,6 @@
                         <input type="hidden" value="{{ client_secret }}" name="client_secret">
                     </fieldset>
 
-                    <!-- Back & Submit -->
                     <div class="row submit-button text-center ml-1">
                         <!-- Notification -->
                         <p class="small red my-0">
@@ -126,6 +125,8 @@
                             <span>Your card will be charged <strong>${{ gross_total|floatformat:2 }}</strong></span>
                         </p>
                     </div>
+
+                    <!-- Back & Submit -->
                     <div class="row submit-button text-center">   
                         <!-- Submit -->
                         <div class="col-sm-12 col-lg-6 justify-content-center">

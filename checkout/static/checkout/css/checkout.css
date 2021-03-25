@@ -34,14 +34,13 @@
 .controls input,
 .controls #id_country,
 #card-element {
-    width: 75%;
+    width: 100%;
     margin-bottom: 5px;
 }
 
 #payment-form .form-control,
 #card-element {
     color: var(--black);
-    border: 1px solid var(--black);
 }
 
 .h3-hr {
@@ -59,19 +58,15 @@ select option[value=""] {
     color: #aab7ca !important;;
 }
 
-@media only screen and (max-width: 768px){
-    .controls input,
-    .controls #id_country,
-    #card-element {
-        width: 50%;
-    }
+
+/*-- Misc -- */
+
+#co-sucs-note {
+    margin: 0 15px 0 15px;
 }
-@media only screen and (max-width: 414px){
-    .controls input,
-    .controls #id_country,
-    #card-element {
-        width: 100%;
-    }
+
+.h3-hr {
+    margin-bottom: 0;
 }
 
 

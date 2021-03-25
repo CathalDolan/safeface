@@ -19,3 +19,14 @@
 #id_default_country option:first-child {
     color: #aab7c4;
 }
+
+
+@media screen and (max-width: 768px) {
+    #update-hr {
+        display: inline !important;
+    }
+
+    #order-history {
+        margin-bottom: 25px;
+    }
+}

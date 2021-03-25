@@ -53,20 +53,6 @@
         var itemId = $(this).data('item_id');
         handleEnableDisable(itemId);
     });
-
-    // ISSUE: Preventing the Cart inc and dec working, and it's not working itself!
-    // Prevent Users manually putting in numbers that are not a multiple of qty_1
-    // http://jsfiddle.net/nottrobin/vN3xK/
-    jQuery('[name="numberForm"]').bind(
-        'submit',
-        function(evt) {
-            if(jQuery('[name="quantity"]').val() % {{ product.qty_1 }} != 0) {
-                alert('Sorry, the quantity must be a multiple of ' + {{ product.qty_1 }});
-                evt.preventDefault();
-            }
-        }
-    );
-
 </script>
 
 

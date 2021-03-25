@@ -74,7 +74,7 @@ main {
 
 /* Fonts Set-up */
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
     color: var(--navy);
     font-family: 'Oswald';
     text-transform: uppercase;
@@ -98,6 +98,9 @@ h4 {
 }
 h5 {
     font-size: 20px;
+}
+h6 {
+    font-size: 15px;
 }
 
 p {
@@ -314,8 +317,8 @@ hr {
 
 .btn:active:focus:not(:disabled):not(.disabled),
 .btn:focus, .btn:active, .btn:hover {
-    box-shadow: red;
-    outline: red;
+    box-shadow: var(--red);
+    outline: var(--red);
 }
 
 button .form-control .btn {
@@ -395,6 +398,13 @@ button .form-control .btn {
     }
 }
 
+@media only screen and (max-width: 540px){
+    .hero-button {
+        display: none;
+    }
+}
+
+
 
 /*-- Products Page Start --*/
 
@@ -416,7 +426,7 @@ button .form-control .btn {
 }
 
 .delete-item .btn:hover {
-    background-color: red;
+    background-color: var(--red);
     color: var(--white);
 }
 
@@ -435,16 +445,21 @@ input[type=number] {
 
 /*-- Product Info Start --*/
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 720px) {
     /* Has to be a better way than this */
     #product_info_sect  {
-    margin-top: 35px;
+    margin-top: 30px;
     }
 
 }
 
 .prod-info-input-form {
     max-width: 300px;
+}
+
+#prod-order {
+    width: 300px;
+    margin: 0 auto;
 }
 
 

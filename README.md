@@ -415,6 +415,7 @@ Image Gallery on Product_Info - https://gosnippets.com/snippets/bootstrap-4-ecom
 MArketing Banner Ticker Tape - https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404
 Preventing Users Manually putting in non-multiple numbers - http://jsfiddle.net/nottrobin/vN3xK/
 Back Buttons - https://www.w3schools.com/JSREF/met_his_back.asp
+Favicon - https://www.youtube.com/watch?v=kEf1xSwX5D8
 
 # Interesting Bugs
 - Cart "Update" Wouldn't work due to specificity
@@ -595,3 +596,6 @@ CSS from here:
             form.submit();
         }
     - Image 20
+
+
+Issue with the Qty inpout field in Cart, I can add non-multiples. Known bug

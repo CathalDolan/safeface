@@ -75,24 +75,24 @@
         </div>
         <div class="row my-4">
             <!-- Pricing Section -->
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6 mb-4">
                 <div class="row justify-content-center">
                     <h4>Pricing</h4>
                 </div>
                 <div class="row">
-                    <div class="col-9 justify-content-right">
+                    <div class="col-6 text-right">
                         <p><strong>{{ product.qty_1 }} units:</strong></p>
                         <p><strong>{{ product.qty_2 }} units:</strong></p>
                         <p><strong>{{ product.qty_3 }} units:</strong></p>
                         <p><strong>{{ product.qty_4 }} units:</strong></p>
                         <p><strong>{{ product.qty_5 }} units:</strong></p>
                     </div>
-                    <div class="col-3 justify-content-left">
-                        <p>€{{ product.price_1 }}</p>
-                        <p>€{{ product.price_2 }}</p>
-                        <p>€{{ product.price_3 }}</p>
-                        <p>€{{ product.price_4 }}</p>
-                        <p>€{{ product.price_5 }}</p>
+                    <div class="col-6">
+                        <p class="ml-3">€{{ product.price_1 }}</p>
+                        <p class="ml-3">€{{ product.price_2 }}</p>
+                        <p class="ml-3">€{{ product.price_3 }}</p>
+                        <p class="ml-3">€{{ product.price_4 }}</p>
+                        <p class="ml-3">€{{ product.price_5 }}</p>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                 
                 <form id="prod-info-input-form" class="form w-auto mx-auto" method="POST" action="{% url 'add_to_cart' product.id %}" name="numberForm">
                     {% csrf_token %}
-                    <div class="form-row">
+                    <div id="prod-order" class="form-row">
                         <!-- Quantity Input for Users to select quantity -->
                         <div class="input-group">
                             <!-- Decrement -->
@@ -192,8 +192,20 @@
                 }
             });
         });
-
     });
+
+    // Prevent Users manually putting in numbers that are not a multiple of qty_1
+    // http://jsfiddle.net/nottrobin/vN3xK/
+    jQuery('[name="numberForm"]').bind(
+        'submit',
+        function(evt) {
+            if(jQuery('[name="quantity"]').val() % {{ product.qty_1 }} != 0) {
+                alert('Sorry, the quantity must be a multiple of ' + {{ product.qty_1 }});
+                evt.preventDefault();
+            }
+        }
+    );
+
 </script>
 
 {% endblock %}
