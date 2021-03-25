@@ -18,7 +18,7 @@
 
             <!-- Order Summary -->
             <div class="col-12 col-md-6 order-lg-last mb-5">
-                <p class="text-muted">Order Summary ({{ product_count }}) Items</p>
+                <h6>Order Summary ({{ product_count }}) Items</h6>
                 <div class="row">
                     <div class="col-7 offset-2">
                         <p class="mb-1 mt-0 small text-muted">Item</p>
@@ -49,7 +49,7 @@
                 {% endfor %}
                 <hr class="my-0">
                 <!-- Summary Row -->
-                <div class="row text-black text-right">
+                <div class="row text-right">
                     <div class="col-7 offset-2">
                         <p class="my-0">Sub Total:</p>
                         <p class="my-0">Delivery:</p>
@@ -75,7 +75,7 @@
 
                     <!-- Details -->
                     <fieldset class="rounded active">
-                        <legend class="fieldset-label black small w-auto">Details</legend>
+                        <h6>Details</h6>
                         {{ order_form.full_name | as_crispy_field }}
                         {{ order_form.email | as_crispy_field }}
                         {{ order_form.company_name | as_crispy_field }}
@@ -84,7 +84,7 @@
 
                     <!-- Delivery Address -->
                     <fieldset class="rounded active">
-                        <legend class="fieldset-label black small w-auto">Delivery</legend>
+                        <h6>Delivery</h6>
                         {{ order_form.department | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
@@ -94,14 +94,14 @@
                         {{ order_form.country | as_crispy_field }}
 
                         <!-- Allows users to add the details to their profile or sign-up if not already -->
-                        <div class="form-check form-check-inline">
+                        <div class="form-check form-check-inline text-right">
 							{% if user.is_authenticated %}
-								<label class="form-check-label" for="id-save-info">Save this delivery information to my profile</label>
+								<label class="form-check-label my-2" for="id-save-info"><strong>Save this delivery information to my profile</strong></label>
                                 <input class="form-check-input ml-2" type="checkbox" id="id-save-info" name="save-info" checked>
 							{% else %}
-								<label class="form-check-label" for="id-save-info">
-                                    <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or 
-                                    <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+								<label class="form-check-label my-2" for="id-save-info">
+                                    <a class="text-info" href="{% url 'account_signup' %}"><strong>Create an account</strong></a> or 
+                                    <a class="text-info" href="{% url 'account_login' %}"><strong>login</strong></a> to save this information
                                 </label>
 							{% endif %}
 						</div>
@@ -109,7 +109,7 @@
 
                     <!-- Payment -->
                     <fieldset class="active">
-                        <legend class="fieldset-label black small w-auto">Payment - Test Card 4242 repeated / 4000 0025 0000 3155</legend>
+                        <h6>Payment</h6>
                         <div class="" id="card-element"></div>
                         <!-- Used to display form errors -->
                         <div class="red" id="card-errors" role="alert"></div>
