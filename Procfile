@@ -1,1 +1,1 @@
-web: gunicorn safe-face.wsgi:application
+web: gunicorn safe_face.wsgi:application
