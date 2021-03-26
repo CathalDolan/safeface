@@ -125,7 +125,8 @@ WSGI_APPLICATION = 'safe_face.wsgi.application'
 
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
+        'db': 'postgres://gpjgwhcphfrpmk:f2c71de128ea38b8b93008767d730cb16a2c71b9549566968fa12d6ab19f80bc@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/d3ecd3uh00ndn7',
     }
 else:
     DATABASES = {
@@ -179,6 +180,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
+    # Cache control
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
+
     # Bucket Configuration
     AWS_STORAGE_BUCKET_NAME = 'ckz8780-boutique-ado'
     AWS_S3_REGION_NAME = 'eu-west-1'
