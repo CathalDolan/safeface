@@ -215,4 +215,57 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
         - 7.3.7 - A "Success" notification will display
         - 7.3.8 - From the notification, click "Download .csv"
         - 7.3.9 - SAVE THIS FILE - DON'T LOSE IT!
-        - 7.3.10 - 
+# 8 Connect to Django
+    - 8.1 - Install packages:
+        - pip3 install boto3
+        - pip3 install django-storages
+    - 8.2 - Freeze them:
+        - pip3 freeze > requirements.txt
+    - 8.3 - Add to installed apps in project settings.py
+        - add 'storages', to INSTALLED_APPS
+    - 8.4 - In settings.py, below MEDIA_ROOT add:
+    ```
+    if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = 'safe-face'
+    AWS_S3_REGION_NAME = 'eu-west-1' (set to region selected in AWS bucket)
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+    ```
+    - 8.5 - Navigate to Heroku to add AWS variables
+        - 8.5.1 - Open "Settings" tab and navigate to "Config Vars"
+        - 8.5.2 - Click "Reveal Config Vars"
+        - 8.5.3 - Create Key - Value pairs using the keys in teh .csv file downloaded previously
+            - AWS_ACCESS_KEY_ID = "Access key ID"
+            - AWS_SECRET_ACCESS_KEY = "Secret access key"
+        - 8.5.4 - Add the key "USE_AWS" and value "True" pair
+        - 8.5.5 - Click "Add" after each one
+        - 8.5.6 - Remove the "DISABLE_COLLECTSTATIC" pairs by clicking the X and confirming
+    - 8.6 - Return to settings.py
+        - 8.6.1 - In AWS bucket configuration, add to existing list (at the end )
+            - AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+    - 8.7 - Create a new file at project level: custom_storage.py
+        - 8.7.1 - Import packages at the top of the page:
+            - from django.conf import settings 
+            - from storages.backends.s3boto3 import S3Boto3Storage
+        - 8.7.2 - Create custom classes:
+            ```
+            class StaticStorage(S3Boto3Storage):
+                location = settings.STATICFILES_LOCATION
+
+            class MediaStorage(S3Boto3Storage):
+                location = settings.MEDIAFILES_LOCATION
+            ``
+        - 8.7.3 - Return to settings.py and create static and media files:
+            ```
+            # Static and media files
+            STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+            STATICFILES_LOCATION = 'static'
+            DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+            MEDIAFILES_LOCATION = 'media'
+            ```
+        - 8.7.4 - Still in settings.py, add overrides
+            ```
+            # Override static and media URLs in production
+            STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+            MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+            ```
