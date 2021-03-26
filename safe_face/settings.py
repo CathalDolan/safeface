@@ -126,7 +126,6 @@ WSGI_APPLICATION = 'safe_face.wsgi.application'
 if 'DATABASE_URL' in os.environ:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL')),
-        'db': 'postgres://gpjgwhcphfrpmk:f2c71de128ea38b8b93008767d730cb16a2c71b9549566968fa12d6ab19f80bc@ec2-52-209-134-160.eu-west-1.compute.amazonaws.com:5432/d3ecd3uh00ndn7',
     }
 else:
     DATABASES = {
@@ -214,5 +213,6 @@ STRIPE_CURRENCY = 'eur'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 DEFAULT_FROM_EMAIL = 'safeface@gizagig.com'
