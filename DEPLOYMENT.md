@@ -103,3 +103,116 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
     - 5.7.2 - Set Debug to True only if in Development environment:
         - DEBUG = 'DEVELOPMENT' in os.environ
     - 5.7.3 - Save, Add, Commit and Push to Github
+
+# 6 Connect to AWS - Bucket
+- 6.1 - Login to www.aws.amazon.com
+    - 6.1.1 - If required, create and account from teh button in the top right
+- 6.2 - Log into the AWS Management Console
+- 6.3 - Locate and navigate to "S3" page
+    - 6.3.1 - Click "Create Bucket"
+    - 6.3.2 - Name the bucket, safe-face
+    - 6.3.3 - Choose region closest to you
+    - 6.3.4 - Uncheck "Block all Public Access" and acknowledge that the bucket will be public
+    - 6.3.5 - Click "Create Bucket"
+    - 6.3.6 - You'll be brought to the dash
+- 6.4 - Set Bucket Settings - Properties
+    - 6.4.1 - From the dash click on the bucket name to open into
+    - 6.4.2 - Click the "Properties Tab and scroll to "Static website hosting" and click "Edit"
+    - 6.4.3 - Click > "enable", the "Host a static website"
+    - 6.4.4 - Add "index.html" and "error.html"
+    - 6.4.5 - Click "Save Changes"
+- 6.5 - Set Bucket Settings - Permissions
+    - 6.5.1 - Select "Permissions" tab
+    - 6.5.2 - Scroll to "Cross-origin resource sharing (CORS)" section and click "Edit"
+    - 6.5.3 - Paste in the config as below or copy from https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/cors.html
+        ```
+        [
+            {
+                "AllowedHeaders": [
+                    "Authorization"
+                ],
+                "AllowedMethods": [
+                    "HEAD",
+                    "GET",
+                    "PUT",
+                    "POST",
+                    "DELETE"
+                ],
+                "AllowedOrigins": [
+                    "*"
+                ],
+                "ExposeHeaders": [
+                    "ETag",
+                    "x-amz-meta-custom-header"]
+            }
+        ]
+        ```
+    - 6.5.4 - Click "Save Change"
+    - 6.5.5 - Go to "Bucket Policy" section and click "Edit"
+    - 6.5.6 - Click "Policy Generator" button. This opens a new tab
+    - 6.5.7 - Complete generator:
+        - Type = S3 Bucket Policy
+        - Effect = Allow
+        - Principal = *
+        - AWS Service = Amazon S3 
+        - Actions = GetObject
+    - 6.5.8 - Go back to original window and copy the "Bucket ARN" code
+    - 6.5.9 - Return to the policy genberator page and paste it into the ARN field
+    - 6.5.10 - CLick, "Add Statement", then "Generate Policy" then copy the Json code that displays
+    - 6.5.11 - Paste it into the Policy editor section on the original page
+    - 6.5.12 - Add a /* onto the end of the resource key
+    - 6.5.13 - Click "Save Changes" button
+    - 6.5.14 - Scroll to "Access control list (ACL)" section and click "Edit"
+    - 6.5.15 - In the "Everyone (public access)" section check the "List" option in teh "Objects" column
+    - 6.5.16 - Confirm permission and click "Save Changes"
+# 7 Connect to AWS - Groups, Policies & Users
+    - 7.1 - Click the "Services" Dropdown (top left)
+    - 7.2 - Find the "Security, Identity & Compliane" section and click "IAM" "IAM"
+    - 7.3 - Create a Group
+        - 7.3.1 - Select "Groups" from the left side menu
+        - 7.3.2 - Click "Create New Group"
+        - 7.3.3 - Name the group and click "Next Step"
+        - 7.3.4 - Skip "Policy" by clicking "Next Step" again
+        - 7.3.5 - On "Review" click "Create Group" button
+    - 7.2 - Create a Policy
+        - 7.2.1 - Click "Policies" from the left side menu and then the "Create Policy" button
+        - 7.2.2 - Select the "Json" tab and click "Import managed policy" link. Opens a modal.
+        - 7.2.3 - Search for "S3" and choose "AmazonS3FullAccess" document and click "Import" button
+        - 7.2.4 - Click "Services" tab again, find "S3" and right click to open it in a new window
+        - 7.2.5 - Got to the "Properties" tab and copy ARN number used before
+        - 7.2.6 - Paste it into the policy twice in "Resource", replacing the * putting in a list and adding \* to the second one
+        ```
+        {
+            "Version": "2012-10-17",
+            "Statement": [
+                {
+                    "Effect": "Allow",
+                    "Action": "s3:*",
+                    "Resource": [
+                        "arn:aws:s3:::safe-face",
+                        "arn:aws:s3:::safe-face/*"
+                    ]
+                }
+            ]
+        }
+        ```
+        - 7.2.7 - Click "Next Tags" button, then "Next Review" button
+        - 7.2.8 - Add a name and description and click "Create Policy" button
+            - safe-face-policy
+            - Access to S3 bucket for Safe Face static file
+        - 7.2.9 - Click Groups again from left side menu and click the group name to open it
+        - 7.2.10 - Under "Permissions" tab click "Attach Policy", opens a new viewed
+        - 7.2.11 - Search for the policy name just created
+        - 7.2.12 - Select it and click "Attach Policy"
+    - 7.3 - Create a User
+        - 7.3.1 - Click "Users" from the left side menu
+        - 7.3.2 - Click "Add User" button
+        - 7.3.3 - Give the User a name
+            - safe-face-staticfiles-user
+        - 7.3.4 - Check "Programmatic access" and click "Next: Permissions"
+        - 7.3.5 - On the next page check the group we created and click "Next: Tags" button
+        - 7.3.6 - Click "Next" button on next paghe, and "Create User" on the one following that
+        - 7.3.7 - A "Success" notification will display
+        - 7.3.8 - From the notification, click "Download .csv"
+        - 7.3.9 - SAVE THIS FILE - DON'T LOSE IT!
+        - 7.3.10 - 
