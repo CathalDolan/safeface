@@ -305,3 +305,4 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
         - 11.4.6 - Copy the secret and return to Keroku > Settings > Config Vars
         - 11.4.7 - Add the new secret as a key value pair
             - STRIPE_WH_SECRET - copied key value
+# 12 Create env.py
