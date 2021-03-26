@@ -278,3 +278,30 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
             'CacheControl': 'max-age=94608000',
         }
         ```
+    9.2 - Add, Commit, Push
+# 10 Set up "Media" in S3
+    - 10.1 - Go to AWS dashboard 
+    - 10.2 - Click "Objects" tab followed by "Create Folder" button
+    - 10.3 - Give it a name "media" and click "Create Folder" button
+    - 10.4 - Click on the new folder name and hit the "Upload" button
+    - 10.5 - Drag and drop images and/or other media into the folder
+    - 10.6 - Click on "Additional Upload Options"
+    - 10.7 - Scroll to "Access Control List" and check the "Read" option for "Everyone (public access)"
+    - 10.8 - Accept the conditions and click "Upload"
+# 11 Add Stripe Keys to Heroku and Create new Endpoint
+    - 11.1 - Log into Stripe and click Developers then API Keys
+    - 11.2 - Copy the keys and navigate to Heroku and click the "Settings" tab
+    - 11.3 - Scroll to "Config Vars" section and click "Reveal Config Vars"
+        - 11.3.1 - Add the key value pairs:
+            - STRIPE_PUBLIC_KEY = paste in copied key value
+            - STRIPE_SECRET_KEY = paste in copied key value
+    - 11.4 - Return to Stripe and click "Webhooks" from left side menu
+        - 11.4.1 - Click the "+ Add endpoint" button in top right
+        - 11.4.2 - Add the endpoint url:
+            - https://safe-face.herokuapp.com/checkout/wh
+        - 11.4.3 - Click "Receive all event" link
+        - 11.4.4 - Click "Add Endpoint" button
+        - 11.4.5 - On displayed page, scroll to "Signing secret" and reveal it
+        - 11.4.6 - Copy the secret and return to Keroku > Settings > Config Vars
+        - 11.4.7 - Add the new secret as a key value pair
+            - STRIPE_WH_SECRET - copied key value
