@@ -36,7 +36,7 @@
                                             <div class="input-group">
                                                 <!-- Decrement -->
                                                 <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-sm black-bg white rounded-0" 
+                                                    <button class="decrement-qty btn btn-sm black-bg white rounded-0" onclick="update_cart()"
                                                         data-item_id="{{ item.item_id }}" data-item_qty_1="{{item.product.qty_1}}" id="decrement-qty_{{ item.item_id }}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
@@ -44,18 +44,31 @@
                                                     </button>
                                                 </div>
                                                 <!-- Input -->
-                                                <input class="form-control form-control-sm qty_input" type="number"
+                                                <input class="form-control form-control-sm qty_input" type="number" onkeyup="update_cart()"
                                                     name="quantity" value="{{ item.quantity }}" min="{{ item.qty_1 }}"
                                                     data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
                                                 <!-- Increment -->
                                                 <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-sm black-bg white rounded-0"
+                                                    <button class="increment-qty btn btn-sm black-bg white rounded-0" onclick="update_cart()"
                                                         data-item_id="{{ item.item_id }}" data-item_qty_1="{{item.product.qty_1}}" id="increment-qty_{{ item.item_id }}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <!-- Update Button -->
+                                        <div id="update-btn" class="row m-0 text-center" style="display:none">
+                                            <div class="col-sm-12 col-lg-6 mx-auto">
+                                                <a class="update-link">
+                                                    <button type="submit" class="btn-std btn rounded-0 mt-0">
+                                                        Update
+                                                        <span>
+                                                            <i class="fa fa-refresh"></i>
+                                                        </span>
+                                                    </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </form>
@@ -70,19 +83,8 @@
                                 {% endif %}
                             {% endfor %}
 
-                            <div class="row">
-                                <!-- Update Button -->
-                                <div class="col-sm-12 col-lg-6 text-center">
-                                    <a class="update-link">
-                                        <button type="button" class="btn-std btn rounded-0">
-                                            Update
-                                            <span>
-                                                <i class="fa fa-refresh"></i>
-                                            </span>
-                                        </button>
-                                    </a>
-                                </div>
-                                <div class="col-sm-12 col-lg-6 text-center">
+                            <div class="row text-center">
+                                <div class="col-sm-12 col-lg-6 mx-auto">
                                 <!-- Delete Button -->
                                     <a class="delete-item" id="delete_{{ item.item_id }}">
                                         <button id="delete-item-btn" type="button" class="btn-std btn rounded-0">
@@ -196,6 +198,12 @@
              location.reload();
          })
     })
+
+    // Show "Update" Button if Quantity Changes
+    function update_cart() {
+        document.getElementById("update-btn").style.display = "block";
+    }
+
 </script>
 
 {% endblock %}
