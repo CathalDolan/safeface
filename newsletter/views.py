@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 
-from newsletter.models import NewsletterUser
+from .models import NewsletterUser
 
 
 def newsletter_signup(request):
@@ -9,14 +10,15 @@ def newsletter_signup(request):
     if request.method == "POST":
         email = request.POST.get('newsletter_email')
         if email:
-            check_email_address = NewsletterUser.objects.get(email=email)
+            check_email_address = NewsletterUser.objects.get_or_create(email=email)
+            # check_email_address = get_object_or_404(NewsletterUser, email=email)
             if str(check_email_address) == str(email):
-                print("Email already exists")
+                messages.error(request, f'We\'re already sending our newsletter to {email}')
             else:
                 new_entry = NewsletterUser(email=email)
                 new_entry.save()
-                print("Email saved")
+                messages.info(request, f'Thank you! We\'ll start sending our newsletter to {email} asap.')
         else:
-            print("Email No")
+            messages.error(request, 'Please add a valid email address.')
 
     return redirect(redirect_url)
