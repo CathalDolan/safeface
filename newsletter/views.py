@@ -1,39 +1,22 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 
-from .models import NewsletterUser
-from .forms import NewsletterUserSignUpForm
+from newsletter.models import NewsletterUser
+
 
 def newsletter_signup(request):
-    form = NewsletterUserSignUpForm(request.POST or None)
+    redirect_url = request.POST.get('redirect_url')
 
-    if form.is_valid():
-        instance = form.save(commit=False)
-        # Check to see if email address already exists
-        if NewsletterUser.objects.filter(email=instance.email).exists():
-            print("Sorry! This email exists")
+    if request.method == "POST":
+        email = request.POST.get('newsletter_email')
+        if email:
+            check_email_address = NewsletterUser.objects.get(email=email)
+            if str(check_email_address) == str(email):
+                print("Email already exists")
+            else:
+                new_entry = NewsletterUser(email=email)
+                new_entry.save()
+                print("Email saved")
         else:
-            instance.save()
+            print("Email No")
 
-    context = {
-        'form': form,
-    }
-    template = "newsletter/sign_up.html"
-    return render(request, template, context)
-
-
-def newsletter_unsubscribe(request):
-    form = NewsletterUserSignUpForm(request.POST or None)
-
-    if form.is_valid():
-        instance = form.save(commit=False)
-        # Check to see if email address already exists
-        if NewsletterUser.objects.filter(email=instance.email).exists():
-            print("Sorry! This email exists")
-        else:
-            instance.save()
-
-    context = {
-        'form': form,
-    }
-    template = "newsletter/sign_up.html"
-    return render(request, template, context)
+    return redirect(redirect_url)

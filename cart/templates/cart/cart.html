@@ -76,7 +76,7 @@
                             </div>
 
                             <!-- Pricing -->
-                            <p><strong>Price*: </strong>€{{ item.price }}</p>
+                            <p><strong>Unit Price*: </strong>€{{ item.price }}</p>
                             {% for product in indiv_product_total %}
                                 {% if item.item_id == product.item_id %}
                                     <p><strong>Total*: </strong>€{{ product.product_total }}</p>
