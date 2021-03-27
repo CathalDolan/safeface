@@ -277,6 +277,13 @@ hr {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+input, textarea, .btn,
+.custom-select {
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -450,7 +457,6 @@ input[type=number] {
     #product_info_sect  {
     margin-top: 30px;
     }
-
 }
 
 .prod-info-input-form {

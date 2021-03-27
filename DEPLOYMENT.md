@@ -1,9 +1,9 @@
 Deployment is done in two stages, the first to Heroku, the second to AWS (AMazon Web Services)
 
-# 1. Go to www.heroku.com
-If you don't already have an account, click "Sign Up for Free" and create one.
+# 1. Heroku
 
-- 1.1 Once logged in, click "New" in top right hand corner
+- 1.1 Go to www.heroku.com Once logged in, click "New" in top right hand corner
+    - If you don't already have an account, click "Sign Up for Free" and create one.
     1.1.1 - Select "Create New App" from dropdown
 - 1.2. Give the app a name and choose region closest to you ande click "Create app"
 - 1.3. You'll be brought to a new page. Click "Resources" along the top.
@@ -16,6 +16,7 @@ If you don't already have an account, click "Sign Up for Free" and create one.
         - pip3 install psycopg2-binary
     - 1.4.3 - Free the requirements
         - pip3 freeze > requirements.txt
+
 # 2. Set Up the Shop's database
 - 2.1 - Go to project settings.py
     - import dj_database_url
@@ -165,6 +166,7 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
     - 6.5.14 - Scroll to "Access control list (ACL)" section and click "Edit"
     - 6.5.15 - In the "Everyone (public access)" section check the "List" option in teh "Objects" column
     - 6.5.16 - Confirm permission and click "Save Changes"
+
 # 7 Connect to AWS - Groups, Policies & Users
     - 7.1 - Click the "Services" Dropdown (top left)
     - 7.2 - Find the "Security, Identity & Compliane" section and click "IAM" "IAM"
@@ -215,6 +217,7 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
         - 7.3.7 - A "Success" notification will display
         - 7.3.8 - From the notification, click "Download .csv"
         - 7.3.9 - SAVE THIS FILE - DON'T LOSE IT!
+
 # 8 Connect to Django
     - 8.1 - Install packages:
         - pip3 install boto3
@@ -279,6 +282,7 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
         }
         ```
     9.2 - Add, Commit, Push
+    
 # 10 Set up "Media" in S3
     - 10.1 - Go to AWS dashboard 
     - 10.2 - Click "Objects" tab followed by "Create Folder" button
@@ -288,6 +292,7 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
     - 10.6 - Click on "Additional Upload Options"
     - 10.7 - Scroll to "Access Control List" and check the "Read" option for "Everyone (public access)"
     - 10.8 - Accept the conditions and click "Upload"
+
 # 11 Add Stripe Keys to Heroku and Create new Endpoint
     - 11.1 - Log into Stripe and click Developers then API Keys
     - 11.2 - Copy the keys and navigate to Heroku and click the "Settings" tab
@@ -305,4 +310,3 @@ Set up so that whenever we push to Github, the code automatically deploys to Her
         - 11.4.6 - Copy the secret and return to Keroku > Settings > Config Vars
         - 11.4.7 - Add the new secret as a key value pair
             - STRIPE_WH_SECRET - copied key value
-# 12 Create env.py
