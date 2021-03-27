@@ -10,10 +10,10 @@ CSS from here:
     - Create an account
 2. - https://stripe.com/docs/payments/accept-a-payment
     - Custom Payment Flow
-    - ![CI logo]({{ MEDIA_URL }}stripe_md_images/stripe_2.JPG)
+![stripe 2](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_2.JPG)
     - Number 3: Collect Card Details - Set up Stripe elements
     - Copy the script and paste into {% block corejs %} in base.html
-    - ![CI logo]({{ MEDIA_URL }}stripe_md_images/stripe_3.JPG)
+![stripe 3](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_3.JPG)
 3. Go to Checkout.html
     - Add postload js block and include block.super
         {% block postloadjs %}
