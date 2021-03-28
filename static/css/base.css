@@ -431,7 +431,8 @@ footer {
 }
 
 .hero-text-div {
-    background-color: #00000096;
+    background-color: #dcdcdc8e;
+    padding: 10px;
     position: absolute;
     right: 15%;
     top: 35%;
@@ -474,13 +475,33 @@ footer {
     .mask-cats-hr {
         margin-bottom: 0;
     }
+    .hero-text-div {
+        top: 23%;
+    }
 }
 
 @media only screen and (max-width: 540px){
     .hero-button {
         display: none;
     }
+    .hero-text-div {
+        top: 30%;
+    }
+    h3 {
+        margin: 0;
+    }
 }
+
+@media only screen and (max-width: 375px){
+    .hero-text-div {
+        top: 25%;
+    }
+    h3 {
+        margin: 0;
+    }
+}
+
+
 
 /*-- Home Page Finish --*/
 
