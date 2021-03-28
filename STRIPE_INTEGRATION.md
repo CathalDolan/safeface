@@ -25,15 +25,15 @@ CSS from here:
         <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
     - Add the public key
         - Copy the publishable key from the dashboard
-![stripe 4](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_4.JPG)
+![stripe 4](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_4.JPG)
         - Add it to Checkout Views Context
-![stripe 5](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_5.JPG)
+![stripe 5](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_5.JPG)
     - Create new folder, js, in static on same level as css folder
         - Create file, stripe_elements.js
 4. Add vars to stripe_elements.js (slice the ends to remove quotation marks)
     - var stripePublicKey = $('#id_stripe_public_key').text().slice(1, -1);
     - var clientSecret = $('#id_client_secret').text().slice(1, -1);
-![stripe 6](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_6.JPG)
+![stripe 6](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_6.JPG)
 5. Add additional vars to stripe_elements.js
     - Public key var
         var stripe = Stripe(stripePublicKey);
@@ -46,11 +46,11 @@ CSS from here:
     - Image
 6. Add JS inline styling
     - Copy basic styles from Stripe: https://stripe.com/docs/payments/integration-builder
-![stripe 7](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_7.JPG)
+![stripe 7](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_7.JPG)
     - Insert into stripe_element.js above card var and card.mount
         - Make changes as required
         - Add style to the card.var
-![stripe 8](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_8.JPG)
+![stripe 8](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_8.JPG)
 7. Add Stripe default CSS to Checkout.css
     ```
     /* Stripe Components */
@@ -87,16 +87,16 @@ CSS from here:
     ```
 8. Take advantage of Stripe Style input class
     - Add stripe style input to all relevant fields in forms.py
-![stripe 9](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_9.JPG)
+![stripe 9](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_9.JPG)
     - Add the class to the checkout css
-![stripe 10](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_10.JPG)
+![stripe 10](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_10.JPG)
 9. Add the JS to the checkout html within block postloadjs
     - <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 10. Include the input in Checkout.html
     - <input type="hidden" value="{{ client_secret }}" name="client_secret">
-![stripe 11](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_11.JPG)
+![stripe 11](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_11.JPG)
 11. Add a listener for card errors in Stripe_elements.js
-![stripe 13](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_13.JPG)
+![stripe 13](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_13.JPG)
     ```
     card.addEventListener('change', function (event) {
         var errorDiv = document.getElementById('card-errors');
@@ -120,7 +120,7 @@ CSS from here:
         current_cart = cart_contents(request)
         total = current_cart['gross_total']
         stripe_total = round(total * 100)
-![stripe 14](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_14.JPG)
+![stripe 14](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_14.JPG)
 13. Install Stripe
     - pip3 install stripe
     - Import into views beneath cart_contents
@@ -136,8 +136,8 @@ CSS from here:
     - In cli: export STRIPE_PUBLIC_KEY=copied code
     - On Stripe dash copy the "secret key"
     - In cli: export STRIPE_SECRET_KEY=copied code
-![stripe 15](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_15.JPG)
-![stripe 16](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_16.JPG)
+![stripe 15](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_15.JPG)
+![stripe 16](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_16.JPG)
     - Each time the workspace is restarted this must be repeated.
     - export STRIPE_WH_SECRET=copied code
 16 . Create Payment Intent in Checkout Views
@@ -151,7 +151,7 @@ CSS from here:
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-![stripe 17](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_17.JPG)
+![stripe 17](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_17.JPG)
 17 . Update Context and add key warning
     - In Context:
         'stripe_public_key': stripe_public_key,
@@ -161,10 +161,10 @@ CSS from here:
         messages.warning(request, 'Stripe public key is missing. \
             Did you forget to set it in your environment?')
         template = 'checkout/checkout.html'
-![stripe 18](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_18.JPG)
+![stripe 18](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_18.JPG)
 18 . Add event listener to...
     - From https://stripe.com/docs/payments/accept-a-payment?ui=elements go to section 4 and copy the client.js
-![stripe 19](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_19.JPG)
+![stripe 19](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_19.JPG)
     - Paste into stripe_elements.js
     - Prevent multiple submissions. Add code to the Stripe code:
         card.updated({ 'disabled': true});
@@ -188,4 +188,4 @@ CSS from here:
         if (result.paymentIntent.status === 'succeeded') {
             form.submit();
         }
-![stripe 20](https://s3.console.aws.amazon.com/s3/object/safe-face?region=eu-west-1&prefix=stripe_images/stripe_20.JPG)
+![stripe 20](https://safe-face.s3-eu-west-1.amazonaws.com/stripe_images/stripe_20.JPG)
