@@ -10,14 +10,14 @@
     - If not already included, add:
         - *.sqlite3
         - *.pyc 
-        - __pycache__
+        - __pycache__ (double underscore each side)
 - 1.4 - Run initial migration:
     - python3 manage.py migrate
 - 1.5 - Create a SuperUser to access admin:
     - python3 manage.py createsuperuser
-    - Add username: CDolan1
-    - Add email address: cdolan1@gizagig.com 
-    - Add password (Min 8 characters): Navan1976
+    - Add username: 
+    - Add email address: 
+    - Add password (Min 8 characters): 
     - Confirm password
 - 1.6 - In settings.py ensuire os is imported
     import os
