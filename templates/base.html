@@ -197,9 +197,9 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-12 col-md-6 text-center">
-                        <h5 class="text-center white mt-2">
+                        <h6 class="text-center white mt-2">
                             Receive our Newsletter!
-                        </h5>
+                        </h6>
                         <form action="{% url 'newsletter_signup' %}" method="POST" class="d-inline-block">
                         {% csrf_token %}
                             <div class="input-group mx-auto">
@@ -214,25 +214,15 @@
                         </form>
                     </div>
                 </div>
-                <div id="footer-div" class="row">
-                    <div class="col-md-6 col-sm-12 pt-3 pb-1">
-                        <h5 class="white">Some Stuff</h5>
-                        <p class="white">T&C's</p>
-                        <p class="white">FAQ's's</p>
-                        <p class="white">Deliveries & Returns</p>
-                        <p class="white">GDPR</p>
-                        <p class="white">Privacy</p>
-                    </div>
-                    <div class="col-md-6 col-sm-12 pt-3 pb-1">
-                        <h5 class="white">Other Stuff</h5>
-                        <p class="white">SM Links</p>
-                        <p class="white">Powered by:
-                            <a href="www.stripe.com" class="nav-link float-right"> 
-                                <img src="{{ MEDIA_URL }}core_media/stripe.png" style="width:50px;" alt="Stripe Logo"/>
-                            </a>
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6 text-center  mt-3">
+                        <h6 class="white">Safe Mask Limited</h6>
+                        <p class="white">
+                            25 Safe Street, Safeton, Co. Clear, A12 H2N3, Ireland
                         </p>
-                        <p class="white">Contact Us</p>
-                        <p class="white">About Us</p>
+                        <p class="text-center white">
+                            <strong>T:</strong> +353 (0)1 2345678  -  <strong>E.</strong> info@safemask.com  -  <strong>WA:</strong> +353 (0)87 9101112
+                        </p>
                     </div>
                 </div>
             </div>
