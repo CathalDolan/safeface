@@ -38,7 +38,7 @@ def update_cart(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
-    print("update Cart qty", quantity)
+    
     if quantity > 0:
         cart[item_id] = quantity
         messages.success(request, f'Updated {product.name} \

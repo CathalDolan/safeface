@@ -166,20 +166,19 @@
 
         <!-- Display messages that are returned from Django -->
         {% if messages %}
-            <div class="messages-container"></div>
-                {% for message in messages %}
-                    {% with message.level as level %}
-                        {% if level == 40 %}
-                            {% include 'includes/toasts/toast_error.html' %}
-                        {% elif level == 30 %}
-                            {% include 'includes/toasts/toast_warning.html' %}
-                        {% elif level == 25 %}
-                            {% include 'includes/toasts/toast_success.html' %}
-                        {% else %}
-                            {% include 'includes/toasts/toast_info.html' %}
-                        {% endif %}
-                    {% endwith %}
-                {% endfor %}
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
         {% endif %}
 
         <!-- Main page body content -->
@@ -196,23 +195,21 @@
         <!-- Footer -->
         <footer>
             <div class="container">
-                <div class="row text-center">
-                    <div class="col-12 col-md-6 col-md-offset-3 mx-auto">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-md-6 text-center">
                         <h5 class="text-center white mt-2">
                             Receive our Newsletter!
                         </h5>
-                        <form action="{% url 'newsletter_signup' %}" method="POST">
+                        <form action="{% url 'newsletter_signup' %}" method="POST" class="d-inline-block">
                         {% csrf_token %}
-                            <div class="row">
-                                <div class="input-group mx-auto">
-                                    <input id="newsletter-id" type="email" placeholder="Email Address" name="newsletter_email">
-                                    <button id="newsletter_btn" type="submit" class="btn-std btn rounded-0">
-                                        <span class="icon">
-                                            <i class="fa fa-pencil navy"></i>
-                                        </span>
-                                    </button>
-                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                                </div>
+                            <div class="input-group mx-auto">
+                                <input id="newsletter-id" type="email" placeholder="Email Address" name="newsletter_email">
+                                <button id="newsletter_btn" type="submit" class="btn-std btn rounded-0">
+                                    <span class="icon">
+                                        <i class="fa fa-pencil navy"></i>
+                                    </span>
+                                </button>
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
                         </form>
                     </div>

@@ -77,15 +77,15 @@
                     <fieldset class="rounded active">
                         <h6>Details</h6>
                         {{ order_form.full_name | as_crispy_field }}
-                        {{ order_form.email | as_crispy_field }}
-                        {{ order_form.company_name | as_crispy_field }}
                         {{ order_form.phone_number | as_crispy_field }}
+                        {{ order_form.department | as_crispy_field }}
                     </fieldset>
 
                     <!-- Delivery Address -->
                     <fieldset class="rounded active">
                         <h6>Delivery</h6>
-                        {{ order_form.department | as_crispy_field }}
+                        {{ order_form.company_name | as_crispy_field }}
+                        {{ order_form.email | as_crispy_field }}
                         {{ order_form.street_address1 | as_crispy_field }}
                         {{ order_form.street_address2 | as_crispy_field }}
                         {{ order_form.town_or_city | as_crispy_field }}

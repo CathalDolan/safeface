@@ -14,7 +14,7 @@ class UserProfileForm(forms.ModelForm):
         # Calls the default form set-up
         super().__init__(*args, **kwargs)
         placeholders = {
-            'default_full_name': 'Name',
+            'full_name': 'Name',
             'default_phone_number': 'Phone Number',
             'default_email': 'email',
             'default_company_name': 'Company Name',
@@ -30,10 +30,10 @@ class UserProfileForm(forms.ModelForm):
         for field in self.fields:
             if field != 'default_country':
                 if self.fields[field].required:
-                    print('field', field)
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'rounded-0 profile-form-input'
+            self.fields[field].widget.attrs['class'] = \
+                'rounded-0 profile-form-input'
             self.fields[field].label = False

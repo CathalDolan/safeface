@@ -28,11 +28,9 @@
         var closestInput = $(this).closest('.input-group').find('.qty_input')[0];
         {% if product %}
             var currentValue = parseInt($(closestInput).val())+{{ product.qty_1 }};
-            console.log(' product test')
         {% else %}
             var qty_1 = $(this).data('item_qty_1');
             var currentValue = parseInt($(closestInput).val())+qty_1;
-            console.log(' item test')
         {% endif %}
         $(closestInput).val(currentValue);
         var itemId = $(this).data('item_id');

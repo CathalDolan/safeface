@@ -71,8 +71,8 @@ def checkout(request):
                     order_line_item.save()
                 except Product.DoesNotExist:
                     messages.error(request, (
-                        "One of the products in your cart \
-                            wasn't found in our database. "
+                        "Hmmm. One of the products in your cart \
+                        isn't in our inventory. "
                         "Please call us for assistance!")
                     )
                     order.delete()
@@ -82,13 +82,13 @@ def checkout(request):
             return redirect(reverse('checkout_success',
                             args=[order.order_number]))
         else:
-            messages.error(request, 'There was an error with your form. \
+            messages.error(request, 'Oops! There was an error with your form. \
                                      Please double check your information.')
     else:
         cart = request.session.get('cart', {})
 
         if not cart:
-            messages.error(request, "Your cart is currently empty")
+            messages.error(request, "Your cart is empty.")
             return redirect(reverse('products'))
 
         current_cart = cart_contents(request)
@@ -139,7 +139,7 @@ def checkout(request):
 def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
-
+    price = order.products_total
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
         # Attaches the user's profile to the order

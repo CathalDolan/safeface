@@ -3,10 +3,6 @@ var clientSecret = $('#id_client_secret').text().slice(1, -1);
 var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 
-console.log("stripePublicKey", stripePublicKey);
-console.log("clientSecret", clientSecret);
-console.log("stripe", stripe);
-
 var style = {
     base: {
         color: "#32325d",
@@ -73,8 +69,6 @@ form.addEventListener('submit', function(ev) {
                     name: $.trim(form.full_name.value),
                     phone: $.trim(form.phone_number.value),
                     email: $.trim(form.email.value),
-                    // company: $.trim(form.company_name.value),
-                    // department: $.trim(form.department.value),
                     address:{
                         line1: $.trim(form.street_address1.value),
                         line2: $.trim(form.street_address2.value),
@@ -87,8 +81,6 @@ form.addEventListener('submit', function(ev) {
             shipping: {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
-                // company: $.trim(form.company_name.value),
-                // department: $.trim(form.department.value),
                 address:{
                     line1: $.trim(form.street_address1.value),
                     line2: $.trim(form.street_address2.value),

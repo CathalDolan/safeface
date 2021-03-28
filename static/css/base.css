@@ -431,6 +431,7 @@ footer {
 }
 
 .hero-text-div {
+    background-color: #00000096;
     position: absolute;
     right: 15%;
     top: 35%;
