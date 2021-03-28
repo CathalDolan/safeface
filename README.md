@@ -1,5 +1,7 @@
-(#Contents)
-(#some-markdown-heading) so your link should look like so:
+# Contents
+- 1 [Introduction](#1-introduction)
+- 2 [UI & Design](#2-ui-and-design)
+- 3 [Site Content](#3-site-content)
 
 
 
@@ -24,7 +26,7 @@ presented so as to allow users to make an informed decision about whether to pur
 been made, it is a straight forward process to select a quantity and then checkout using Stripe payments.
 
 
-# 2 UI & Design
+# 2 UI and Design
 Back to Contents
 
 Owing to the nature of the products being sold on the site, the design needs to create an instant sense of
