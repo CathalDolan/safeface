@@ -1,13 +1,21 @@
 # Contents
-- 1 [Introduction](#1-introduction)
-- 2 [UI & Design](#2-ui-and-design)
-- 3 [Site Content](#3-site-content)
+[1 Introduction](#1-introduction)
+[2 UI & Design](#2-ui-and-design)
+[3 Site Content](#3-site-content)
+[4 Technolgies & Third Party Plugins Employed](#4-technolgies-and-third-party-plugins-employed)
+[5 Third Party Code Used](#5-third-party-code-used)
 
+
+## External Readme files
+Due to the volume of information required for certain Readme sections, they have been given a file of their own:
+- Stripe Integration
+- Deployment
+- Test_Suite
 
 
 
 # 1 Introduction
-Back to Contents
+[Back to Contents](#contents)
 
 Safe Face is my fourth milestone project for the Code Institute "Full Stack Software Development Diploma". It's
 principal purpose is to demonstrate my abilities and knowledge of working with and combining HTML, CSS, Javascript 
@@ -27,14 +35,14 @@ been made, it is a straight forward process to select a quantity and then checko
 
 
 # 2 UI and Design
-Back to Contents
+[Back to Contents](#contents)
 
 Owing to the nature of the products being sold on the site, the design needs to create an instant sense of
 trust with the user. This is done via a combination of colours, typography, imagery and by providing lots of space
 without compromising on providing essential product information. 
 
 ## 2.1 Colour Pallete
-The main blue colour used is the Pantone Colour of the Year 2020; "PANTONE 19-4052 Classic Blue".    https://www.pantone.com/eu/en/articles/color-of-the-year/color-of-the-year-2020
+The main blue colour used is the Pantone Colour of the Year 2020; ["PANTONE 19-4052 Classic Blue"](https://www.pantone.com/eu/en/articles/color-of-the-year/color-of-the-year-2020).
 As the website is medical based, a colour that creates the perception of cleanliness is essential.
 Blue does exactly this, with the shade chosen also instilling calmness, confidence and a sense
 of connection. The secondary colours associated with the blue, reinforce this perception, with the
@@ -57,14 +65,14 @@ employed. This gives the site an opportunity to breath, so that the strong colou
 come through. However, this means that where non-product imagery is used, it needs to very 
 strongly reinforce the message of trust. For this reason, strong, trustworthy images of people
 in masks are used. The images were sourced from:
-- d 
-- g 
+- Images: https://www.pexels.com/
+- Logo: https://www.freepik.com/premium-vector/face-mask-logo-template_11055254.htm 
 
 
 # 3 Site Content
-[Back to Contents](#Content)
+[Back to Contents](#contents)
 
-## 3.1 Index
+## 3.1 Index/Home
 Blah Blah
 - Wireframes
     -- Desktop
@@ -73,13 +81,13 @@ Blah Blah
 
 ## 3.2 Category Pages
 
-## 3.3 Product Pages
+## 3.3 Product Info Pages
 
 ## 3.4 Shopping Cart  
 
 ## 3.5 Checkout 
 
-## 3.6 Confirmation
+## 3.6 Payment Confirmation
 
 ## 3.7 Registration
 
@@ -90,61 +98,46 @@ Blah Blah
 ## 3.10 Log Out
 
 
-# 4 Deployment
+# 4 Technolgies and Third Party Plugins Employed
+[Back to Contents](#contents)
 
-## 4.1 Github
-
-## 4.2 Heroku
-
-
-# 5 Testing
-
-## 5.1 Testing link
-The suite of test cases is contained in a separate file:
-
-## 5.2 Known Bugs
-1. Blah
-
-## 5.3 Linting
-Each piece of code was put through a "checker" to review the quality of the code.
-
-### 5.3.1 HTML
-- Website: https://validator.w3.org/nu/#textarea
-- Result: All code passed, primarily with the exception of lines containing Jinja2 code. An repeated ID error was also ignored because the line of code is added dynamically and only one of the lines of code will be included.
-
-### 5.3.2 CSS
-- Website: https://jigsaw.w3.org/css-validator/validator
-- Result: No errors or issues found
-
-### 5.3.3 JavaScript
-- Website: https://jslint.com/
-- Result: Instances of "Double Quotes" ignored as a decision was made to use single quotes
-
-### 5.3.4 Python
-- Website: http://pep8online.com/
-- Results: No errors or issues found
-
-
-# 6 Technolgies & Third Party Plugins Employed
-Back to Contents
-
-## 6.2 Django:
+## 4.2 Django:
 The Django framework forms the backbone of the functional code and is used in conjunction with Python
 
-## 6.3 Python:
+## 4.3 Python:
 As much as possible, functionality was created using Python.
 
-## 6.4 Javascript:
+## 46.4 Javascript:
 Where functions could not be created in Python, Javascript was used. On occasion this also called for the use of JQuery. The latter is accessed bia CDN.
 
-## 6.5 CSS:
+## 4.5 CSS:
 The majority of styling of the HTML code is done with CSS, though certain Flask and Materialize code has it's own inbuilt styling.
 
-## 6.6 HTML:
+## 4.6 HTML:
 Basic site layout and structure is achieved with HTML. However, in conjunction with Flask, Jinja2 was extensively used: https://jinja.palletsprojects.com/en/2.11.x/.
 
-## Fontawesome:
-## JQuery:
+## 4.7 Fontawesome:
+Icons used throughgout the site, particularly on buttons, were sourced from Font Awesome https://fontawesome.com/
+
+## 4.8 JQuery:
+JQuery is employed to 
+
+
+# 5 Third Party Code Used
+[Back to Contents](#contents)
+
+Several pieces of external code were used on the project. In some cases, the code was used pretty much exactly
+as given. In other cases, significant changes were required.
+
+- **Website Base Structure & Functionality:** https://github.com/ckz8780/boutique_ado_v1)
+- **Home Page Carousel - With Indicators:** https://getbootstrap.com/docs/4.0/components/carousel/
+- **Back to Top Button:** https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
+- **Remove Number Input Default Arrows:** https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
+- **Image Gallery on Product_Info:** https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images
+- **Marketing Banner Ticker Tape:** https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404
+- **Preventing Users Manually putting in non-multiple numbers:** http://jsfiddle.net/nottrobin/vN3xK/
+- **Back Buttons:** https://www.w3schools.com/JSREF/met_his_back.asp
+- **Favicon:** https://www.youtube.com/watch?v=kEf1xSwX5D8
 
 
 # Initial Set-up and Creating a Django Project
@@ -410,17 +403,8 @@ Where base.html must be mannually added to the allauth folder, the code needs to
 allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
 
 
-Products Page - Add button for regular visitors who can update qty in cart.
 
 
-Home Page Carousel - With Indicators: https://getbootstrap.com/docs/4.0/components/carousel/
-Back to Top button - https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_scroll_to_top
-Remove Number Input Default Arrows: https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
-Image Gallery on Product_Info - https://gosnippets.com/snippets/bootstrap-4-ecommerce-preview-product-with-images
-MArketing Banner Ticker Tape - https://bbbootstrap.com/snippets/bootstrap-scrolling-breaking-news-ticker-53214404
-Preventing Users Manually putting in non-multiple numbers - http://jsfiddle.net/nottrobin/vN3xK/
-Back Buttons - https://www.w3schools.com/JSREF/met_his_back.asp
-Favicon - https://www.youtube.com/watch?v=kEf1xSwX5D8
 
 # Interesting Bugs
 - Cart "Update" Wouldn't work due to specificity
