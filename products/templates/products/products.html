@@ -1,6 +1,10 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'products/css/products.css' %}">
+{% endblock %}
+
 {% block page_header %}
 {% endblock %}
 
@@ -21,7 +25,7 @@
                 {% endif %}
 
                 <!-- Sort Input -->
-                <div  id="sort-input" class="mt-3">
+                <div id="sort-input" class="mt-3">
                     <div class="sort-select-wrapper">
                         <select id="sort-selector" class="custom-select rounded-0 border">
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
@@ -84,7 +88,7 @@
                                                 <p class=""><strong>€/Unit:</strong> From €{{ product.price_5 }} to €{{ product.price_1 }}</p>
                                             </div>
                                             <div class="row justify-content-center">
-                                                <form class="form w-auto mx-auto prod-info-input-form" method="POST" 
+                                                <form class="form w-auto mx-auto" method="POST" 
                                                       action="{% url 'add_to_cart' product.id %}" name="numberForm">
                                                     {% csrf_token %}
                                                     <div class="form-row">

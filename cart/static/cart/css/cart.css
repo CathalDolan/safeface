@@ -1,0 +1,38 @@
+/*-- Cart Start --*/
+
+#pricing_section {
+    background-color: var(--trans-beige);
+    position: fixed;
+    top: 355px;
+    max-width: 300px;
+}
+
+#pricing_section p {
+    font-size: 18px;
+}
+
+#pricing_section hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#pricing_section #gross-total {
+    font-size: 22px;
+}
+
+@media screen and (max-width: 540px) {
+
+    #pricing_section {
+        position: static;
+        margin: 0 auto;
+    }
+    .product-name {
+        margin-top: 10px;
+    }
+
+    .div-row {
+        height: 31px;
+    }
+}
+
+/*-- Cart Finish --*/

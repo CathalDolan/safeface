@@ -1,0 +1,118 @@
+/*-- Products Page Start --*/
+
+#sort-input {
+    width: 25%;
+    min-width: 280px;
+    margin: 0 auto;
+    border: solid 1px var(--black);
+}
+
+#sort-input .btn {
+    background-color: var(--black);
+}
+
+.btt-link,
+.update-link, /* from cart */
+.delete-item { /* Change class name */
+    cursor: pointer;
+}
+
+.delete-item .btn:hover {
+    background-color: var(--red);
+    color: var(--white);
+}
+
+/* Remove Default Quantity Arrows */ 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/*-- Products Page Start --*/
+
+
+/*-- Product Info Start --*/
+
+#prod-info-input-form {
+    max-width: 300px;
+}
+
+#prod-order {
+    width: 300px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 720px) {
+    #product_info_sect  {
+    margin-top: 30px;
+    }
+}
+
+/* Page Image Start */
+.prod_img {
+    margin: auto;
+    border-radius: 0;
+}
+
+fieldset.active {
+    display: block !important
+}
+
+fieldset {
+    display: none
+}
+
+.pic0 {
+    width: 85%;
+    margin-left: 85px;
+    margin-right: auto;
+    display: block
+}
+
+.product-pic {
+    padding-left: auto;
+    padding-right: auto;
+    width: 100%
+}
+
+.thumbnails {
+    position: absolute
+}
+
+.fit-image {
+    width: 100%;
+    object-fit: cover
+}
+
+.tb {
+    width: 62px;
+    height: 62px;
+    border: 1px solid grey;
+    margin: 2px;
+    opacity: 0.4;
+    cursor: pointer
+}
+
+.tb-active {
+    opacity: 1
+}
+
+.thumbnail-img {
+    width: 60px;
+    height: 60px
+}
+
+@media screen and (max-width: 768px) {
+    .pic0 {
+        width: 80%;
+    }
+}
+
+/* Page Image Finish */
+/*-- Product Info Finish --*/
