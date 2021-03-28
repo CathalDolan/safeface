@@ -115,6 +115,124 @@ p {
 /*-- Fonts Set-up Finish --*/
 
 
+/*-- Rules & Icons Start -- */
+
+hr {
+    background-color: var(--red);
+    margin: 0 auto;
+}
+.h1-hr {
+    width: 75px;
+    height: 9px;
+}
+.h2-hr {
+    width:60px;
+    height: 7px;
+}
+.h3-hr {
+    width: 35px;
+    height: 5px;
+}
+.section-hr {
+    width: 75%;
+    height: 2px;
+}
+
+.h1-hr, .h2-hr, .h3-hr, .section-hr {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/*-- Rules & Icons Finish -- */
+
+
+/*-- Buttons Start --*/
+
+.btn:active:focus:not(:disabled):not(.disabled),
+.btn:focus, .btn:active, .btn:hover {
+    box-shadow: var(--red);
+    outline: var(--red);
+}
+
+button .form-control .btn {
+    background-color: var(--black);
+}
+
+.btn-std {
+    width: 150px;
+    height: 35px;
+    background-color: var(--green);
+    color: var(--navy);
+    text-align: center;
+    border: none;
+    font-weight: bold;
+    padding: 0;
+    margin: 15px auto 15px auto;
+}
+
+#product_add_btn,
+.product_add_btn {
+    margin: 0;
+}
+
+.btn-std:hover {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.shadow, .btn-std {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+input, textarea, .btn,
+.custom-select {
+    outline: none;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/*-- Buttons Finish --*/
+
+
+/*-- Back to the Top Button Start --*/
+
+#myBtn {
+  display: none;
+  position: fixed;
+  font-size: 20px;
+  bottom: 20px;
+  right: 10%;
+  z-index: 99;
+  border: solid 2px var(--beige);
+  background-color: var(--navy);
+  color: var(--beige);
+  cursor: pointer;
+  padding: 10px;
+}
+
+#myBtn:hover {
+  background-color: var(--beige);
+  color: var(--navy);
+}
+
+@media only screen and (min-width: 1400px){
+    #myBtn {
+        right: 20%;
+    }
+}
+
+/*-- Back to the Top Button Finish --*/
+
+
 /*-- Header Section Start --*/
 
 #head-top {
@@ -274,122 +392,36 @@ footer {
 /*-- Footer Finish --*/
 
 
-/*-- Rules & Icons Start -- */
+/*-- Toasts Start --*/
 
-hr {
-    background-color: var(--red);
-    margin: 0 auto;
+.messages-container {
+    position: fixed;
+    top: 50px;
+    right: 15px;
+    z-index: 99999999999;
 }
-.h1-hr {
-    width: 75px;
-    height: 9px;
+
+.custom-toast {
+    overflow: visible;
 }
-.h2-hr {
-    width:60px;
-    height: 7px;
-}
-.h3-hr {
-    width: 35px;
-    height: 5px;
-}
-.section-hr {
-    width: 75%;
+
+.toast-capper {
     height: 2px;
 }
 
-.h1-hr, .h2-hr, .h3-hr, .section-hr {
-    margin-top: 20px;
-    margin-bottom: 30px;
+.cart-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-/* from Bulma */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+.cart-notification-wrapper {
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
-/*-- Rules & Icons Finish -- */
-
-
-/*-- Buttons Start --*/
-
-.btn:active:focus:not(:disabled):not(.disabled),
-.btn:focus, .btn:active, .btn:hover {
-    box-shadow: var(--red);
-    outline: var(--red);
-}
-
-button .form-control .btn {
-    background-color: var(--black);
-}
-
-.btn-std {
-    width: 150px;
-    height: 35px;
-    background-color: var(--green);
-    color: var(--navy);
-    text-align: center;
-    border: none;
-    font-weight: bold;
-    padding: 0;
-    margin: 15px auto 15px auto;
-}
-
-#product_add_btn,
-.product_add_btn {
-    margin: 0;
-}
-
-.btn-std:hover {
-    background-color: var(--navy);
-    color: var(--white);
-}
-
-.shadow, .btn-std {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-input, textarea, .btn,
-.custom-select {
-    outline: none;
-    box-shadow: none !important;
-    border: none !important;
-}
-
-/*-- Buttons Finish --*/
-
-
-/*-- Back to the Top Button Start --*/
-
-#myBtn {
-  display: none;
-  position: fixed;
-  font-size: 20px;
-  bottom: 20px;
-  right: 10%;
-  z-index: 99;
-  border: solid 2px var(--beige);
-  background-color: var(--navy);
-  color: var(--beige);
-  cursor: pointer;
-  padding: 10px;
-}
-
-#myBtn:hover {
-  background-color: var(--beige);
-  color: var(--navy);
-}
-
-@media only screen and (min-width: 1400px){
-    #myBtn {
-        right: 20%;
-    }
-}
-
-/*-- Back to the Top Button Finish --*/
+/*-- Toasts Finish --*/
 
 
 /*-- Home Page Start --*/
@@ -449,36 +481,7 @@ input, textarea, .btn,
     }
 }
 
-/*-- Toasts Start --*/
-
-.messages-container {
-    position: fixed;
-    top: 50px;
-    right: 15px;
-    z-index: 99999999999;
-}
-
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
-
-.cart-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-.cart-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
-}
-
-/*-- Toasts Finish --*/
+/*-- Home Page Finish --*/
 
 
 /*-- Allauth Account Pages Start --*/

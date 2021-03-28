@@ -425,3 +425,6 @@ QUantity_input_script needed am else atatement to inc and dec from cart and prod
 
 
 Issue with the Qty inpout field in Cart, I can add non-multiples. Known bug
+
+
+http://jigsaw.w3.org/css-validator/validator

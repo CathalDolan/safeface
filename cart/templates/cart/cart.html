@@ -20,7 +20,7 @@
                 <div class="col-md-8 col-sm-12">
                     <div class="row">
                         <div class="col-md-6 col-sm-12">
-                            <img class="img-fluid rounded" src="{{ item.product.image1.url }}">
+                            <img class="img-fluid rounded" src="{{ item.product.image1.url }}" alt="{{ item.product.freiendl_name }}">
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <a href="{% url 'product_info' item.item_id %}">
@@ -162,7 +162,7 @@
             <!-- Empty Cart -->
             <div class="col-12 text-center">
                 <p class="lead"> Move along back to the products, nothing to see here!</p>
-                <a  href="{% url 'products' %}" class="update-link">
+                <a href="{% url 'products' %}" class="update-link">
                     <button type="button" class="btn-std btn rounded-0 mx-auto">
                         Keep Shopping
                         <span class="icon">

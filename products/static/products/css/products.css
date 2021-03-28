@@ -48,13 +48,18 @@ input[type=number] {
     margin: 0 auto;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (width: 720px) {
     #product_info_sect  {
     margin-top: 30px;
     }
 }
 
 /* Page Image Start */
+
+#main-img-div {
+    margin: 0;
+}
+
 .prod_img {
     margin: auto;
     border-radius: 0;
@@ -70,14 +75,12 @@ fieldset {
 
 .pic0 {
     width: 85%;
-    margin-left: 85px;
-    margin-right: auto;
     display: block
 }
 
 .product-pic {
-    padding-left: auto;
-    padding-right: auto;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%
 }
 
@@ -108,9 +111,15 @@ fieldset {
     height: 60px
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (width: 768px) {
     .pic0 {
         width: 80%;
+    }
+}
+
+@media screen and (width: 540px) {
+    .pic0 {
+        max-width: 90%;
     }
 }
 

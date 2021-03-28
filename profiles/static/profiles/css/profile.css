@@ -14,6 +14,7 @@
 #id_default_country,
 #id_default_country option:not(:first-child) {
     color: var(--black);
+    width: 200px;
 }
 
 #id_default_country option:first-child {

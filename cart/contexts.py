@@ -45,11 +45,13 @@ def cart_contents(request):
             'price': price,
             'product_total': product_total,
         })
-    # 1st if required to prevent delivery showing in basket when there are no products
+    # 1st if required to prevent delivery...
+    # ...showing in basket when there are no products
     if products_total:
         if products_total < settings.FREE_DELIVERY_THRESHOLD:
             delivery = settings.STANDARD_DELIVERY_PRICE
-            free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - products_total
+            free_delivery_delta = \
+                settings.FREE_DELIVERY_THRESHOLD - products_total
         else:
             delivery = 0
             free_delivery_delta = 0
