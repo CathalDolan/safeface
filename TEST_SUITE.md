@@ -1,34 +1,12 @@
 # 5 Testing
 
-## 5.1 Devices
+## Devices
 Emulator used
 - PC 
 - IPad (768 x 1024px)
 - Surface Du0 (540 x 720px)
 - iPhone 6/7/8 Plus (414 x 736px)
 - iPhone 5 (320 x 568px)
-
-## 5.2 Known Bugs
-1. Blah
-
-## 5.3 Linting
-Each piece of code was put through a "checker" to review the quality of the code.
-
-### 5.3.1 HTML
-- Website: https://validator.w3.org/nu/#textarea
-- Result: All code passed, primarily with the exception of lines containing Jinja2 code. An repeated ID error was also ignored because the line of code is added dynamically and only one of the lines of code will be included.
-
-### 5.3.2 CSS
-- Website: https://jigsaw.w3.org/css-validator/validator
-- Result: No errors or issues found
-
-### 5.3.3 JavaScript
-- Website: https://jslint.com/
-- Result: Instances of "Double Quotes" ignored as a decision was made to use single quotes
-
-### 5.3.4 Python
-- Website: http://pep8online.com/
-- Results: No errors or issues found
 
 
 # 1 Header
@@ -238,3 +216,23 @@ Each piece of code was put through a "checker" to review the quality of the code
 - 14.3 - If I confirm logout, am I logged out 
 - 14.4 - When I log out, a toast displas confirming this
 - 14.5 - If I had products in my cart prior to logging out, when I do, does the cart display Empty 
+
+
+# 15 Linting
+Each piece of code was put through a "checker" to review the quality of the code.
+
+### 5.3.1 HTML
+- Website: https://validator.w3.org/nu/#textarea
+- Result: All code passed, primarily with the exception of lines containing Jinja2 code. An repeated ID error was also ignored because the line of code is added dynamically and only one of the lines of code will be included.
+
+### 5.3.2 CSS
+- Website: https://jigsaw.w3.org/css-validator/validator
+- Result: No errors or issues found
+
+### 5.3.3 JavaScript
+- Website: https://jslint.com/
+- Result: Instances of "Double Quotes" ignored as a decision was made to use single quotes
+
+### 5.3.4 Python
+- Website: http://pep8online.com/
+- Results: No errors or issues found

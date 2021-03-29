@@ -10,10 +10,10 @@
 
 ## External Readme files
 Due to the volume of information required for certain Readme sections, they have been given a file of their own:
-- [Project Setup](/workspace/safeface/PROJECT_SETUP.md)
-- [Stripe Integration](/workspace/safeface/PROJECT_SETUP.md)
-- [Deployment](/workspace/safeface/DEPLOYMENT.md)
-- [Test_Suite](/workspace/safeface/TEST_SUITE.md)
+- [Project Setup](https://github.com/CathalDolan/safeface/blob/master/PROJECT_SETUP.md)
+- [Stripe Integration](https://github.com/CathalDolan/safeface/blob/master/STRIPE_INTEGRATION.md)
+- [Deployment](https://github.com/CathalDolan/safeface/blob/master/DEPLOYMENT.md)
+- [Test_Suite](https://github.com/CathalDolan/safeface/blob/master/TEST_SUITE.md)
 
 
 
