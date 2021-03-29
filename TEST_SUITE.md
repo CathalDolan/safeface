@@ -234,6 +234,7 @@ Each piece of code was put through a "checker" to review the quality of the code
 
 # 14 Logout
 - 14.1 - If I am logged in, when I click "My Account" do I get the "Logout" option 
-- If I click Logout am I brought to a logout confirm page 
-- If I confirm logout, am I logged out 
-- If I had products in my cart prior to logging out, when I do, does the cart display Empty 
+- 14.2 - If I click Logout am I brought to a logout confirm page 
+- 14.3 - If I confirm logout, am I logged out 
+- 14.4 - When I log out, a toast displas confirming this
+- 14.5 - If I had products in my cart prior to logging out, when I do, does the cart display Empty 
