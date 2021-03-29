@@ -351,10 +351,10 @@ input, textarea, .btn,
 
 @media only screen and (max-width: 320px){
     #search-input {
-        width: 225px;
+        width: 200px;
     }
     #navbar {
-        max-width: 305px;
+        max-width: 285px;
     }
     #my-ac-btn {
         margin-right: 110px;
