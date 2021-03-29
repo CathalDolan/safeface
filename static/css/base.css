@@ -329,7 +329,7 @@ input, textarea, .btn,
 
 @media only screen and (max-width: 677px){
     #navbar {
-        max-width: 325px;
+        max-width: 225px;
     }
 }
 
@@ -338,6 +338,12 @@ input, textarea, .btn,
         height: 80px;
         margin-top: 20px;
     }
+    #search-input {
+        width: 135px;
+    }
+    #navbar {
+        max-width: 225px;
+    }
     #my-ac-btn {
         margin-right: 200px;
     }
@@ -345,10 +351,10 @@ input, textarea, .btn,
 
 @media only screen and (max-width: 375px){
       #search-input {
-        width: 235px;
+        width: 135px;
     }
     #navbar {
-        max-width: 325px;
+        max-width: 225px;
     }
     #my-ac-btn {
         margin-right: 160px;
@@ -357,10 +363,10 @@ input, textarea, .btn,
 
 @media only screen and (max-width: 320px){
     #search-input {
-        width: 200px;
+        width: 100px;
     }
     #navbar {
-        max-width: 290px;
+        max-width: 190px;
     }
     #my-ac-btn {
         margin-right: 110px;
