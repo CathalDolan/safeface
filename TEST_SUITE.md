@@ -223,16 +223,12 @@ Each piece of code was put through a "checker" to review the quality of the code
 
 ### 5.3.1 HTML
 - Website: https://validator.w3.org/nu/#textarea
-- Result: All code passed, primarily with the exception of lines containing Jinja2 code. An repeated ID error was also ignored because the line of code is added dynamically and only one of the lines of code will be included.
 
 ### 5.3.2 CSS
 - Website: https://jigsaw.w3.org/css-validator/validator
-- Result: No errors or issues found
 
 ### 5.3.3 JavaScript
 - Website: https://jslint.com/
-- Result: Instances of "Double Quotes" ignored as a decision was made to use single quotes
 
 ### 5.3.4 Python
 - Website: http://pep8online.com/
-- Results: No errors or issues found

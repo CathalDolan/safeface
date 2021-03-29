@@ -41,7 +41,8 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 # Connected with "except Exception as e:" in cart views.py
-                messages.error(request, "You didn't tell us what you're looking for")
+                messages.error(request,
+                               "You didn't tell us what you're looking for")
                 return redirect(reverse('products'))
 
             # Q allows us to query the product name and description

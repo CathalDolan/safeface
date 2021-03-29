@@ -18,7 +18,7 @@ var style = {
         color: 'black',
         iconColor: 'red'
     }
-}
+};
 
 var card = elements.create('card', {style: style});
 card.mount('#card-element');

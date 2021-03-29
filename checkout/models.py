@@ -53,8 +53,8 @@ class Order(models.Model):
                                 null=True,
                                 blank=True)
     country = CountryField(blank_label='Country *',
-                                null=False,
-                                blank=False)
+                           null=False,
+                           blank=False)
     products_total = models.DecimalField(max_digits=6,
                                          decimal_places=2,
                                          null=False,
@@ -115,11 +115,26 @@ class Order(models.Model):
 # Each individual product is given it's own line on...
 # ...the order form with a total cost for that line
 class OrderLineItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
-    product = models.ForeignKey(Product, null=False, blank=False, on_delete=models.CASCADE)
-    product_colour = models.CharField(max_length=50, null=True, blank=True)
-    quantity = models.IntegerField(null=False, blank=False, default=0)
-    lineitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    order = models.ForeignKey(Order,
+                              null=False,
+                              blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='lineitems')
+    product = models.ForeignKey(Product,
+                                null=False,
+                                blank=False,
+                                on_delete=models.CASCADE)
+    product_colour = models.CharField(max_length=50,
+                                      null=True,
+                                      blank=True)
+    quantity = models.IntegerField(null=False,
+                                   blank=False,
+                                   default=0)
+    lineitem_total = models.DecimalField(max_digits=6,
+                                         decimal_places=2,
+                                         null=False,
+                                         blank=False,
+                                         editable=False)
 
     def save(self, *args, **kwargs):
 

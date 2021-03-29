@@ -6,6 +6,7 @@
 - [5 Third Party Code Used](#5-third-party-code-used)
 - [6 Version Control](#6-version-control)
 - [7 Bugs and Hacks](#7-bugs-and-hacks)
+- [8 Future Functionality](#8-future-functionality)
 
 
 ## External Readme files
@@ -85,7 +86,7 @@ not.
 background.
 
 
-# 3 User Stories
+## 2.5 User Stories
 A series of User Stories were create to guide Development
 ![USer Stories 1](https://i.imgur.com/61rlkXq.jpg)
 ![USer Stories 2](https://i.imgur.com/cxmFCYQ.jpg)
@@ -421,6 +422,14 @@ opt not to use the site.
     - 7.2.6 - User Registration 
         Where a User inputs a password in the incorrect format, they are not given an indication as to what is wrong. 
         Instead the notice states that the existing passwords match, which is not the case.
+    - 7.2.7 - Email Sending Speed
+        Emails take up to 5 minutes to reach the recipient's inbox. While this is an external issues, investigation
+        is required to correct the problem
+    - 7.2.8 - Product Info Page Thumbnail ID'section
+        The same ID's are repeated on both sets of thumbnails. While this causes a linting error, neither 
+    - 7.2.9 - Shopping Cart 
+        User can only update the top quantity. This is due to the targetting of the ID in the code. Needs to be
+        updated to target an alternative tag.
 
 - **7.3 - Hacks**
     - 7.3.1 - My Account & Cart in Header on Mobile
@@ -429,6 +438,24 @@ opt not to use the site.
         be positioned either side of it. However, because they two links are part of teh same list, doing so was 
         problematic. The hack to solve the issue, was to give My Account a margin-right, the sixe of which was 
         dictated by the screen size.
+    - 7.3.2 - Home Page Hero Images Text
+        Owing to the nature of the images selected, a dark text didn't work on some of them. However, a lighter text
+        wouldn't have worked on many, and a light text wouldn't work on any. To counteract this, a semi-transparent
+        layer was added behind the text to make the text and button stand out on all images.
 
 
-# 8 Future Development
+# 8 Future Functionality
+[Back to Contents](#contents)
+- 8.1 - **Google Maps API**: Integrate Google Maps API so that users need only enter the business name or postcode and then
+select from options presented
+- 8.2 - **Social Media Sign In**: Allow users to sign up and sign in via their social media account
+- 8.3 - **Static Pages**: A variety of static pages are required, each accessed from the footer:
+    - About Use
+    - Contact Us
+    - Returns
+    - GDPR Compliance and Privacy Policy
+    - Copyright Compliance
+    - Terms & Conditions
+- 8.4 - **Additional Payment Options**:
+    - Apple Pay
+    - Paypal
