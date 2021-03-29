@@ -10,10 +10,10 @@
 
 ## External Readme files
 Due to the volume of information required for certain Readme sections, they have been given a file of their own:
-- Project Setup
-- Stripe Integration
-- Deployment
-- Test_Suite
+- [Project Setup](/workspace/safeface/PROJECT_SETUP.md)
+- [Stripe Integration](/workspace/safeface/PROJECT_SETUP.md)
+- [Deployment](/workspace/safeface/DEPLOYMENT.md)
+- [Test_Suite](/workspace/safeface/TEST_SUITE.md)
 
 
 

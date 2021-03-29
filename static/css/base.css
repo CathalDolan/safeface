@@ -338,11 +338,11 @@ input, textarea, .btn,
         height: 80px;
         margin-top: 20px;
     }
-    #search-input {
-        width: 135px;
-    }
     #navbar {
         max-width: 225px;
+    }
+    #search-input {
+        width: 135px;
     }
     #my-ac-btn {
         margin-right: 200px;
@@ -350,11 +350,11 @@ input, textarea, .btn,
 }
 
 @media only screen and (max-width: 375px){
-      #search-input {
-        width: 135px;
-    }
     #navbar {
         max-width: 225px;
+    }
+    #search-input {
+        width: 135px;
     }
     #my-ac-btn {
         margin-right: 160px;
@@ -362,11 +362,11 @@ input, textarea, .btn,
 }
 
 @media only screen and (max-width: 320px){
-    #search-input {
-        width: 100px;
-    }
     #navbar {
         max-width: 190px;
+    }
+    #search-input {
+        width: 100px;
     }
     #my-ac-btn {
         margin-right: 110px;
