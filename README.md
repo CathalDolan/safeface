@@ -4,7 +4,7 @@
 - [3 Site Content](#3-site-content)
 - [4 Technolgies & Third Party Plugins Employed](#4-technolgies-and-third-party-plugins-employed)
 - [5 Third Party Code Used](#5-third-party-code-used)
-- [6]
+- [6 Version Control](#6-version-control)
 - [7 Bugs and Hacks](#7-bugs-and-hacks)
 
 
@@ -25,6 +25,8 @@ principal purpose is to demonstrate my abilities and knowledge of working with a
 and Python languages, while working with the Django framework, a database and Stripe payments integration. The basic
 layout, functionality and structure is based on Code Institute's ["Ado Boutique"](https://github.com/ckz8780/boutique_ado_v1)
 Full Stack Frameworks With Django project.
+
+The site was constructed over a period of 5 weeks between February and March 2021.
 
 ## 1.1 What is Safe Face
 Safe Face is a b2b (Business to Business) website that allows businesses to purchase protective face masks in a
@@ -390,22 +392,35 @@ temporary branches are created from the dev branch.
 
 -**7.1 - Interesting Bugs**
     - 7.1.1 - Bootstrap 5 incompatibility
-    Several pieces of functionality required Bootstrap 4 as opposed to 5.
+        Several pieces of functionality required Bootstrap 4 as opposed to 5.
     - 7.1.2 - allauth base.html
-    Where base.html must be mannually added to the allauth folder, the code needs to be transferred from 
-    allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
+        Where base.html must be mannually added to the allauth folder, the code needs to be transferred from 
+        allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
     - 7.1.3 - Cart "Update" wouldn't work due to specificity
-    var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
+        var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
     - 7.1.4 - Quantity_input_script 
-    Quantity_input_script needed am else atatement to inc and dec from cart and product info pages. Also had to use
-    https://www.w3schools.com/tags/att_data-.asp and item.product.id 
+        Quantity_input_script needed am else atatement to inc and dec from cart and product info pages. Also had to use
+        https://www.w3schools.com/tags/att_data-.asp and item.product.id 
 
 - **7.2 - Known Bugs**
+Due to the time restraints on creating and submitting the project, there are several known bugs that were left
+unfixed. While the severity of the bugs ranges from minor to having a reasonable impact on User Experience,
+none prevent the user from using the site, and non impact on the user's experience so much that they wouldn
+opt not to use the site.
     - 7.2.1 - Cart: Input Quantity
         Users can manually input any quantity rather than being restricted to the quantity breaks stipulated.
         Implemented on teh Product Info page, but unable to replicate in the Cart
     - 7.2.2 - Cart: Full Name
         The user's full name is not displaying in the cart when the User is logged in.
+    - 7.2.3 - Checkout Emails
+        The order confirmation email is only being sent to non-logged in users. Logged in users do not receive it.
+    - 7.2.4 - User Profile
+        The user's full name and email address are not displaying in the Profile 
+    - 7.2.5 - Individual Product Page 
+        If user manually clears the quantity input and tries to add to the order, an error page displays
+    - 7.2.6 - User Registration 
+        Where a User inputs a password in the incorrect format, they are not given an indication as to what is wrong. 
+        Instead the notice states that the existing passwords match, which is not the case.
 
 - **7.3 - Hacks**
     - 7.3.1 - My Account & Cart in Header on Mobile
