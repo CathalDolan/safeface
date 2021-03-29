@@ -68,34 +68,244 @@ in masks are used. The images were sourced from:
 - Images: https://www.pexels.com/
 - Logo: https://www.freepik.com/premium-vector/face-mask-logo-template_11055254.htm 
 
+## 2.4 Page Layout
+Every page retains a consistency in layout and design so as to increase familiarity with the site as the user
+progresses through it. This includes:
+- **Title:** Each page has a large H1 header, underscored by a contrasting rule
+- **HR's:** Rules are used throughout to separate the page sections and thus make it easier for users to 
+clearly see the information displayed.
+- **Section Headings:** All section headers use the same size heading, as do any sub-sections or sections of
+not.
+- **Images:** All images are created to the same size, dimensions and resolution, each set on a clean white
+background.
+
+
+# 3 User Stories
+A series of User Stories were create to guide Development
+![USer Stories 1](https://i.imgur.com/61rlkXq.jpg)
+![USer Stories 2](https://i.imgur.com/cxmFCYQ.jpg)
+![USer Stories 1](https://i.imgur.com/xiFkgTm.jpg)
+
 
 # 3 Site Content
 [Back to Contents](#contents)
 
 ## 3.1 Index/Home
-Blah Blah
-- Wireframes
-    -- Desktop
-    -- Tablet
-    -- Mobile
+As the first page users reach, it is important that the home page is attractive and catches the
+user's attention. This is done in two ways, a moving carousel with hero images, and a "ticker
+tape" style banner. So as to make navigation as easy as possible, users have four means by which
+to get to the masks they want:
+    - 1. Navbar
+    - 2. Search
+    - 3. Hero Image
+    - 4. Mask Categories in the page content
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/yxyvMby.jpg)
+    -- [Tablet](https://i.imgur.com/YLJtql2.jpg)
+    -- [Mobile](https://i.imgur.com/pszjOcD.jpg)
 
-## 3.2 Category Pages
+## 3.2 Login
+The login page is imported from Django. The only change is some basic styling.
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/sXAU57v.jpg)
+    -- [Tablet](https://i.imgur.com/KFDHCGS.jpg)
+    -- [Mobile](https://i.imgur.com/X4RQeO7.jpg)
 
-## 3.3 Product Info Pages
+## 3.3 Registration
+The registration page is imported from Django. The only change is some basic styling.
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/BvLbF89.jpg)
+    -- [Tablet](https://i.imgur.com/b5Ywt23.jpg)
+    -- [Mobile](https://i.imgur.com/QjCAEjK.jpg)
 
-## 3.4 Shopping Cart  
+## 3.4 Product Group / Search Results
+Users land on a product group page when they select a mask category or compleyte a search.
+- **Sections & Components:**
+    - H1
+    - # of product displayed
+    - Sort widget
+        - Price 0-9 / 9-0
+        - Name a-z / z-a 
+    - HR
+    - Text
+    - Product Cards
+        - Product Image
+        - Product Name (links to that product page)
+        - Code
+        - Category 
+        - Unit Price Range, lowest to highest
+        - Quick Add Button: Adds the minimum order quantity to the cart
+        - HR
+    - VAT notification
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/ZPSnviV.jpg)
+    -- [Tablet](https://i.imgur.com/N8n9krS.jpg)
+    -- [Mobile](https://i.imgur.com/W2jc93F.jpg)
 
-## 3.5 Checkout 
+## 3.5 Product
+The product page allows users to view all available information about the product.
+- **Sections & Components:**
+    - H1
+    - HR
+    - Product Image
+        - 1 main image
+        - 3 thumbnails. Clicking a thumbnail displays a large version
+    - Details
+        - Description
+        - Code 
+        - Category 
+    - HR
+    - Spec Essentials
+        - Certification
+        - Standard
+        - dimensions
+        - Material
+    - Pricing
+        - 5 Price breaks
+    - Ordering
+        - Quantity input with increment and decrement buttons
+            - Products on decrement according to the product minimum order quantity
+        - Add Button
+        - Back Button
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/Ltt3Xfh.jpg)
+    -- [Tablet](https://i.imgur.com/Fu81rba.jpg)
+    -- [Mobile](https://i.imgur.com/YfWaIE8.jpg)
 
-## 3.6 Payment Confirmation
+## 3.6 Shopping Cart
+The shopping cart allows the user to view all of the products theyhave selected, and the essential purchase
+information for each.
+- **Sections & Components:**
+    - H1
+    - HR
+    - Product Section 
+        - Product Image
+        - Product Name
+        - Code
+        - Quantity input with increment and decrement buttons
+            - Products on decrement according to the product minimum order quantity
+        - Unit Price
+        - Total 
+    - HR
+    - Pricing Section
+        - Sub-Total
+        - Delivery 
+        - Net 
+        - VAT 
+        - HR
+        - Gross
+        - Checkout Button
+        - Keep Shopping Button 
+    - VAT Notification
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/fKdrjEr.jpg)
+    -- [Tablet](https://i.imgur.com/X9NYt5z.jpg)
+    -- [Mobile](https://i.imgur.com/N942oV1.jpg)
 
-## 3.7 Registration
+## 3.7 Checkout
+- **Sections & Components:**
+    - H1
+    - HR
+    - Text 
+    - Details
+        - Full Name 
+        - Phone 
+        - Department
+    - Delivery 
+        - Company Name 
+        - Email 
+        - Address 1
+        - Address 2
+        - Town or City 
+        - County or State 
+        - Postcode
+        - Country
+            - Populated via Django import so as to match Stripes 2 character country codes in the backend
+        - Option to save data to Profile
+        - Payment 
+            - Credit Card Input 
+            - Total to be debited 
+        - Pay Now Button 
+        - Back to Cart Button 
+    - Order Summary
+        - Product thumbnail
+        - Product Name 
+        - Subtotal 
+        - Quantity Ordered 
+        - HR
+        - Sub-total 
+        - Delivery 
+        - Net Total 
+        - VAT 
+        - Gross Total: 
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/e0481ub.jpg)
+    -- [Tablet](https://i.imgur.com/tOjrvQT.jpg)
+    -- [Mobile](https://i.imgur.com/ILA6EH8.jpg)
 
-## 3.8 Login
+## 3.8 Order Confirmation
+Once a user completes a purchase they are brought to the order confirmatiomn page. It 
+contains all data relating to the order. It also acts as the order history page when a
+user accesses an historical order from their Profile.
+- **Sections & Components:**
+    - H1
+    - HR
+    - Text 
+    - Order Info 
+        - Order Number 
+        - Order Date 
+    - Order Details 
+        - Product Name 
+        - Quantity of each product 
+    - Billing Info 
+        - Products Total 
+        - Delivery 
+        - Net 
+        - VAT 
+        - Gross Total 
+    - Delivering to:
+        - Full Name 
+        - Company 
+        - Department 
+        - Address 1
+        - Address 2
+        - Town or City 
+        - County or State 
+        - Postcode
+        - Country
+        - Phone Number
+    - Home Button / Profile Button 
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/oLkRw5c.jpg)
+    -- [Tablet](https://i.imgur.com/zzPIYVa.jpg)
+    -- [Mobile](https://i.imgur.com/d40Rn5q.jpg)
 
 ## 3.9 Profile
-
-## 3.10 Log Out
+- **Sections & Components:**
+    - H1
+    - HR
+    - My Details 
+        - Name 
+        - Email 
+        - Phone Number 
+        - Company Name 
+        - Department 
+        - Address 1 
+        - Address 2
+        - Town or City 
+        - County or State 
+        - Postcode
+        - Country
+    - Update Info
+    - Order History 
+        - Order Number 
+        - Date 
+        - Items 
+        - Order Total 
+- **Wireframes**
+    -- [Desktop](https://i.imgur.com/09XqNoJ.jpg)
+    -- [Tablet](https://i.imgur.com/cg2LxWn.jpg)
+    -- [Mobile](https://i.imgur.com/oYiMUUJ.jpg)
 
 
 # 4 Technolgies and Third Party Plugins Employed
@@ -138,14 +348,6 @@ as given. In other cases, significant changes were required.
 - **Preventing Users Manually putting in non-multiple numbers:** http://jsfiddle.net/nottrobin/vN3xK/
 - **Back Buttons:** https://www.w3schools.com/JSREF/met_his_back.asp
 - **Favicon:** https://www.youtube.com/watch?v=kEf1xSwX5D8
-
-
-
-After restart from Github
-pip3 install -r requirements.txt
-pip3 freeze --local > requirements.txt  - after installing a new pip3?
-
-Rewatch Products Set-up, Products Admin, 2nd Video in tutorials
 
 
 # Version Control
