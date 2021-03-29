@@ -20,7 +20,7 @@
     font-size: 22px;
 }
 
-@media screen and (width: 540px) {
+@media screen and (max-width: 540px) {
 
     #pricing_section {
         position: static;

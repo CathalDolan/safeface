@@ -1,13 +1,16 @@
 # Contents
-[1 Introduction](#1-introduction)
-[2 UI & Design](#2-ui-and-design)
-[3 Site Content](#3-site-content)
-[4 Technolgies & Third Party Plugins Employed](#4-technolgies-and-third-party-plugins-employed)
-[5 Third Party Code Used](#5-third-party-code-used)
+- [1 Introduction](#1-introduction)
+- [2 UI & Design](#2-ui-and-design)
+- [3 Site Content](#3-site-content)
+- [4 Technolgies & Third Party Plugins Employed](#4-technolgies-and-third-party-plugins-employed)
+- [5 Third Party Code Used](#5-third-party-code-used)
+- [6]
+- [7 Bugs and Hacks](#7-bugs-and-hacks)
 
 
 ## External Readme files
 Due to the volume of information required for certain Readme sections, they have been given a file of their own:
+- Project Setup
 - Stripe Integration
 - Deployment
 - Test_Suite
@@ -95,28 +98,28 @@ As the first page users reach, it is important that the home page is attractive 
 user's attention. This is done in two ways, a moving carousel with hero images, and a "ticker
 tape" style banner. So as to make navigation as easy as possible, users have four means by which
 to get to the masks they want:
-    - 1. Navbar
-    - 2. Search
-    - 3. Hero Image
-    - 4. Mask Categories in the page content
+- 1. Navbar
+- 2. Search
+- 3. Hero Image
+- 4. Mask Categories in the page content
 - **Wireframes**
-    -- [Desktop](https://i.imgur.com/yxyvMby.jpg)
-    -- [Tablet](https://i.imgur.com/YLJtql2.jpg)
-    -- [Mobile](https://i.imgur.com/pszjOcD.jpg)
+-- [Desktop](https://i.imgur.com/yxyvMby.jpg)
+-- [Tablet](https://i.imgur.com/YLJtql2.jpg)
+-- [Mobile](https://i.imgur.com/pszjOcD.jpg)
 
 ## 3.2 Login
 The login page is imported from Django. The only change is some basic styling.
 - **Wireframes**
-    -- [Desktop](https://i.imgur.com/sXAU57v.jpg)
-    -- [Tablet](https://i.imgur.com/KFDHCGS.jpg)
-    -- [Mobile](https://i.imgur.com/X4RQeO7.jpg)
+-- [Desktop](https://i.imgur.com/sXAU57v.jpg)
+-- [Tablet](https://i.imgur.com/KFDHCGS.jpg)
+-- [Mobile](https://i.imgur.com/X4RQeO7.jpg)
 
 ## 3.3 Registration
 The registration page is imported from Django. The only change is some basic styling.
 - **Wireframes**
-    -- [Desktop](https://i.imgur.com/BvLbF89.jpg)
-    -- [Tablet](https://i.imgur.com/b5Ywt23.jpg)
-    -- [Mobile](https://i.imgur.com/QjCAEjK.jpg)
+-- [Desktop](https://i.imgur.com/BvLbF89.jpg)
+-- [Tablet](https://i.imgur.com/b5Ywt23.jpg)
+-- [Mobile](https://i.imgur.com/QjCAEjK.jpg)
 
 ## 3.4 Product Group / Search Results
 Users land on a product group page when they select a mask category or compleyte a search.
@@ -138,9 +141,9 @@ Users land on a product group page when they select a mask category or compleyte
         - HR
     - VAT notification
 - **Wireframes**
-    -- [Desktop](https://i.imgur.com/ZPSnviV.jpg)
-    -- [Tablet](https://i.imgur.com/N8n9krS.jpg)
-    -- [Mobile](https://i.imgur.com/W2jc93F.jpg)
+-- [Desktop](https://i.imgur.com/ZPSnviV.jpg)
+-- [Tablet](https://i.imgur.com/N8n9krS.jpg)
+-- [Mobile](https://i.imgur.com/W2jc93F.jpg)
 
 ## 3.5 Product
 The product page allows users to view all available information about the product.
@@ -311,26 +314,26 @@ user accesses an historical order from their Profile.
 # 4 Technolgies and Third Party Plugins Employed
 [Back to Contents](#contents)
 
-## 4.2 Django:
+## 4.2 [Django](https://www.djangoproject.com/):
 The Django framework forms the backbone of the functional code and is used in conjunction with Python
 
-## 4.3 Python:
+## 4.3 [Python](https://www.python.org/):
 As much as possible, functionality was created using Python.
 
-## 4.4 Javascript:
+## 4.4 [Javascript](https://www.javascript.com/):
 Where functions could not be created in Python, Javascript was used. On occasion this also called for the use of JQuery. The latter is accessed bia CDN.
 
-## 4.5 CSS:
+## 4.5 [CSS](https://www.w3schools.com/css/):
 The majority of styling of the HTML code is done with CSS, though certain Flask and Materialize code has it's own inbuilt styling.
 
-## 4.6 HTML:
+## 4.6 [HTML](https://www.w3schools.com/html/):
 Basic site layout and structure is achieved with HTML. However, in conjunction with Flask, Jinja2 was extensively used: https://jinja.palletsprojects.com/en/2.11.x/.
 
-## 4.7 Fontawesome:
-Icons used throughgout the site, particularly on buttons, were sourced from Font Awesome https://fontawesome.com/
+## 4.7 [Fontawesome](https://fontawesome.com/):
+Icons used throughgout the site, particularly on buttons, were sourced from Font Awesome 
 
-## 4.8 JQuery:
-JQuery is employed to 
+## 4.8 [JQuery](https://jquery.com/):
+JQuery library employed to make coding Javascript fast and easier
 
 
 # 5 Third Party Code Used
@@ -350,62 +353,67 @@ as given. In other cases, significant changes were required.
 - **Favicon:** https://www.youtube.com/watch?v=kEf1xSwX5D8
 
 
-# Version Control
+# 6 Version Control
+[Back to Contents](#contents)
 
 Gitpod is used as the IDE for writing code. From there it is pushed to a remote repository on Github.
 It is a public repo available on [(https://github.com/CathalDolan/safeface)].
 
-Development employs the use of two principal branches; "master" and "dev". Work is carried out on the
-dev branch and once complete it is merged with the master branch. NO WORK SHOULD BE CARRIED OUT ON 
-THE MASTER BRANCH. As and when required, additional temporary branches were created from the dev
-branch.
+Development employs the use of two principal branches; "master" and "dev". Work should be carried out on the
+dev branch and once complete it is merged with the master branch. As and when required, additional 
+temporary branches are created from the dev branch.
 
-## New Branch Creation
+- 6.1 - New Branch Creation
+    - 6.1.1 - Creation of dev branch and direct navigation to it:
+        git checkout -b dev
 
-1. Creation of dev branch and direct navigation to it:
-    git checkout -b dev
+- 6.2 - Written to Repo Process
+    - 6.2.1 - Confirm you are on the correct branch:
+            git checkout dev
+    - 6.2.2 - Save changes: Click file "Save All"
+    - 6.2.3 - Add changes: git add .
+    - 6.2.4 - Commit changes: git commit -m "Comment: reason for commit"
+    - 6.2.5 - Push changes to the repository:
+            git push origin master
+    - 6.2.6 - Merge the branches in Github
 
-
-## Written to Repo Process
-
-1. Confirm you are on the correct branch:
-    git checkout dev
-2. Save changes: Click file "Save All"
-3. Add changes: git add .
-4. Commit changes: git commit -m "Comment: reason for commit"
-5. Push changes to the repository:
-    git push origin master
-6. Go to Github                                                        Images and more instructions
-
-## Other useful Git commands used:
-- "git checkout branch_name": Switch to a different branch
-- "git branch -d branch_name: Delete a branch if no conflicts (-D in place of -d if there are conflicts)
-- "git status": Check that staus of additions and commits
-- "git log --online": 
-- "git branch -a": Show all active branches
+- 6.3 - Other useful Git commands used:
+    - 6.3.1 - "git checkout branch_name": Switch to a different branch
+    - 6.3.2 - "git branch -d branch_name: Delete a branch if no conflicts (-D in place of -d if there are conflicts)
+    - 6.3.3 - "git status": Check that staus of additions and commits
+    - 6.3.4 - "git log --online": 
+    - 6.3.5 - "git branch -a": Show all active branches
 
 
-# Interesting Bugs
+# 7 Bugs and Hacks
+[Back to Contents](#contents)
 
-## Bootstrap 5 incompatibility
-Needed to change to 4.6.0 because some of the XYZ wouldn't work with latest changes
+-**7.1 - Interesting Bugs**
+    - 7.1.1 - Bootstrap 5 incompatibility
+    Several pieces of functionality required Bootstrap 4 as opposed to 5.
+    - 7.1.2 - allauth base.html
+    Where base.html must be mannually added to the allauth folder, the code needs to be transferred from 
+    allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
+    - 7.1.3 - Cart "Update" wouldn't work due to specificity
+    var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
+    - 7.1.4 - Quantity_input_script 
+    Quantity_input_script needed am else atatement to inc and dec from cart and product info pages. Also had to use
+    https://www.w3schools.com/tags/att_data-.asp and item.product.id 
 
-## allauth base.html
-Where base.html must be mannually added to the allauth folder, the code needs to be transferred from 
-allauth/accounts/base.html. Additionmal code then must be added to the latter. See 2.4 above.
+- **7.2 - Known Bugs**
+    - 7.2.1 - Cart: Input Quantity
+        Users can manually input any quantity rather than being restricted to the quantity breaks stipulated.
+        Implemented on teh Product Info page, but unable to replicate in the Cart
+    - 7.2.2 - Cart: Full Name
+        The user's full name is not displaying in the cart when the User is logged in.
+
+- **7.3 - Hacks**
+    - 7.3.1 - My Account & Cart in Header on Mobile
+        For aesthetic purposes, on mobile view the My Account and Cart links were not included in the hamburger menu.
+        This caused issue because there is not space on the right side of the logo for both links, so they needed to 
+        be positioned either side of it. However, because they two links are part of teh same list, doing so was 
+        problematic. The hack to solve the issue, was to give My Account a margin-right, the sixe of which was 
+        dictated by the screen size.
 
 
-
-
-
-# Interesting Bugs
-- Cart "Update" Wouldn't work due to specificity
--- var form=$(this).prev('.updated-form');  became    var form = $(this).siblings("form"); solved by tutor support.
-
-QUantity_input_script needed am else atatement to inc and dec from cart and product info pages. Also had to use https://www.w3schools.com/tags/att_data-.asp and item.product.id 
-
-
-Issue with the Qty inpout field in Cart, I can add non-multiples. Known bug
-
-
-http://jigsaw.w3.org/css-validator/validator
+# 8 Future Development

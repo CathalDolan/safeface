@@ -20,7 +20,7 @@ class UserProfile(models.Model):
     default_company_name = models.CharField(max_length=254,
                                             null=True,
                                             blank=True)
-    default_department = models.CharField(max_length=254,
+    default_department = models.CharField(max_length=25,
                                           null=True,
                                           blank=True)
     default_street_address1 = models.CharField(max_length=80,

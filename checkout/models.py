@@ -34,7 +34,7 @@ class Order(models.Model):
     company_name = models.CharField(max_length=254,
                                     null=False,
                                     blank=False)
-    department = models.CharField(max_length=254,
+    department = models.CharField(max_length=25,
                                   null=True,
                                   blank=True)
     street_address1 = models.CharField(max_length=80,
