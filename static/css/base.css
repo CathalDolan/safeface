@@ -344,6 +344,12 @@ input, textarea, .btn,
 }
 
 @media only screen and (max-width: 375px){
+      #search-input {
+        width: 235px;
+    }
+    #navbar {
+        max-width: 325px;
+    }
     #my-ac-btn {
         margin-right: 160px;
     }
@@ -354,7 +360,7 @@ input, textarea, .btn,
         width: 200px;
     }
     #navbar {
-        max-width: 285px;
+        max-width: 290px;
     }
     #my-ac-btn {
         margin-right: 110px;
